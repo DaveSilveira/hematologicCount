@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');
+
+:root{
+    --primary-color: #76a9ec;
+    --primary-color-darker: #143868;
+}
+*{
+    box-sizing: border-box;
+    outline: 0;
+}
+body{
+    background-color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+    font-family: 'Open-sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+h1{
+    text-align: center;
+}
+.container{
+    border-radius: 10px;
+    width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(240, 248, 255, 0.671);
+}
+.corpo{
+    border-radius: 10px;
+    width: 600px;
+    margin: 20px auto;
+    background-color: rgba(240, 248, 255, 0.671);
+    display: flex;
+    justify-content: space-between;
+}
+#contador{
+    border-radius: 10px;
+    width: 100px;
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 1.3em;
+    text-align: center;
+    background-color: rgba(240, 248, 255, 0.671);
+}
+#painel{
+    border-radius: 10px;
+    width: 250px;
+    margin: 8px auto;
+    padding: 8px;
+    background-color: rgba(240, 248, 255, 0.671);
+}
+#celulas{
+    border-radius: 10px;
+    width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(240, 248, 255, 0.671);
+    display: flex;
+    justify-content: space-between;
+}
+.botao{    /*Esta no codigo do js*/
+    color: #8a2be2;
+    width: 10px;
+    border-radius: 100%;
+}
