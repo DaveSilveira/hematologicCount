@@ -14,11 +14,14 @@
         <h1>Contador Hematológico</h1>
     </section>
     <section class="corpo">
-        <div id="contador">0</div>
+        <div id="celulaRel"></div>
+        <div id="eritroCampo"></div>
+
         <div id="painel"> <!--Painel de opçoes do contador-->
-        <button value="relativeCount">Contagem relativa</button>
-        <button value="reticulocitos">Contagem de reticulocitos</button>
-        <button value="restart">Reiniciar contador</button>
+        <button value="relativeCount" onclick="relativeCount()">Contagem relativa</button>
+        <button value="reticulocitos" onclick="reticulocytes()">Contagem de reticulocitos</button>
+        <button value="plaquetas" onclick="platelets()">Contagem de plaquetas</button>
+        <button value="restart" onclick="reset()">Reiniciar contador</button>
         </div>
     </section>
     <section id="celulas"></section><!--Onde as celulas vão aparecer-->
