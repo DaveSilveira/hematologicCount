@@ -117,9 +117,9 @@ function reset(){
 function criaCaixa(){
 const caixa = document.createElement('div');
 caixa.classList.add('botao');
-caixa.style.width = '50px';
-caixa.style.height = '50px';
-caixa.style.margin = '2px 2px auto';
+caixa.style.width = '100px';
+caixa.style.height = '100px';
+caixa.style.margin = '6px 6px auto';
 caixa.style.borderRadius = '50px';
 caixa.style.backgroundColor = '#8a2be2'
 

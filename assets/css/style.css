@@ -71,10 +71,10 @@ h1{
     margin: 20px auto;
     padding: 20px;
     background-color: rgba(240, 248, 255, 0.671);
-    display: flex;
-    justify-content: space-between;
+    display: flex; /*define o alinhamento das bolas lado a lado em linha*/
+    flex-wrap: wrap; /*delimita a quebra de linha quando o espaco acaba*/
 }
-.botao{    /*Esta no codigo do js*/
+.botao{    /*Esta no codigo do js SAO AS CELULAS*/
     color: #8a2be2;
     width: 10px;
     border-radius: 100%;
