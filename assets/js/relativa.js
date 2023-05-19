@@ -14,19 +14,19 @@ relativa.addEventListener('click', function(rel){
     painel.appendChild(valoresPainel);
 
     const celulas = [
-        {div: 'blasto', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'promielocito', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'mielocito', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'metamielocito', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'bastao', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'segmentado', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'eosinofilo', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'monocito', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'linfocitoTipico', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'linfocitoAtipico', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'monocito', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'basofilo', valor: 0, imagem: './assets/img/img.png'},
-        {div: 'eritroblasto', valor: 0, imagem: './assets/img/img.png'}
+        {cel: 'blasto', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'promielocito', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'mielocito', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'metamielocito', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'bastao', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'segmentado', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'eosinofilo', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'monocito', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'linfocitoTipico', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'linfocitoAtipico', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'monocito', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'basofilo', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'eritroblasto', valor: 0, imagem: 'URL(./assets/img/img.png)'}
     ];
 
 
@@ -35,7 +35,7 @@ relativa.addEventListener('click', function(rel){
         {div: 'eritroblastos', valor: 0}
     ];
     
-    for (let i = 0; i < valores.length; i++){
+    for (let i = 0; i < valores.length; i++){ //para aparecer os contadores totais
         let {div, valor } = valores[i];
         let valorPainel = document.createElement('div');
         valorPainel.innerHTML = valor;
@@ -43,18 +43,24 @@ relativa.addEventListener('click', function(rel){
         valoresPainel.appendChild(valorPainel);
     }
 
-    for (let i = 0; i < celulas.length; i++ ){
-        let {div, valor, imagem} = celulas[i];
+    for (let i = 0; i < celulas.length; i++ ){ //para aparecer as celulas no painel
+        let {cel, valor, imagem} = celulas[i];
         let leucoRel = document.createElement('div'); //setando a div para cada item 'div:' do objeto
-            
-                let leucoImg = document.createElement('img'); //criando o elemento img para puxar
-                leucoImg.src = imagem; // puxando o item imagem para a div
-                leucoImg.classList.add('imagem');
-            leucoRel.appendChild(leucoImg);
+            leucoRel.style.backgroundImage = imagem; //Imagem de fundo da celula
             leucoRel.classList.add('celulas');
-        painel.appendChild(leucoRel);
+            painel.appendChild(leucoRel);
+        let valorCelula = document.createElement('div'); //quantidade de cada celula contada
+            leucoRel.appendChild(valorCelula);
+            valorCelula.innerText = valor;
+            valorCelula.style.cssText = 'background-color: red; width:20px; height:20px; border-radius:40%; color:white;';
+    
+            leucoRel.addEventListener('click', function(aumentar){
+                alert('teste');
+                valor++ //Definir valor para objeto especifico
+            });
     };
     
+
     
 
 });
