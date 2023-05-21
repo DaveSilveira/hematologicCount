@@ -2,7 +2,6 @@
 let reticulocitos = document.createElement('div');
  reticulocitos.innerText = 'Reticulocitos';
  reticulocitos.classList.add('botao');
- reticulocitos.style.cssText = 'font-size: 24px; text-align: center; color: #ffffff;background-color: #0c136d;width: 20%;height: 5%;margin: 10px auto;border-radius: 10px;';
  document.body.appendChild(reticulocitos);
 
  //Inicializa a função ao clicar no botao
