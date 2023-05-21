@@ -14,62 +14,64 @@ relativa.addEventListener('click', function(rel){
     document.body.appendChild(painel);
     painel.appendChild(valoresPainel);
 
+function criaDiv(){
+    const criarDiv = document.createElement('div');
+    return criarDiv;
+}
+
     const celulas = [
-        {cel: 'blasto', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'promielocito', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'mielocito', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'metamielocito', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'bastao', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'segmentado', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'eosinofilo', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'basofilo', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'monocito', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'linfocitoTipico', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'linfocitoAtipico', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'eritroblasto', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'outras', valor: 0, imagem: 'URL(./assets/img/img.png)'},
-        {cel: 'outras2', valor: 0, imagem: 'URL(./assets/img/img.png)'},
+        {cel: 'Blasto', valor: 0, imagem: 'URL(./assets/img/mieloblasto.png)'},
+        {cel: 'Promie', valor: 0, imagem: 'URL(./assets/img/promielo.png)'},
+        {cel: 'Mieloc', valor: 0, imagem: 'URL(./assets/img/mielo.png)'},
+        {cel: 'Metami', valor: 0, imagem: 'URL(./assets/img/meta.png)'},
+        {cel: 'Bastao', valor: 0, imagem: 'URL(./assets/img/bastao.png)'},
+        {cel: 'Segmen', valor: 0, imagem: 'URL(./assets/img/seg.png)'},
+        {cel: 'Eosino', valor: 0, imagem: 'URL(./assets/img/eos.png)'},
+        {cel: 'Masofi', valor: 0, imagem: 'URL(./assets/img/bas.png)'},
+        {cel: 'Monoci', valor: 0, imagem: 'URL(./assets/img/mon.png)'},
+        {cel: 'LinTip', valor: 0, imagem: 'URL(./assets/img/linTip.png)'},
+        {cel: 'LinAti', valor: 0, imagem: 'URL(./assets/img/linAtip.png)'},
+        {cel: 'Eritro', valor: 0, imagem: 'URL(./assets/img/eritro.png)'},
+        {cel: 'Outras', valor: 0, imagem: 'URL(./assets/img/outra.png)'},
+        {cel: 'Outra2', valor: 0, imagem: 'URL(./assets/img/outra.png)'},
     ];
 
+    function mostraPainel(){
 
-    const valores = [
-        {div: 'Leucocitos', valor: 0},
-        {div: 'Eritroblastos', valor: 0}
-    ];
-    
-    for (let i = 0; i < valores.length; i++){ //para aparecer os contadores totais
-        let {div, valor } = valores[i];
-        let valorPainel = document.createElement('div');
-        valorPainel.innerHTML = valor;
-        valorPainel.classList.add('valorPainel');
-        valoresPainel.appendChild(valorPainel);
-        let nome = document.createElement('div');
-        valorPainel.appendChild(nome);
-        nome.innerText = div;
-        nome.style.cssText = 'font-size: 12px; font-family: arial, sans-serif;'
-    }
+        const contagens = criaDiv(); //Aqui aparecereá a contagem relativa
+        painel.appendChild(contagens);
+        contagens.classList.add('valoresPainel')
+            let relativa = criaDiv();
+            relativa.classList.add('valorPainel');
+            relativa.innerHTML = `${0} \n <div style="font-size:12px;">Leucocitos</div>`;
+            contagens.appendChild(relativa);
+        
+            let eritroblasto = criaDiv(); //Aqui o n de eritroblastos
+            eritroblasto.classList.add('valorPainel');
+            eritroblasto.innerHTML = `${0} \n <div style="font-size:12px;">Eritroblastos</div>`;
+            contagens.appendChild(eritroblasto);
 
     for (let i = 0; i < celulas.length; i++ ){ //para aparecer as celulas no painel
         let {cel, valor, imagem} = celulas[i];
-        let leucoRel = document.createElement('div'); //setando a div para cada item 'div:' do objeto
+        let leucoRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             leucoRel.style.backgroundImage = imagem; //Imagem de fundo da celula
             leucoRel.classList.add('celulas');
             painel.appendChild(leucoRel);
-        let valorCelula = document.createElement('div'); //quantidade de cada celula contada
-            leucoRel.appendChild(valorCelula);
-            valorCelula.innerText = valor;
-            valorCelula.style.cssText = 'background-color: red; width:20px; height:20px; border-radius:40%; color:white;';
-    
-            leucoRel.addEventListener('click', function(){
-                alert('test');
-                
-                for(let i = 0; i < celulas.length; i++){
-                    let adc = celulas[valor[i]]++;
-                }
-            });
-    };
-    
+            leucoRel.dataset.idx = i;
 
-    
+            let valorCelula = criaDiv(); //quantidade de cada celula contada
+            leucoRel.appendChild(valorCelula);
+            valorCelula.classList.add('valorCelula');
+            valorCelula.innerText = valor;
+
+            leucoRel.addEventListener('click', function(){
+                valorCelula.innerText = ++celulas[this.dataset.idx]["valor"];  //joga os valores certos
+            });  
+    }
+
+        return contagens;
+    }
+
+    const relativa = mostraPainel();
 
 });
