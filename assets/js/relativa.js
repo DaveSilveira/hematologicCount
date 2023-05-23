@@ -3,35 +3,34 @@ function criaDiv(){
     const criarDiv = document.createElement('div');
     return criarDiv;
 }
-
 let relativa = criaDiv();
  relativa.innerText = 'Relativa';
  relativa.classList.add('botao');
  document.body.appendChild(relativa);
 
-relativa.addEventListener('click', function(rel){
+relativa.addEventListener('click', function(){
     const painel = criaDiv(); //painel onde fica toda a contagem relativa
     painel.classList.add('painel');
     document.body.appendChild(painel);
 
 const celulas = [
-    {cel: 'Blasto', valor: 0, imagem: 'URL(./assets/img/mieloblasto.png)', musica: 'musica', letra: 'b'},
-    {cel: 'Promie', valor: 0, imagem: 'URL(./assets/img/promielo.png)', musica: 'musica', letra: 'v'},
-    {cel: 'Mieloc', valor: 0, imagem: 'URL(./assets/img/mielo.png)', musica: 'musica', letra: 'c'},
-    {cel: 'Metami', valor: 0, imagem: 'URL(./assets/img/meta.png)', musica: 'musica', letra: 'm'},
-    {cel: 'Bastao', valor: 0, imagem: 'URL(./assets/img/bastao.png)', musica: 'musica', letra: 'g'},
-    {cel: 'Segmen', valor: 0, imagem: 'URL(./assets/img/seg.png)', musica: 'musica', letra: 'h'},
-    {cel: 'Eosino', valor: 0, imagem: 'URL(./assets/img/eos.png)', musica: 'musica', letra: 'l'},
-    {cel: 'Basofi', valor: 0, imagem: 'URL(./assets/img/bas.png)', musica: 'musica', letra: 'f'},
-    {cel: 'Monoci', valor: 0, imagem: 'URL(./assets/img/mon.png)', musica: 'musica', letra: 'k'},
-    {cel: 'LinTip', valor: 0, imagem: 'URL(./assets/img/linTip.png)', musica: 'musica', letra: 'j'},
-    {cel: 'LinAti', valor: 0, imagem: 'URL(./assets/img/linAtip.png)', musica: 'musica', letra: 'i'},
-    {cel: 'Outras', valor: 0, imagem: 'URL(./assets/img/outra.png)', musica: 'musica', letra: 'o'},
-    {cel: 'Outra2', valor: 0, imagem: 'URL(./assets/img/outra.png)', musica: 'musica', letra: 'p'},
+    {cel: 'Blasto', valor: 0, imagem: 'URL(./assets/img/mieloblasto.png)', musica: 'musica', tecla: 'b'},
+    {cel: 'Promie', valor: 0, imagem: 'URL(./assets/img/promielo.png)', musica: 'musica', tecla: 'v'},
+    {cel: 'Mieloc', valor: 0, imagem: 'URL(./assets/img/mielo.png)', musica: 'musica', tecla: 'c'},
+    {cel: 'Metami', valor: 0, imagem: 'URL(./assets/img/meta.png)', musica: 'musica', tecla: 'm'},
+    {cel: 'Bastao', valor: 0, imagem: 'URL(./assets/img/bastao.png)', musica: 'musica', tecla: 'g'},
+    {cel: 'Segmen', valor: 0, imagem: 'URL(./assets/img/seg.png)', musica: 'musica', tecla: 'h'},
+    {cel: 'Eosino', valor: 0, imagem: 'URL(./assets/img/eos.png)', musica: 'musica', tecla: 'l'},
+    {cel: 'Basofi', valor: 0, imagem: 'URL(./assets/img/bas.png)', musica: 'musica', tecla: 'f'},
+    {cel: 'Monoci', valor: 0, imagem: 'URL(./assets/img/mon.png)', musica: 'musica', tecla: 'k'},
+    {cel: 'LinTip', valor: 0, imagem: 'URL(./assets/img/linTip.png)', musica: 'musica', tecla: 'j'},
+    {cel: 'LinAti', valor: 0, imagem: 'URL(./assets/img/linAtip.png)', musica: 'musica', tecla: 'i'},
+    {cel: 'Outras', valor: 0, imagem: 'URL(./assets/img/outra.png)', musica: 'musica', tecla: 'o'},
+    {cel: 'Outras2', valor: 0, imagem: 'URL(./assets/img/outra.png)', musica: 'musica', tecla: 'p'},
 ];
 
 const eritroCelula = [
-    {cel: 'Eritro', valor: 0, imagem: 'URL(./assets/img/eritro.png)', musica: 'musica', letra: 'u'}
+    {cel: 'Eritro', valor: 0, imagem: 'URL(./assets/img/eritro.png)', musica: 'musica', tecla: 'u'}
 ];
 
  let relTotal = 0;
@@ -51,7 +50,13 @@ const eritroCelula = [
         verResul.classList.add('botao');
         verResul.innerHTML = 'Resultado';
         cxBotao.appendChild(verResul);
-        verResul.addEventListener('click', function(){alert('Resultado')});
+        verResul.addEventListener('click', function(){
+            const resul = criaDiv();
+            document.body.appendChild(resul);
+            resul.classList.add('valorPainel');
+            resul.innerText = 'Aqui resultado';
+            });
+        
 
         let zerar = criaDiv();
         zerar.classList.add('botao');
@@ -74,7 +79,7 @@ const eritroCelula = [
 
             
     for (let i = 0; i < eritroCelula.length; i++ ){ //para aparecer os eritros no painel
-        let {cel, valor, imagem} = eritroCelula[i];
+        let {cel, valor, imagem,tecla} = eritroCelula[i];
         let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             eritroRel.style.backgroundImage = imagem; //Imagem de fundo da celula
             eritroRel.classList.add('celulas');
@@ -85,6 +90,16 @@ const eritroCelula = [
                 eritroRel.appendChild(valorEritro);
                 valorEritro.classList.add('valorCelula');
                 valorEritro.innerText = valor;
+
+                let nomeEritro = criaDiv();
+                eritroRel.appendChild(nomeEritro);
+                nomeEritro.classList.add('nomeLeuco');
+                nomeEritro.innerText = cel;
+
+                let teclaEritro = criaDiv();
+                eritroRel.appendChild(teclaEritro);
+                teclaEritro.classList.add('teclaCelula');
+                teclaEritro.innerText = tecla;
         
                 eritroRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                     valorEritro.innerText = ++eritroCelula[this.dataset.idx]["valor"]; 
@@ -94,7 +109,7 @@ const eritroCelula = [
             }
 
     for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
-        let {cel, valor, imagem} = celulas[i];
+        let {cel, valor, imagem, tecla} = celulas[i];
         let leucoRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             leucoRel.style.backgroundImage = imagem; //Imagem de fundo da celula
             leucoRel.classList.add('celulas');
@@ -107,6 +122,16 @@ const eritroCelula = [
             valorCelula.classList.add('valorCelula');
             valorCelula.innerText = valor;
 
+            let nomeLeuco = criaDiv();
+            leucoRel.appendChild(nomeLeuco);
+            nomeLeuco.classList.add('nomeLeuco');
+            nomeLeuco.innerText = cel;
+
+            let teclaCelula = criaDiv();
+            leucoRel.appendChild(teclaCelula);
+            teclaCelula.classList.add('teclaCelula');
+            teclaCelula.innerText = tecla;
+
             leucoRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
@@ -114,6 +139,7 @@ const eritroCelula = [
             zerar.addEventListener('click', function(){valorCelula.innerText = 0;});
     }
 }
+
 
     const relativa = mostraPainel();
 
