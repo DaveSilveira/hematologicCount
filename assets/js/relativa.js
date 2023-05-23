@@ -26,13 +26,16 @@ const celulas = [
     {cel: 'Monoci', valor: 0, imagem: 'URL(./assets/img/mon.png)', musica: 'musica', letra: 'k'},
     {cel: 'LinTip', valor: 0, imagem: 'URL(./assets/img/linTip.png)', musica: 'musica', letra: 'j'},
     {cel: 'LinAti', valor: 0, imagem: 'URL(./assets/img/linAtip.png)', musica: 'musica', letra: 'i'},
-    {cel: 'Eritro', valor: 0, imagem: 'URL(./assets/img/eritro.png)', musica: 'musica', letra: 'u'},
     {cel: 'Outras', valor: 0, imagem: 'URL(./assets/img/outra.png)', musica: 'musica', letra: 'o'},
     {cel: 'Outra2', valor: 0, imagem: 'URL(./assets/img/outra.png)', musica: 'musica', letra: 'p'},
 ];
 
-let leucocitoTotal;
-let eritroblastoTotal;
+const eritroCelula = [
+    {cel: 'Eritro', valor: 0, imagem: 'URL(./assets/img/eritro.png)', musica: 'musica', letra: 'u'}
+];
+
+ let relTotal = 0;
+ let eritroTotal = 0;
 
     function mostraPainel(){
 
@@ -40,41 +43,57 @@ let eritroblastoTotal;
         painel.appendChild(contagens);
         contagens.classList.add('valoresPainel')
 
-        leucocitoTotal=0;
-        eritroblastoTotal=0;
+        let cxBotao = criaDiv();
+        cxBotao.classList.add('botaoPainel');
+        contagens.appendChild(cxBotao);
+
+        let verResul = criaDiv();
+        verResul.classList.add('botao');
+        verResul.innerHTML = 'Resultado';
+        cxBotao.appendChild(verResul);
+        verResul.addEventListener('click', function(){alert('Resultado')});
+
+        let zerar = criaDiv();
+        zerar.classList.add('botao');
+        zerar.innerHTML = 'Zerar';
+        cxBotao.appendChild(zerar);
+        zerar.addEventListener('click', function(){
+            alert('teste');
+            eritroblasto.innerHTML = `${eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
+            relativa.innerHTML = `${relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+        });
 
             let relativa = criaDiv();
             relativa.classList.add('valorPainel');
-            relativa.innerHTML = `${leucocitoTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+            relativa.innerHTML = `${relTotal.dataset = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
             contagens.appendChild(relativa);
         
             let eritroblasto = criaDiv(); //Aqui o n de eritroblastos
             eritroblasto.classList.add('valorPainel');
-            eritroblasto.innerHTML = `${eritroblastoTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
+            eritroblasto.innerHTML = `${eritroTotal = 0} \n <div style="font-size:12px;">Eritroblastos</div>`;
             contagens.appendChild(eritroblasto);
 
-            let cxBotao = criaDiv();
-            cxBotao.classList.add('botaoPainel');
-            contagens.appendChild(cxBotao);
+            
+    for (let i = 0; i < eritroCelula.length; i++ ){ //para aparecer os eritros no painel
+        let {cel, valor, imagem} = eritroCelula[i];
+        let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
+            eritroRel.style.backgroundImage = imagem; //Imagem de fundo da celula
+            eritroRel.classList.add('celulas');
+                painel.appendChild(eritroRel);
+                eritroRel.dataset.idx = i; 
+        
+                let valorEritro = criaDiv(); //quantidade de cada eritrocontada
+                eritroRel.appendChild(valorEritro);
+                valorEritro.classList.add('valorCelula');
+                valorEritro.innerText = valor;
+        
+                eritroRel.addEventListener('click', function(){ //joga os valores nos leucocitos
+                    valorEritro.innerText = ++eritroCelula[this.dataset.idx]["valor"]; 
+                    eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                    }); 
+            }
 
-            let verResul = criaDiv();
-            verResul.classList.add('botao');
-            verResul.innerHTML = 'Resultado';
-            cxBotao.appendChild(verResul);
-            verResul.addEventListener('click', function(){alert('Resultado')});
-
-            let zerar = criaDiv();
-            zerar.classList.add('botao');
-            zerar.innerHTML = 'Zerar';
-            cxBotao.appendChild(zerar);
-            zerar.addEventListener('click', function(){
-                eritroblastoTotal = 't';
-                leucocitoTotal = 't';
-            });
-
-            console.log(leucocitoTotal.typeof);
-
-    for (let i = 0; i < celulas.length; i++ ){ //para aparecer as celulas no painel
+    for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
         let {cel, valor, imagem} = celulas[i];
         let leucoRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             leucoRel.style.backgroundImage = imagem; //Imagem de fundo da celula
@@ -90,8 +109,9 @@ let eritroblastoTotal;
 
             leucoRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
-                
+                relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
             }); 
+
     }
 
         return contagens;
