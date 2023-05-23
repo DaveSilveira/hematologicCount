@@ -58,16 +58,15 @@ const eritroCelula = [
         zerar.innerHTML = 'Zerar';
         cxBotao.appendChild(zerar);
         zerar.addEventListener('click', function(){
-            alert('teste');
-            eritroblasto.innerHTML = `${eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
-            relativa.innerHTML = `${relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+            eritroblasto.innerHTML = `${eritroTotal = 0} \n <div style="font-size:12px;">Eritroblastos</div>`;
+            relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
         });
 
             let relativa = criaDiv();
             relativa.classList.add('valorPainel');
-            relativa.innerHTML = `${relTotal.dataset = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
+            relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
             contagens.appendChild(relativa);
-        
+            
             let eritroblasto = criaDiv(); //Aqui o n de eritroblastos
             eritroblasto.classList.add('valorPainel');
             eritroblasto.innerHTML = `${eritroTotal = 0} \n <div style="font-size:12px;">Eritroblastos</div>`;
@@ -90,7 +89,8 @@ const eritroCelula = [
                 eritroRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                     valorEritro.innerText = ++eritroCelula[this.dataset.idx]["valor"]; 
                     eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-                    }); 
+                    });
+                zerar.addEventListener('click', function(){valorEritro.innerText = 0;});
             }
 
     for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
@@ -111,11 +111,9 @@ const eritroCelula = [
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
             }); 
-
+            zerar.addEventListener('click', function(){valorCelula.innerText = 0;});
     }
-
-        return contagens;
-    }
+}
 
     const relativa = mostraPainel();
 
