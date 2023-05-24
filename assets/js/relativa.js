@@ -3,6 +3,10 @@ function criaDiv(){
     const criarDiv = document.createElement('div');
     return criarDiv;
 }
+function criaModal(){
+    const modal = document.createElement('dialog');
+    return modal;
+}
 let relativa = criaDiv();
  relativa.innerText = 'Relativa';
  relativa.classList.add('botao');
@@ -50,14 +54,8 @@ const eritroCelula = [
         verResul.classList.add('botao');
         verResul.innerHTML = 'Resultado';
         cxBotao.appendChild(verResul);
-        verResul.addEventListener('click', function(){
-            const resul = criaDiv();
-            document.body.appendChild(resul);
-            resul.classList.add('valorPainel');
-            resul.innerText = 'Aqui resultado';
-            });
+        //verResul.addEventListener('click', resultContagem());
         
-
         let zerar = criaDiv();
         zerar.classList.add('botao');
         zerar.innerHTML = 'Zerar';
@@ -77,7 +75,6 @@ const eritroCelula = [
             eritroblasto.innerHTML = `${eritroTotal = 0} \n <div style="font-size:12px;">Eritroblastos</div>`;
             contagens.appendChild(eritroblasto);
 
-            
     for (let i = 0; i < eritroCelula.length; i++ ){ //para aparecer os eritros no painel
         let {cel, valor, imagem,tecla} = eritroCelula[i];
         let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
@@ -116,7 +113,6 @@ const eritroCelula = [
             painel.appendChild(leucoRel);
             leucoRel.dataset.idx = i;
             
-
             let valorCelula = criaDiv(); //quantidade de cada celula contada
             leucoRel.appendChild(valorCelula);
             valorCelula.classList.add('valorCelula');
@@ -137,10 +133,32 @@ const eritroCelula = [
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
             }); 
             zerar.addEventListener('click', function(){valorCelula.innerText = 0;});
+            if(verResul == 10){
+                alert('terminou');
+            }
     }
 }
-
-
     const relativa = mostraPainel();
 
+
+
 });
+
+/*function resultContagem(){
+    const janelaResul = criaModal();
+    verResul.appendChild(janelaResul);
+    janelaResul.showModal();
+
+    let  caixa = criaDiv();
+    let fecharResul = criaDiv();
+    janelaResul.appendChild(caixa);
+    caixa.classList.add('caixaResul');
+    caixa.appendChild(fecharResul);
+
+    fecharResul.innerText = 'X';
+    janelaResul.appendChild(fecharResul);
+    fecharResul.addEventListener('click', function(){janelaResul.close()});
+
+    janelaResul.innerHTML = `<h1> resultado</h1>`
+    return janelaResul;
+} */
