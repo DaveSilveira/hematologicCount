@@ -7,6 +7,25 @@ function criaModal(){
     const modal = document.createElement('dialog');
     return modal;
 }
+ function resultContagem(){
+    const janelaResul = criaModal();
+    document.body.appendChild(janelaResul);
+    janelaResul.showModal();
+
+    let  caixa = criaDiv();
+    let fecharResul = criaDiv();
+    janelaResul.appendChild(caixa);
+    caixa.classList.add('caixaResul');
+    caixa.appendChild(fecharResul);
+
+    fecharResul.innerText = 'X';
+    janelaResul.appendChild(fecharResul);
+    fecharResul.addEventListener('click', function(){janelaResul.close()});
+
+    janelaResul.innerHTML = `<h1> resultado</h1>`
+    return janelaResul;
+        }
+
 let relativa = criaDiv();
  relativa.innerText = 'Relativa';
  relativa.classList.add('botao');
@@ -54,7 +73,7 @@ const eritroCelula = [
         verResul.classList.add('botao');
         verResul.innerHTML = 'Resultado';
         cxBotao.appendChild(verResul);
-        //verResul.addEventListener('click', resultContagem());
+        
         
         let zerar = criaDiv();
         zerar.classList.add('botao');
@@ -69,7 +88,7 @@ const eritroCelula = [
             relativa.classList.add('valorPainel');
             relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
             contagens.appendChild(relativa);
-            
+
             let eritroblasto = criaDiv(); //Aqui o n de eritroblastos
             eritroblasto.classList.add('valorPainel');
             eritroblasto.innerHTML = `${eritroTotal = 0} \n <div style="font-size:12px;">Eritroblastos</div>`;
@@ -131,34 +150,18 @@ const eritroCelula = [
             leucoRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                
+                if(relTotal >= 10){
+        resultContagem(); //retorna a função de ver os resultados
+            
+                              }
             }); 
             zerar.addEventListener('click', function(){valorCelula.innerText = 0;});
-            if(verResul == 10){
-                alert('terminou');
-            }
+            
     }
 }
     const relativa = mostraPainel();
 
-
-
 });
 
-/*function resultContagem(){
-    const janelaResul = criaModal();
-    verResul.appendChild(janelaResul);
-    janelaResul.showModal();
-
-    let  caixa = criaDiv();
-    let fecharResul = criaDiv();
-    janelaResul.appendChild(caixa);
-    caixa.classList.add('caixaResul');
-    caixa.appendChild(fecharResul);
-
-    fecharResul.innerText = 'X';
-    janelaResul.appendChild(fecharResul);
-    fecharResul.addEventListener('click', function(){janelaResul.close()});
-
-    janelaResul.innerHTML = `<h1> resultado</h1>`
-    return janelaResul;
-} */
+/**/
