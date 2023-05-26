@@ -1,4 +1,7 @@
-//contador relativo
+/*           CONTADOR RELATIVO
+            *******************
+            DAVE SILVEIRA (2023)
+*/
 function criaDiv(){
     const criarDiv = document.createElement('div');
     return criarDiv;
@@ -7,24 +10,6 @@ function criaModal(){
     const modal = document.createElement('dialog');
     return modal;
 }
- function resultContagem(){
-    const janelaResul = criaModal();
-    document.body.appendChild(janelaResul);
-    janelaResul.showModal();
-
-    let  caixa = criaDiv();
-    let fecharResul = criaDiv();
-    janelaResul.appendChild(caixa);
-    caixa.classList.add('caixaResul');
-    caixa.appendChild(fecharResul);
-
-    fecharResul.innerText = 'X';
-    janelaResul.appendChild(fecharResul);
-    fecharResul.addEventListener('click', function(){janelaResul.close()});
-
-    janelaResul.innerHTML = `<h1> resultado</h1>`
-    return janelaResul;
-        }
 
 let relativa = criaDiv();
  relativa.innerText = 'Relativa';
@@ -152,16 +137,29 @@ const eritroCelula = [
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
                 
                 if(relTotal >= 10){
-        resultContagem(); //retorna a função de ver os resultados
-            
+                    const janelaResul = criaModal();
+                    document.body.appendChild(janelaResul);
+                    janelaResul.showModal();
+
+                    let  caixa = criaDiv();
+                    let fecharResul = criaDiv();
+                    janelaResul.appendChild(caixa);
+                    caixa.classList.add('caixaResul');
+                    caixa.appendChild(fecharResul);
+
+                    fecharResul.innerText = 'X'; //
+                    janelaResul.appendChild(fecharResul);
+                    fecharResul.addEventListener('click', function(){janelaResul.close()});
+
+                    caixa.innerHTML = `${celulas[leucoRel]['cel']} ${celulas[leucoRel]['valor']}`;
                               }
             }); 
             zerar.addEventListener('click', function(){valorCelula.innerText = 0;});
             
     }
 }
+
     const relativa = mostraPainel();
 
 });
 
-/**/

@@ -12,3 +12,4 @@ bemVindo.addEventListener('load', function(){
     bemVindo.style.cssText = 'width: 100px; heigth: 100px; background-color: white;';
     document.body.appendChild(bemVindo);
 });
+
