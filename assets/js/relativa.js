@@ -1,25 +1,33 @@
 /*           CONTADOR RELATIVO
             *******************
             DAVE SILVEIRA (2023)
-*/
-function criaDiv(){
-    const criarDiv = document.createElement('div');
-    return criarDiv;
-}
-function criaModal(){
-    const modal = document.createElement('dialog');
-    return modal;
-}
 
+            CHECKLIST
+    Criar painel de contagem -                                       Feito
+    Criar painel com células que tenham valor e tecla para digitar - Feito
+    Definir as contagens globais e individuais das celulas -         Feito
+    Definir a parada da contagem                                     Feito
+    Mostrar painel de resultados com contagens relativas                -
+    Definir botão de resultado clicavel a qqr momento                   -
+    Evitar a repetição do evento de contagem apos clique                -
+    Setar evento ao clicar em cada célula                               -
+    Definir musica ao clicar na celulas                                 -
+*/
 let relativa = criaDiv();
  relativa.innerText = 'Relativa';
  relativa.classList.add('botao');
- document.body.appendChild(relativa);
+ corpo.appendChild(relativa);
 
 relativa.addEventListener('click', function(){
     const painel = criaDiv(); //painel onde fica toda a contagem relativa
     painel.classList.add('painel');
     document.body.appendChild(painel);
+
+let fechar = criaDiv();
+painel.appendChild(fechar);
+fechar.classList.add('fechar');
+fechar.innerText ='x';
+fechar.addEventListener('click', function(){painel.style.cssText = 'display:none;'});
 
 const celulas = [
     {cel: 'Blasto', valor: 0, imagem: 'URL(./assets/img/mieloblasto.png)', musica: 'musica', tecla: 'b'},
@@ -147,11 +155,11 @@ const eritroCelula = [
                     caixa.classList.add('caixaResul');
                     caixa.appendChild(fecharResul);
 
-                    fecharResul.innerText = 'X'; //
+                    fecharResul.innerText = 'Fechar'; //
                     janelaResul.appendChild(fecharResul);
+                    fecharResul.classList.add('botao')
                     fecharResul.addEventListener('click', function(){janelaResul.close()});
 
-                    caixa.innerHTML = `${celulas[leucoRel]['cel']} ${celulas[leucoRel]['valor']}`;
                               }
             }); 
             zerar.addEventListener('click', function(){valorCelula.innerText = 0;});

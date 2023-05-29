@@ -1,13 +1,30 @@
 body{
     background-color: cadetblue;
 }
+.titulo{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+.corpo{
+    width: 50%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #0c136d;
+}
 .botao{
     font-size: 24px;
     text-align: center;
     color: #ffffff;
     background-color: #0c136d;
-    margin: 10px auto;
+    margin-left: 1%;
+    padding: 4px;
     border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif ;
 }
 .botao:hover{
     background-color: #ffffff;
@@ -15,16 +32,29 @@ body{
 }
 .painel{
     width: 60%;
-    height: 80%;
+    height: 70%;
     background-color: #ffffff;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
-.campo{
-    width: 70%;
-    height: 80%;
-    margin: 4% auto;
+.fechar{
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    text-align: center;
+    margin: 4px;
+    color: #ffffff;
+    background-color: #0c136d;
+    border-radius: 50%;
+    cursor: pointer;
+    float: right;
+}
+.fechar:hover{
+    background-color: #ffffff;
+    color: #0c136d;
 }
 .valoresPainel{ /*Elementos de resultado*/
     width: 100%;
@@ -51,7 +81,9 @@ body{
     border-radius: 80%;
     text-align: center;
     padding-top: 10px;
-    margin: 4px auto;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
 }
 .valorCelula{
     background-color: red; 
