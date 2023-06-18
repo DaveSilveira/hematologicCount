@@ -112,8 +112,15 @@ const eritroCelula = [
         
                 eritroRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                     valorEritro.innerText = ++eritroCelula[this.dataset.idx]["valor"]; 
-                    eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                    eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
                     });
+                document.addEventListener('keydown', function(event){
+                    if(event.key === tecla){
+                        valorEritro.innerText = ++eritroCelula[eritroRel.dataset.idx]["valor"]; 
+                        eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
+                    }
+                });
+
                 zerar.addEventListener('click', function(){valorEritro.innerText = 0;});
             }
 
@@ -143,25 +150,17 @@ const eritroCelula = [
             leucoRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-                
-                if(relTotal >= 10){
-                    const janelaResul = criaModal();
-                    document.body.appendChild(janelaResul);
-                    janelaResul.showModal();
+               if(relTotal >= 10) alert('Terminou');
+            });
+            document.addEventListener('keydown', function(event){
+                if(event.key === tecla){
+                valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
+                relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                if(relTotal >= 10) alert('Terminou');
+                }
+            });
 
-                    let  caixa = criaDiv();
-                    let fecharResul = criaDiv();
-                    janelaResul.appendChild(caixa);
-                    caixa.classList.add('caixaResul');
-                    caixa.appendChild(fecharResul);
 
-                    fecharResul.innerText = 'Fechar'; //
-                    janelaResul.appendChild(fecharResul);
-                    fecharResul.classList.add('botao')
-                    fecharResul.addEventListener('click', function(){janelaResul.close()});
-
-                              }
-            }); 
             zerar.addEventListener('click', function(){valorCelula.innerText = 0;});
             
     }

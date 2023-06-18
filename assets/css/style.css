@@ -1,5 +1,5 @@
 body{
-    background-color: cadetblue;
+    background-color: rgb(166, 205, 241);
 }
 .titulo{
     text-align: center;
@@ -12,7 +12,6 @@ body{
     top: 20%;
     left: 50%;
     transform: translate(-50%,-50%);
-    border: 1px solid #0c136d;
 }
 .botao{
     font-size: 24px;
