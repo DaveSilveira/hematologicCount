@@ -150,21 +150,18 @@ const eritroCelula = [
             leucoRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-               if(relTotal >= 10) alert('Terminou');
+               if(relTotal >= 100) alert('A contagem chegou a 100 células');
             });
             document.addEventListener('keydown', function(event){
                 if(event.key === tecla){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-                if(relTotal >= 10) alert('Terminou');
+                if(relTotal >= 100) alert('A contagem chegou a 100 células');
                 }
             });
-
-
             zerar.addEventListener('click', function(){valorCelula.innerText = 0;});
-            
+        }
     }
-}
 
     const relativa = mostraPainel();
 
