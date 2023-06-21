@@ -1,18 +1,4 @@
-/*           CONTADOR RELATIVO
-            *******************
-            DAVE SILVEIRA (2023)
 
-            CHECKLIST
-    Criar painel de contagem -                                       Feito
-    Criar painel com células que tenham valor e tecla para digitar - Feito
-    Definir as contagens globais e individuais das celulas -         Feito
-    Definir a parada da contagem                                     Feito
-    Mostrar painel de resultados com contagens relativas                -
-    Definir botão de resultado clicavel a qqr momento                   -
-    Evitar a repetição do evento de contagem apos clique                -
-    Setar evento ao clicar em cada célula                               -
-    Definir musica ao clicar na celulas                                 -
-*/
 let relativa = criaDiv();
  relativa.innerText = 'Relativa';
  relativa.classList.add('botao');
@@ -163,7 +149,7 @@ const eritroCelula = [
         }
     }
 
-    const relativa = mostraPainel();
+    const relativa = mostraPainel(); //variavel dentro de bloco
 
 });
 
