@@ -2,23 +2,33 @@ body{
     background-color: rgb(166, 205, 241);
 }
 .titulo{
-    text-align: center;
+    width: 20%;
+    height: 30px;
+    text-align: left;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 0px;
     color: #ffffff;
+    background-color: #0c136d;
+    position: absolute;
+    top: 0%;
+    left: 0%;
 }
 .corpo{
-    width: 50%;
+    width: 80%;
+    height: 30px;
     position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: 0%;
+    left: 20%;
+    background-color: #8a8b8d;
 }
 .botao{
-    font-size: 24px;
+    font-size: 12px;
     text-align: center;
     color: #ffffff;
     background-color: #0c136d;
     margin-left: 1%;
+    margin-top: 4px;
     padding: 4px;
     border-radius: 10px;
     cursor: pointer;
@@ -33,7 +43,18 @@ body{
     width: 60%;
     height: 70%;
     background-color: #ffffff;
-    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.disclaimer{
+    width: 60%;
+    height: 70%;
+    padding: 10px;
+    text-align: justify;
+    color: #5a5a5a;
+    background-color: #ffffff;
     position: absolute;
     top: 50%;
     left: 50%;

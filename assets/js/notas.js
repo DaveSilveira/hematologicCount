@@ -18,6 +18,7 @@ display: none;
 const chamaBloco = criaDiv()
 document.body.appendChild(chamaBloco)
 chamaBloco.classList.add('botao')
+corpo.appendChild(chamaBloco); //Essa linha muda de acordo de onde eu coloco o bloco
 chamaBloco.innerText = 'Bloco de notas'
 chamaBloco.addEventListener('click', function(){blocoDeNotas.style.display = 'block'})
 
@@ -49,7 +50,6 @@ chamaNota.addEventListener('click', function novaNota(){
     width: 90%;
     height: 100px;
     margin: auto;
-    border: 1px solid black;
     background-color: #FFF8DC;
     margin: 10px;
     `;
@@ -63,17 +63,21 @@ chamaNota.addEventListener('click', function novaNota(){
     width: 10px;
     height: 10px;
     margin: 0px;
-    left: 0px;
-    display: block;
+    left: 94%;
+    position: relative;
     cursor: pointer;
-    `;//PAREI AQUI
+    `;
 
     let input = criaInput()
     input.style.cssText = `
-    text-align: justify;
+    width:86%;
+    height:80%;
     border: none;
     background-color: #FFF8DC;
+    outline: none;
+    resize: none;
     `;
+    input.placeholder = "As notas desaparecem ao atualizar a pagina."
     nota.appendChild(input);
 
 
