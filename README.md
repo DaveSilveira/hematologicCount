@@ -1,5 +1,4 @@
 # hematologicCount 
-<style>img{width:80px; height:80px;}</style>
 <img src="assets/img/mieloblasto.png"><img src="assets/img/promielo.png"><img src="assets/img/mielo.png"><img src="assets/img/meta.png"><img src="assets/img/bastao.png"><img src="assets/img/meta.png"><img src="assets/img/seg.png"><img src="assets/img/eos.png"><img src="assets/img/bas.png"><img src="assets/img/linTip.png"><img src="assets/img/eritro.png">
 <p>A hematologic count with reticulocytes function, relactive count ant platelets count. </p>
 
