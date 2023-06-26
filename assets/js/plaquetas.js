@@ -70,6 +70,7 @@ let plaquetas = document.createElement('div');
         document.addEventListener('keydown', function(event){
             if(event.key === tecla){
             valorPlaq.innerHTML = ++plaqueta[plaqCount.dataset.idx]['valor']
+            
             }
         });
     }
@@ -107,3 +108,4 @@ let plaquetas = document.createElement('div');
         });
     }
  });
+

@@ -166,4 +166,3 @@ const eritroCelula = [
     const relativa = mostraPainel(); //Criei a variavel para colocar escopo de bloco nas variaveis
 
 });
-
