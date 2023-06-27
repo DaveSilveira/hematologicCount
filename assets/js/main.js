@@ -10,6 +10,10 @@ function criaModal(){
     const modal = document.createElement('dialog');
     return modal;
 }
+function criaP(){
+    let p = document.createElement('p')
+    return p;
+}
 
 /*Explicaçao do programa ao usuário*/
 let chamaDisclaimer = criaDiv()
