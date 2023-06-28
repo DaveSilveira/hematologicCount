@@ -150,7 +150,7 @@ const eritroCelula = [
                 if(event.key === tecla){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-                if(relTotal >= 1) return result();
+                if(relTotal >= 100) return result();
                 }
             });
             document.addEventListener('keydown', function(event){
@@ -166,35 +166,52 @@ const eritroCelula = [
 
     const relativa = mostraPainel(); //Criei a variavel para colocar escopo de bloco nas variaveis
  
-function result(){
+function result(){ //Formatação da aba de resultados
 
     let janela = criaDiv()
         janela.classList.add('painelResult')
         document.body.appendChild(janela)
         janela.innerHTML = `<h1>Resultado</h1>`
 
-    let fechar = criaDiv()
-    janela.appendChild(fechar) //fechar painel resultados
-    fechar.classList.add('fechar')
-    fechar.innerText ='x';
-    fechar.addEventListener('click', function(){janela.style.cssText = 'display:none;'});
-    
+    let nomes = criaDiv()
+    janela.appendChild(nomes)
+    nomes.classList.add('divResul')
+    let valores = criaDiv()
+    janela.appendChild(valores)
+    valores.classList.add('divValue')
+
     for(let i = 0; i < eritroCelula.length; i++){
         let {nome, valor} = eritroCelula[i];
+
+        let eritro = criaP()
+        eritro.innerHTML = `${nome}`
+        nomes.appendChild(eritro)
+        eritro.classList.add('result')
+
         let result = criaP()
-        result.innerHTML = `${nome}         ${valor} em 100 células`;
-        janela.appendChild(result)
+        result.innerHTML = `${valor} em 100 leucócitos`;
+        valores.appendChild(result)
         result.classList.add('result')    
         }
 
     for(let i = 0; i < celulas.length; i++){
         let {nome, valor} = celulas[i];
+        
+        let leuco = criaP()
+        leuco.innerHTML = `${nome}`
+        nomes.appendChild(leuco)
+        leuco.classList.add('result')
+
         let result = criaP()
-        result.innerHTML = `${nome}         ${valor}%`;
-        janela.appendChild(result)
+        result.innerHTML = `${valor}%`;
+        valores.appendChild(result)
         result.classList.add('result')
     }
 
-
+    let fechar = criaDiv()
+    janela.appendChild(fechar) //fechar painel resultados
+    fechar.classList.add('botao')
+    fechar.innerText ='Fechar';
+    fechar.addEventListener('click', function(){janela.style.cssText = 'display:none;'});
 }
 });
