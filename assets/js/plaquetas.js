@@ -1,5 +1,5 @@
 //Contagem de plaquetas
-let plaquetas = document.createElement('div');
+let plaquetas = criaDiv();
  plaquetas.innerText = 'Plaquetas';
  plaquetas.classList.add('botao');
  corpo.appendChild(plaquetas);
@@ -108,4 +108,3 @@ let plaquetas = document.createElement('div');
         });
     }
  });
-

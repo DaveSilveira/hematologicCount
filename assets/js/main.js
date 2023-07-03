@@ -1,4 +1,42 @@
+/* EM TESTE
+function criarDivMovel(){
+    let width = window.innerWidth;
+    let heigth = window.innerHeight;
 
+    let stage = new janela.stage({
+        criaDiv: document.createElement('div'),
+        width: width,
+        heigth: heigth,
+    });
+
+    let layer = janela.layer();
+    let rectX = stage.width() / 2 - 50;
+    let rectY = stage.heigth() / 2 - 25;
+
+    let box = new janela.rect({
+        x: rectX,
+        y: rectY,
+        width: 100,
+        heigth: 50,
+        fill: '#00D2FF',
+        stroke: 'black',
+        strokeWidth: 4,
+        draggable: true,
+    });
+
+        //estilo do mouse
+        box.on('mouseover', function(){
+            document.style.cursor = 'pointer';
+        });
+        box.on('mouseover', function(){
+            document.style.cursor = 'default';
+        });
+
+        layer.add(box);
+        stage.add(layer)
+
+    return criaDiv()
+}*/
 /*  VARIAVEIS E FUNÇÕES GLOBAIS   */
 let corpo = document.querySelector('.corpo');
 
@@ -14,7 +52,6 @@ function criaP(){
     let p = document.createElement('p')
     return p;
 }
-
 /*Explicaçao do programa ao usuário*/
 let chamaDisclaimer = criaDiv()
 chamaDisclaimer.classList.add('botao')

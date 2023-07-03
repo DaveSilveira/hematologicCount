@@ -67,7 +67,7 @@ const eritroCelula = [
             relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
         });
 
-            let relativa = criaDiv();
+            let relativa = criaDiv(); //Aqui o total de leucocitos
             relativa.classList.add('valorPainel');
             relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
             contagens.appendChild(relativa);
