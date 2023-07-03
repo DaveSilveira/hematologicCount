@@ -79,7 +79,7 @@ for(let i=0; i < reticulocito.length; i++){
     document.addEventListener('keydown', function(event){
         if(event.key === tecla){
             valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
-            contadorlReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
+            contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
         }
     });
     document.addEventListener('keydown', function(event){
@@ -148,33 +148,14 @@ function result(){ //Formatação da aba de resultados
     janela.appendChild(valores)
     valores.classList.add('divValue')
 
-    for(let i = 0; i < eritroCelula.length; i++){
-        let {nome, valor} = eritroCelula[i];
+    for(let i = 0; i < reticulocito.length; i++){
+        let {valor} = reticulocito[i];
 
-        let eritro = criaP()
-        eritro.innerHTML = `${nome}`
-        nomes.appendChild(eritro)
-        eritro.classList.add('result')
-
-        let result = criaP()
-        result.innerHTML = `${valor} em 100 leucócitos`;
-        valores.appendChild(result)
-        result.classList.add('result')    
+        let reti = criaP()
+        reti.innerHTML = `${valor} reticulócitos em 10 campos`
+        nomes.appendChild(reti)
+       // reti.classList.add('result')  
         }
-
-    for(let i = 0; i < celulas.length; i++){
-        let {nome, valor} = celulas[i];
-        
-        let leuco = criaP()
-        leuco.innerHTML = `${nome}`
-        nomes.appendChild(leuco)
-        leuco.classList.add('result')
-
-        let result = criaP()
-        result.innerHTML = `${valor}%`;
-        valores.appendChild(result)
-        result.classList.add('result')
-    }
 
     let fechar = criaDiv()
     janela.appendChild(fechar) //fechar painel resultados
