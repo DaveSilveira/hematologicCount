@@ -183,3 +183,4 @@ function result(){ //Formatação da aba de resultados
     fechar.addEventListener('click', function(){janela.style.cssText = 'display:none;'});
 }
 });
+let teste = 'teste';
