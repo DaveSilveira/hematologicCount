@@ -74,18 +74,18 @@ for(let i=0; i < reticulocito.length; i++){
 
     retCount.addEventListener('click', function(){
         valorRet.innerHTML = ++reticulocito[this.dataset.idx]['valor']
-        totalRet.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
+        contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
     });
     document.addEventListener('keydown', function(event){
         if(event.key === tecla){
             valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
-            totalRet.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
+            contadorlReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
         }
     });
     document.addEventListener('keydown', function(event){
         if(event.key === tecla1){
             valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
-            totalRet.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
+            contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
         }
     });
 }
@@ -115,20 +115,20 @@ for(let i=0; i< campo.length; i++){
 
         campoCount.addEventListener('click', function(){
             valorCampo.innerHTML = ++campo[this.dataset.idx]['valor']
-            totalCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
+            contadorCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
             if(totalCampo === 10) return result()
         });
         document.addEventListener('keydown', function(event){
             if(event.key === tecla){
             valorCampo.innerHTML = ++campo[campoCount.dataset.idx]['valor']
-            totalCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
+            contadorCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
             if(totalCampo === 10) return result()
             }
         });
         document.addEventListener('keydown', function(event){
             if(event.key === tecla1){
             valorCampo.innerHTML = ++campo[campoCount.dataset.idx]['valor']
-            totalCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
+            contadorCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
             if(totalCampo === 10) return result()
             }
         });
@@ -183,4 +183,3 @@ function result(){ //Formatação da aba de resultados
     fechar.addEventListener('click', function(){janela.style.cssText = 'display:none;'});
 }
 });
-let teste = 'teste';

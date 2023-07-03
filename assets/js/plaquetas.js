@@ -38,7 +38,16 @@ let plaquetas = criaDiv();
     const contagens = criaDiv()
     contagens.classList.add('valoresPainel')
     painel.appendChild(contagens)
-    contagens.innerText ='inserir os contadores globais aqui'
+
+    let contadorPlaq = criaDiv()
+    contadorPlaq.classList.add('valorPainel')
+    contagens.appendChild(contadorPlaq)
+    contadorPlaq.innerHTML = `${totalPlaq = 0} \n <div style="font-size:12px;">Plaquetas</div>`;
+
+    let contadorCampo = criaDiv()
+    contadorCampo.classList.add('valorPainel')
+    contagens.appendChild(contadorCampo)
+    contadorCampo.innerHTML = `${totalCampo = 0} \n <div style="font-size:12px;">Campos</div>`;
 
      for(let i = 0; i < plaqueta.length; i++){
         let {nome, valor, musica, imagem, tecla, tecla1} = plaqueta[i];
@@ -66,11 +75,18 @@ let plaquetas = criaDiv();
 
         plaqCount.addEventListener('click', function(){
             valorPlaq.innerHTML = ++plaqueta[this.dataset.idx]['valor']
+            contadorPlaq.innerHTML = `${++totalPlaq} \n <div style="font-size:12px;">Paquetas</div>`;
         });
         document.addEventListener('keydown', function(event){
             if(event.key === tecla){
             valorPlaq.innerHTML = ++plaqueta[plaqCount.dataset.idx]['valor']
-            
+            contadorPlaq.innerHTML = `${++totalPlaq} \n <div style="font-size:12px;">Paquetas</div>`; 
+            }
+        });
+        document.addEventListener('keydown', function(event){
+            if(event.key === tecla1){
+            valorPlaq.innerHTML = ++plaqueta[plaqCount.dataset.idx]['valor']
+            contadorPlaq.innerHTML = `${++totalPlaq} \n <div style="font-size:12px;">Paquetas</div>`;
             }
         });
     }
@@ -100,10 +116,21 @@ let plaquetas = criaDiv();
 
         campoCount.addEventListener('click', function(){
             valorCampo.innerHTML = ++campo[this.dataset.idx]['valor']
+            contadorCampo.innerHTML= `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
+            if(totalCampo === 10) alert('acabou')
         });
         document.addEventListener('keydown', function(event){
             if(event.key === tecla){
             valorCampo.innerHTML = ++campo[campoCount.dataset.idx]['valor']
+            contadorCampo.innerHTML= `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
+            if(totalCampo === 10) alert('acabou')
+            }
+        });
+        document.addEventListener('keydown', function(event){
+            if(event.key === tecla1){
+            valorCampo.innerHTML = ++campo[campoCount.dataset.idx]['valor']
+            contadorCampo.innerHTML= `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
+            if(totalCampo === 10) alert('acabou')
             }
         });
     }
