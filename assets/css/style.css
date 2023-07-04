@@ -1,6 +1,10 @@
 body{
     background-color: rgb(166, 205, 241);
 }
+p{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
 .titulo{
     width: 20%;
     height: 30px;
@@ -55,8 +59,8 @@ body{
     font-size: 16px;
 }
 .divResul, .divValue{
-    width: 45%;
-    height: 80%;
+    width: 46%;
+    height: 70%;
     display: inline-block;
 }
 .divValue{

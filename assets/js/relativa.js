@@ -173,13 +173,25 @@ function result(){ //Formatação da aba de resultados
         document.body.appendChild(janela)
         janela.innerHTML = `<h1>Resultado</h1>`
 
+    let absoluto = criaDiv()
+    janela.appendChild(absoluto)
+    let abs = document.createElement('input')
+    abs.type = 'number';
+    abs.id = 'abs';
+    absoluto.innerHTML = `Valor total de leucocitos:`;
+    absoluto.appendChild(abs)
+    let enviar = document.createElement('button')
+    absoluto.appendChild(enviar)
+    enviar.innerText = 'Enviar'
+
     let nomes = criaDiv()
     janela.appendChild(nomes)
     nomes.classList.add('divResul')
+
     let valores = criaDiv()
     janela.appendChild(valores)
     valores.classList.add('divValue')
-
+    
     for(let i = 0; i < eritroCelula.length; i++){
         let {nome, valor} = eritroCelula[i];
 
@@ -203,6 +215,9 @@ function result(){ //Formatação da aba de resultados
         leuco.classList.add('result')
 
         let result = criaP()
+        enviar.addEventListener('click', function(){
+            result.innerHTML = `${abs.value * valor / 100}/mm3  ${valor}%`;
+        });
         result.innerHTML = `${valor}%`;
         valores.appendChild(result)
         result.classList.add('result')
