@@ -216,7 +216,7 @@ function result(){ //Formatação da aba de resultados
 
         let result = criaP()
         enviar.addEventListener('click', function(){
-            result.innerHTML = `${abs.value * valor / 100}/mm3  ${valor}%`;
+            result.innerHTML = `${abs.value * valor / 100}/mm3.............${valor}%`;
         });
         result.innerHTML = `${valor}%`;
         valores.appendChild(result)

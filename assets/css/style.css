@@ -64,7 +64,7 @@ p{
     display: inline-block;
 }
 .divValue{
-    text-align: right;
+    text-align: justify;
 }
 .painel, .painelResult{
     position: absolute;
