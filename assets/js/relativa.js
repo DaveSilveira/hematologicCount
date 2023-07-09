@@ -138,8 +138,6 @@ const eritroCelula = [
             teclaCelula.classList.add('teclaCelula');
             teclaCelula.innerText = tecla;
 
-            /* EVENTOS DE CONTAGEM*/
-
             leucoRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
@@ -174,6 +172,7 @@ function result(){ //Formatação da aba de resultados
         janela.innerHTML = `<h1>Resultado</h1>`
 
     let absoluto = criaDiv()
+    absoluto.classList.add('absoluto')
     janela.appendChild(absoluto)
     let abs = document.createElement('input')
     abs.type = 'number';
@@ -192,19 +191,12 @@ function result(){ //Formatação da aba de resultados
     janela.appendChild(valores)
     valores.classList.add('divValue')
     
-    for(let i = 0; i < eritroCelula.length; i++){
-        let {nome, valor} = eritroCelula[i];
+    let resCorrigido = criaP()
+    resCorrigido.innerHTML = 'Valor Global de Leucocitos:';
+    nomes.appendChild(resCorrigido)
+    resCorrigido.classList.add('result')
 
-        let eritro = criaP()
-        eritro.innerHTML = `${nome}`
-        nomes.appendChild(eritro)
-        eritro.classList.add('result')
-
-        let result = criaP()
-        result.innerHTML = `${valor} em 100 leucócitos`;
-        valores.appendChild(result)
-        result.classList.add('result')    
-        }
+    let eritroCorrigido;
 
     for(let i = 0; i < celulas.length; i++){
         let {nome, valor} = celulas[i];
@@ -215,13 +207,39 @@ function result(){ //Formatação da aba de resultados
         leuco.classList.add('result')
 
         let result = criaP()
-        enviar.addEventListener('click', function(){
-            result.innerHTML = `${abs.value * valor / 100}/mm3.............${valor}%`;
-        });
-        result.innerHTML = `${valor}%`;
         valores.appendChild(result)
         result.classList.add('result')
+        //EVENTO DE CALCULO DA CORREÇÃO DE RETICULOCITOS
+        enviar.addEventListener('click', function(){
+        if(eritroCelula[0].valor >= 1){
+            let corrigido = Math.trunc((abs.value * 100) / (eritroCelula[0].valor + 100));
+            eritroCorrigido = (abs.value - corrigido)
+            result.innerHTML = `${(corrigido * valor) / 100} / mm3.............${valor}%`;
+            resCorrigido.innerText = `Valor Global de Leucocitos: ${corrigido}`
+        }else{result.innerHTML = `${abs.value * valor / 100} / mm3.............${valor}%`;
+              resCorrigido.innerText = `Valor Global de Leucocitos: ${abs.value}`}
+        });
+        result.innerHTML = `${valor}%`;
     }
+        for(let i = 0; i < eritroCelula.length; i++){
+        let {nome, valor} = eritroCelula[i];
+
+        let eritro = criaP()
+        eritro.innerHTML = `${nome}`
+        nomes.appendChild(eritro)
+        eritro.classList.add('result')
+
+        let result = criaP()
+        enviar.addEventListener('click', function(){
+            if(eritroCelula[0].valor >= 1){
+            result.innerHTML = `${eritroCorrigido} / mm3......${valor} em 100 leucocitos`
+            }else{result.innerHTML = `0 / mm3......${valor} em 100 leucocitos`}
+        });
+        result.innerHTML = `${valor} em 100 leucócitos`;
+        valores.appendChild(result)
+        result.classList.add('result')    
+        }
+
 
     let fechar = criaDiv()
     janela.appendChild(fechar) //fechar painel resultados

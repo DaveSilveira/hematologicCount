@@ -1,4 +1,4 @@
-/* EM TESTE
+/* EM TESTE -- Janelas moveis
 function criarDivMovel(){
     let width = window.innerWidth;
     let heigth = window.innerHeight;
@@ -52,6 +52,7 @@ function criaP(){
     let p = document.createElement('p')
     return p;
 }
+
 /*Explicaçao do programa ao usuário*/
 let chamaDisclaimer = criaDiv()
 chamaDisclaimer.classList.add('botao')
