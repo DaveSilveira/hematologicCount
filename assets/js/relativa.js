@@ -183,6 +183,11 @@ function result(){ //Formatação da aba de resultados
     absoluto.appendChild(enviar)
     enviar.innerText = 'Enviar'
 
+    let resCorrigido = criaP()
+    resCorrigido.innerHTML = 'Valor Global de Leucocitos:';
+    janela.appendChild(resCorrigido)
+    resCorrigido.classList.add('result')
+
     let nomes = criaDiv()
     janela.appendChild(nomes)
     nomes.classList.add('divResul')
@@ -190,11 +195,10 @@ function result(){ //Formatação da aba de resultados
     let valores = criaDiv()
     janela.appendChild(valores)
     valores.classList.add('divValue')
-    
-    let resCorrigido = criaP()
-    resCorrigido.innerHTML = 'Valor Global de Leucocitos:';
-    nomes.appendChild(resCorrigido)
-    resCorrigido.classList.add('result')
+
+    let porcent = criaDiv()
+    janela.appendChild(porcent)
+    porcent.classList.add('divPorcent')
 
     let eritroCorrigido;
 
@@ -209,17 +213,27 @@ function result(){ //Formatação da aba de resultados
         let result = criaP()
         valores.appendChild(result)
         result.classList.add('result')
+
+        let porcentagem = criaP()
+        porcent.appendChild(porcentagem)
+        porcentagem.classList.add('result')
+
         //EVENTO DE CALCULO DA CORREÇÃO DE RETICULOCITOS
         enviar.addEventListener('click', function(){
         if(eritroCelula[0].valor >= 1){
             let corrigido = Math.trunc((abs.value * 100) / (eritroCelula[0].valor + 100));
             eritroCorrigido = (abs.value - corrigido)
-            result.innerHTML = `${(corrigido * valor) / 100} / mm3.............${valor}%`;
+            result.innerHTML = `${(corrigido * valor) / 100} / mm3`;
+            porcentagem.innerHTML = `${valor}%`;
             resCorrigido.innerText = `Valor Global de Leucocitos: ${corrigido}`
-        }else{result.innerHTML = `${abs.value * valor / 100} / mm3.............${valor}%`;
-              resCorrigido.innerText = `Valor Global de Leucocitos: ${abs.value}`}
+        }else{
+            result.innerHTML = `${abs.value * valor / 100} / mm3`;
+            porcentagem.innerHTML= `${valor}%`;
+            resCorrigido.innerText = `Valor Global de Leucocitos: ${abs.value}`}
         });
-        result.innerHTML = `${valor}%`;
+
+        result.innerHTML = '   -----';
+        porcentagem.innerHTML = `${valor}%`;
     }
         for(let i = 0; i < eritroCelula.length; i++){
         let {nome, valor} = eritroCelula[i];
@@ -232,8 +246,8 @@ function result(){ //Formatação da aba de resultados
         let result = criaP()
         enviar.addEventListener('click', function(){
             if(eritroCelula[0].valor >= 1){
-            result.innerHTML = `${eritroCorrigido} / mm3......${valor} em 100 leucocitos`
-            }else{result.innerHTML = `0 / mm3......${valor} em 100 leucocitos`}
+            result.innerHTML = `${eritroCorrigido} / mm3  -  ${valor} em 100 leucocitos`
+            }else{result.innerHTML = `0 / mm3  -  ${valor} em 100 leucocitos`}
         });
         result.innerHTML = `${valor} em 100 leucócitos`;
         valores.appendChild(result)
