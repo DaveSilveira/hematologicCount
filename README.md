@@ -3,8 +3,8 @@
 Status: In progress 
 <p>A hematologic count with reticulocytes function, relactive count and platelets count. </p>
 
-#ptBr
-A ideia inicial deste aplicativo é criar um contador hematologico que realize a contagem relativa, quando a contagem relativa terminar oferecer a lista dosleucocitos relativos contados. Além disso como ideia inicial quero:
+**ptBr**
+Contador de leucócitos com contagem paralela de eritroblastos (o que não interfere na contagem relativa), um contador de reticulócitos e um contador de plaquetas, que mostre o resultado de ambas as contagens quando se termina. O diferencial vai para o contador relativo que ainda faz uma contagem absoluta, quando inserido a contagem global de leucocitos e correção, caso haja eritroblastos na contagem.
 
 Passo a passo do projeto:
 
