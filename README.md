@@ -1,9 +1,9 @@
 # hematologicCount 
 <img src="assets/img/mieloblasto.png" width='60px'><img src="assets/img/promielo.png" width='60px'><img src="assets/img/mielo.png" width='60px'><img src="assets/img/meta.png" width='60px'><img src="assets/img/bastao.png" width='60px'><img src="assets/img/meta.png" width='60px'><img src="assets/img/seg.png" width='60px'><img src="assets/img/eos.png" width='60px'><img src="assets/img/bas.png" width='60px'><img src="assets/img/linTip.png" width='60px'><img src="assets/img/eritro.png" width='60px'><br>
-Status: In progress 
+Status: In progress 🛠️
 <p>A hematologic count with reticulocytes function, relactive count and platelets count. </p>
 
-**ptBr**
+**ptBr** 🇧🇷
 Contador de leucócitos com contagem paralela de eritroblastos (o que não interfere na contagem relativa), um contador de reticulócitos e um contador de plaquetas, que mostre o resultado de ambas as contagens quando se termina. O diferencial vai para o contador relativo que ainda faz uma contagem absoluta, quando inserido a contagem global de leucocitos e correção, caso haja eritroblastos na contagem.
 
 Passo a passo do projeto:
