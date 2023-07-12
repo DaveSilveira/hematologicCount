@@ -9,11 +9,7 @@ reticulocitos.addEventListener('click', function(){
     painel.classList.add('painel')
     document.body.appendChild(painel)
 
-    let fechar = criaDiv()
-    painel.appendChild(fechar)
-    fechar.classList.add('fechar')
-    fechar.innerText='X';
-    fechar.addEventListener('click', function(){painel.style.display='none';});
+    fechar(painel, 'fechar', 'X')
 
     let reticulocito = [{
         cel: 'Ret',
@@ -157,10 +153,6 @@ function result(){ //Formatação da aba de resultados
        // reti.classList.add('result')  
         }
 
-    let fechar = criaDiv()
-    janela.appendChild(fechar) //fechar painel resultados
-    fechar.classList.add('botao')
-    fechar.innerText ='Fechar';
-    fechar.addEventListener('click', function(){janela.style.cssText = 'display:none;'});
+    fechar(janela, 'botao', 'Fechar')
 }
 });

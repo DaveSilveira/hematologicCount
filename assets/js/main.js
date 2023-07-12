@@ -52,7 +52,13 @@ function criaP(){
     let p = document.createElement('p')
     return p;
 }
-
+function fechar(elementoPai, classe, textoDoBotao){
+    let fechar = criaDiv()
+    elementoPai.appendChild(fechar)
+    fechar.classList.add(classe)
+    fechar.innerText = textoDoBotao;
+    fechar.addEventListener('click', () => elementoPai.style.display = 'none');
+}
 /*Explicaçao do programa ao usuário*/
 let chamaDisclaimer = criaDiv()
 chamaDisclaimer.classList.add('botao')

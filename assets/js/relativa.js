@@ -9,11 +9,7 @@ relativa.addEventListener('click', function(){
     painel.classList.add('painel')
     document.body.appendChild(painel)
 
-let fechar = criaDiv()
-painel.appendChild(fechar) //fechar painel de cont. rel.
-fechar.classList.add('fechar')
-fechar.innerText ='x';
-fechar.addEventListener('click', function(){painel.style.cssText = 'display:none;'});
+fechar(painel, 'fechar', 'X') 
 
 //Array que contém as informações dos leucocitos usados no contador
 const celulas = [
@@ -254,11 +250,6 @@ function result(){ //Formatação da aba de resultados
         result.classList.add('result')    
         }
 
-
-    let fechar = criaDiv()
-    janela.appendChild(fechar) //fechar painel resultados
-    fechar.classList.add('botao')
-    fechar.innerText ='Fechar';
-    fechar.addEventListener('click', function(){janela.style.cssText = 'display:none;'});
+    fechar(janela, 'botao', 'Fechar')
 }
 });

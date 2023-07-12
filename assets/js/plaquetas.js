@@ -9,12 +9,8 @@ let plaquetas = criaDiv();
     painel.classList.add('painel')
     document.body.appendChild(painel)
 
-    const fechar = criaDiv()
-    fechar.classList.add('fechar')
-    painel.appendChild(fechar)
-    fechar.innerText = 'X';
-    fechar.addEventListener('click', function(){painel.style.display = 'none'});
-
+    fechar(painel, 'fechar', 'X')
+    
     const plaqueta = [{
         nome: 'plaq', 
         valor: '0', 
