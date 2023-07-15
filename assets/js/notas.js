@@ -99,4 +99,3 @@ function criaP(){
 }
 
 function checkBox(){}
-function deleteNote(){}
