@@ -53,7 +53,6 @@ const eritroCelula = [
         verResul.innerHTML = 'Resultado';
         cxBotao.appendChild(verResul);
         
-        
         let zerar = criaDiv(); //botao para zerar contagem
         zerar.classList.add('botao');
         zerar.innerHTML = 'Zerar';
@@ -106,12 +105,11 @@ const eritroCelula = [
                         eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
                     }
                 });
-
                 zerar.addEventListener('click', function(){valorEritro.innerText = 0;});
             }
 
-    for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
-        let {cel, valor, imagem, tecla, tecla1} = celulas[i];
+for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
+let {cel, valor, imagem, tecla, tecla1} = celulas[i];
 
             let leucoRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             leucoRel.style.backgroundImage = imagem; //Imagem de fundo da celula
@@ -138,7 +136,6 @@ const eritroCelula = [
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
                if(relTotal >= 100) return result();
-               
             });
             document.addEventListener('keydown', function(event){
                 if(event.key === tecla){
@@ -158,7 +155,7 @@ const eritroCelula = [
         }
     }
 
-    const relativa = mostraPainel(); //Criei a variavel para colocar escopo de bloco nas variaveis
+const relativa = mostraPainel(); //Criei a variavel para colocar escopo de bloco nas variaveis
  
 function result(){ //Formatação da aba de resultados
 
