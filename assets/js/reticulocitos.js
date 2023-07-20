@@ -44,13 +44,31 @@ contagens.appendChild(contadorCampo)
 contadorCampo.classList.add('valorPainel')
 contadorCampo.innerHTML = `${totalCampo = 0} \n <div style="font-size:12px;">Campos</div>`;
 
+let hematimetricos = criaDiv()
+painel.appendChild(hematimetricos)
+
+let eri = document.createElement('input')
+hematimetricos.appendChild(eri)
+eri.type = 'number';
+eri.id = 'valor_absoluto';
+eri.placeholder ='Eritrócitos totais:'
+
+let hct = document.createElement('input')
+hematimetricos.appendChild(hct)
+hct.type = 'number';
+hct.id = 'valor_absoluto'
+hct.placeholder ='Hematócrito'
+
+let celulas = criaDiv()
+painel.appendChild(celulas)
+
 for(let i=0; i < reticulocito.length; i++){
     let {cel, valor, imagem, tecla, tecla1} = reticulocito[i];
 
     let retCount = criaDiv()
     retCount.classList.add('celulas')
     retCount.style.backgroundImage = imagem;
-    painel.appendChild(retCount)
+    celulas.appendChild(retCount)
     retCount.dataset.idx = i;
 
     let valorRet = criaDiv()
@@ -90,7 +108,7 @@ for(let i=0; i< campo.length; i++){
 
     let campoCount = criaDiv()
     campoCount.style.backgroundImage = imagem;
-    painel.appendChild(campoCount)
+    celulas.appendChild(campoCount)
     campoCount.classList.add('celulas')
     campoCount.dataset.idx = i;
 
@@ -133,24 +151,21 @@ for(let i=0; i< campo.length; i++){
 function result(){ //Formatação da aba de resultados
 
     let janela = criaDiv()
-        janela.classList.add('painelResult')
-        document.body.appendChild(janela)
-        janela.innerHTML = `<h1>Resultado</h1>`
+    janela.classList.add('painelResult')
+    document.body.appendChild(janela)
+    janela.innerHTML = `<h1>Resultado</h1>`
 
-    let nomes = criaDiv()
-    janela.appendChild(nomes)
-    nomes.classList.add('divResul')
-    let valores = criaDiv()
-    janela.appendChild(valores)
-    valores.classList.add('divValue')
+    let resul = criaDiv()
+    janela.appendChild(resul)
+    resul.classList.add('absoluto')
 
     for(let i = 0; i < reticulocito.length; i++){
         let {valor} = reticulocito[i];
 
         let reti = criaP()
-        reti.innerHTML = `${valor} reticulócitos em 10 campos`
-        nomes.appendChild(reti)
-       // reti.classList.add('result')  
+        reti.innerHTML = `Média de reticulócitos: ${valor / 10}`
+        resul.appendChild(reti)
+
         }
 
     fechar(janela, 'botao', 'Fechar')
