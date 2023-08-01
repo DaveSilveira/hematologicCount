@@ -165,7 +165,7 @@ function result(){ //Formatação da aba de resultados
         let reti = criaP()
         reti.innerHTML = `Média de reticulócitos: ${valor / 10}`
         resul.appendChild(reti)
-
+        
         }
 
     fechar(janela, 'botao', 'Fechar')

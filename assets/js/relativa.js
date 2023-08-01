@@ -141,14 +141,14 @@ let {cel, valor, imagem, tecla, tecla1} = celulas[i];
                 if(event.key === tecla){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-                if(relTotal >= 100) return result();
+                if(relTotal >= 100) return result(), document.removeEventListener('keydown', event);
                 }
             });
             document.addEventListener('keydown', function(event){
                 if(event.key === tecla1){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-                if(relTotal >= 100) return result();
+                if(relTotal >= 100) return result(), document.removeEventListener('keydown', event);
                 }
             });
             zerar.addEventListener('click', function(){valorCelula.innerText = 0;});

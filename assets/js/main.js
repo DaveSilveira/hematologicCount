@@ -57,7 +57,7 @@ function fechar(elementoPai, classe, textoDoBotao){
     elementoPai.appendChild(fechar)
     fechar.classList.add(classe)
     fechar.innerText = textoDoBotao;
-    fechar.addEventListener('click', () => elementoPai.style.display = 'none');
+    fechar.addEventListener('click', () => elementoPai.remove());
 }
 /*Explicaçao do programa ao usuário*/
 let chamaDisclaimer = criaDiv()
