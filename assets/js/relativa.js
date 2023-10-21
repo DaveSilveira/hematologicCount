@@ -135,20 +135,20 @@ let {cel, valor, imagem, tecla, tecla1} = celulas[i];
             leucoRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-               if(relTotal >= 100) return result();
+               if(relTotal == 100) return result();
             });
             document.addEventListener('keydown', function(event){
                 if(event.key === tecla){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-                if(relTotal >= 100) return result(), document.removeEventListener('keydown', event);
+                if(relTotal == 100) return result();              
                 }
             });
             document.addEventListener('keydown', function(event){
                 if(event.key === tecla1){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-                if(relTotal >= 100) return result(), document.removeEventListener('keydown', event);
+                if(relTotal == 100) return result(), document.removeEventListener('keydown', event);
                 }
             });
             zerar.addEventListener('click', function(){valorCelula.innerText = 0;});

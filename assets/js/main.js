@@ -94,4 +94,3 @@ fechar.innerText ='Fechar';
 fechar.addEventListener('click', function(){disclaimer.style.cssText = 'display:none;'});
 
  });
-
