@@ -9,7 +9,11 @@ relativa.addEventListener('click', function(){
     painel.classList.add('painel')
     document.body.appendChild(painel)
 
-fechar(painel, 'fechar', 'X') 
+fechar(painel, 'fechar', 'X')
+
+//valor inicial dos contadores
+let relTotal = 0;
+let eritroTotal = 0;
 
 //Array que contém as informações dos leucocitos usados no contador
 const celulas = [
@@ -33,25 +37,22 @@ const eritroCelula = [
     {cel: 'Eritro', nome: 'Eritroblastos', valor: 0, imagem: 'URL(./assets/img/eritro.png)', musica: 'musica', tecla: 'u', tecla1: 'U'}
 ];
 
-//valor inicial dos contadores
- let relTotal = 0;
- let eritroTotal = 0;
-
-    function mostraPainel(){
+    function mostraPainel(){ //MOSTRA O CONTADOR
 
         const contagens = criaDiv(); //Aqui aparecereá os valores totais 
         painel.appendChild(contagens);
         contagens.classList.add('valoresPainel')
 
-        let cxBotao = criaDiv(); //caixa que engloba os botoes
+        let cxBotao = criaDiv(); //caixa que engloba os botoes resultado e zerar
         cxBotao.classList.add('botaoPainel');
         contagens.appendChild(cxBotao);
-        cxBotao.style.cssText = 'display: none;';//invisivel por enquanto
+        //cxBotao.style.cssText = 'display: none;';invisivel por enquanto
         
         let verResul = criaDiv(); //Botao de ver resultado
         verResul.classList.add('botao');
         verResul.innerHTML = 'Resultado';
         cxBotao.appendChild(verResul);
+        verResul.addEventListener('click', result())
         
         let zerar = criaDiv(); //botao para zerar contagem
         zerar.classList.add('botao');
@@ -105,11 +106,14 @@ const eritroCelula = [
                         eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
                     }
                 });
-                zerar.addEventListener('click', function(){valorEritro.innerText = 0;});
+                zerar.addEventListener('click', function(){
+                    eritroCelula[i].valor = 0;
+                    valorEritro.innerText = 0;
+                });
             }
 
-for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
-let {cel, valor, imagem, tecla, tecla1} = celulas[i];
+    for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
+    let {cel, valor, imagem, tecla, tecla1} = celulas[i];
 
             let leucoRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             leucoRel.style.backgroundImage = imagem; //Imagem de fundo da celula
@@ -148,16 +152,17 @@ let {cel, valor, imagem, tecla, tecla1} = celulas[i];
                 if(event.key === tecla1){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
-                if(relTotal == 100) return result(), document.removeEventListener('keydown', event);
+                if(relTotal == 100) return result();
                 }
             });
-            zerar.addEventListener('click', function(){valorCelula.innerText = 0;});
+            zerar.addEventListener('click', function(){
+                celulas[i].valor=0; // zera o valor no array
+                valorCelula.innerText = 0 //zera o valor no visor vermelho
+            });
         }
     }
-
-const relativa = mostraPainel(); //Criei a variavel para colocar escopo de bloco nas variaveis
  
-function result(){ //Formatação da aba de resultados
+function result(){ //MOSTRA A JANELA DE RESULTADOS
 
     let janela = criaDiv()
         janela.classList.add('painelResult')
@@ -249,4 +254,6 @@ function result(){ //Formatação da aba de resultados
 
     fechar(janela, 'botao', 'Fechar')
 }
+
+const chamarPainel = mostraPainel(); //C
 });
