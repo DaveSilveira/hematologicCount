@@ -34,6 +34,16 @@ const contagens = criaDiv()
 painel.appendChild(contagens)
 contagens.classList.add('valoresPainel')
 
+let zerar = criaDiv()
+zerar.classList.add('botao')
+contagens.appendChild(zerar)
+zerar.innerText = 'Zerar';
+
+let resultado = criaDiv()
+resultado.classList.add('botao')
+contagens.appendChild(resultado)
+resultado.innerText = 'Resultado';
+
 let contadorReti = criaDiv()
 contagens.appendChild(contadorReti)
 contadorReti.classList.add('valorPainel')

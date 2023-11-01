@@ -52,8 +52,8 @@ const eritroCelula = [
         verResul.classList.add('botao');
         verResul.innerHTML = 'Resultado';
         cxBotao.appendChild(verResul);
-        verResul.addEventListener('click', result())
-        
+        verResul.addEventListener('click', function(){result()});
+
         let zerar = criaDiv(); //botao para zerar contagem
         zerar.classList.add('botao');
         zerar.innerHTML = 'Zerar';
@@ -110,6 +110,7 @@ const eritroCelula = [
                     eritroCelula[i].valor = 0;
                     valorEritro.innerText = 0;
                 });
+                
             }
 
     for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
