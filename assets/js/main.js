@@ -71,12 +71,14 @@ disclaimer.classList.add('disclaimer')
 document.body.appendChild(disclaimer)
 disclaimer.innerHTML = `<h1>Contador de céluas</h1>
 <p>
-    O Contador Hematologico foi criado com o intuito de facilitar a vida na bancada,
-    ajudando o analista e evitando o uso de espaço com contadores físicos. A diferença
-    deste contador para os contadores que já existem é a contagem de eritroblastos, que
-    não interfere na contagem relativa dos leucocitos.
+    A intenção da criação do contador hematologico é de praticar meus aprendizados em javascript
+    com uma ferramenta que ajuda profissionais da área da saúde na bancada de laboratório clínico.
+    É basicamente um contador que diferencia as células que estão, ou podem estar presentes, na 
+    circulação sanguinea.
 </p>
 <p>
+    O diferencial deste contador para alguns que já vemos nas centrais de aplicativos é a contagem
+    separada de eritroblastos, além da presença separada de células jovens.
     Além da contagem relativa você também conseguirá realizar contagem de plaquetas, reticulócitos
     e ainda tem uma função de anotações junto ao contador para notas temporárias. É importante 
     frisar que ao atualizar ou fechar a página as notas desaparecem.

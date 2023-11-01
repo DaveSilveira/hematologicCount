@@ -27,6 +27,7 @@ reticulocitos.addEventListener('click', function(){
         tecla: 'h',
         tecla1: 'H',
     }]
+
 let totalRet
 let totalCampo
 
@@ -43,6 +44,7 @@ let resultado = criaDiv()
 resultado.classList.add('botao')
 contagens.appendChild(resultado)
 resultado.innerText = 'Resultado';
+resultado.addEventListener('click', function(){result()} )
 
 let contadorReti = criaDiv()
 contagens.appendChild(contadorReti)
@@ -156,6 +158,11 @@ for(let i=0; i< campo.length; i++){
             if(totalCampo === 10) return result()
             }
         });
+        zerar.addEventListener('click', function(){
+            campo[i].valor = 0
+            valorCampo.innerText =0
+            contadorCampo.innerHTML = `${totalCampo = 0} \n <div style="font-size:12px;">Campos</div>`
+        })
 }
 
 function result(){ //Formatação da aba de resultados
