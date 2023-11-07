@@ -1,42 +1,3 @@
-/* EM TESTE -- Janelas moveis
-function criarDivMovel(){
-    let width = window.innerWidth;
-    let heigth = window.innerHeight;
-
-    let stage = new janela.stage({
-        criaDiv: document.createElement('div'),
-        width: width,
-        heigth: heigth,
-    });
-
-    let layer = janela.layer();
-    let rectX = stage.width() / 2 - 50;
-    let rectY = stage.heigth() / 2 - 25;
-
-    let box = new janela.rect({
-        x: rectX,
-        y: rectY,
-        width: 100,
-        heigth: 50,
-        fill: '#00D2FF',
-        stroke: 'black',
-        strokeWidth: 4,
-        draggable: true,
-    });
-
-        //estilo do mouse
-        box.on('mouseover', function(){
-            document.style.cursor = 'pointer';
-        });
-        box.on('mouseover', function(){
-            document.style.cursor = 'default';
-        });
-
-        layer.add(box);
-        stage.add(layer)
-
-    return criaDiv()
-}*/
 /*  VARIAVEIS E FUNÇÕES GLOBAIS   */
 let corpo = document.querySelector('.corpo');
 
@@ -59,6 +20,43 @@ function fechar(elementoPai, classe, textoDoBotao){
     fechar.innerText = textoDoBotao;
     fechar.addEventListener('click', () => elementoPai.remove());
 }
+
+// EM TESTE -- Janelas moveis
+function moverdiv(A){
+const myDiv = A
+
+myDiv.addEventListener('mousedown', dragStart);
+
+function dragStart(e){
+    //armazena posição inicial do mouse
+    const startX = e.clientX;
+    const startY = e.clientY;
+
+    //armazena apsoição inicial da div
+    const offSetX = myDiv.offsetLeft;
+    const offSetY = myDiv.offsetTop;
+
+    //Eventos que acompanham o movimento do mouse
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', dragEnd);
+
+    function drag(e){
+        //calcula a distancia percorrida pelo mouse
+        const distanceX = e.clientX - startX;
+        const distanceY = e.clientX - startY;
+        //define a nova posição da div
+        myDiv.style.left = (offSetX + distanceX) + 'px';
+        myDiv.style.top = (offSetY + distanceY) + 'px';
+    }
+
+    function dragEnd(){
+        //remove eventos de acompanhamento do movimento do mouse
+        document.removeEventListener('mousemove', drag);
+        document.removeEventListener('mouseup', dragEnd);
+    }
+}
+}
+
 /*Explicaçao do programa ao usuário*/
 let chamaDisclaimer = criaDiv()
 chamaDisclaimer.classList.add('botao')

@@ -7,6 +7,7 @@ let relativa = criaDiv();
 relativa.addEventListener('click', function(){
     const painel = criaDiv() //Abrir painel de cont. relat.
     painel.classList.add('painel')
+    moverdiv(painel) //função de clicar e  mover
     document.body.appendChild(painel)
 
 fechar(painel, 'fechar', 'X')
@@ -104,7 +105,7 @@ const eritroCelula = [
                     if(event.key === tecla){
                         valorEritro.innerText = ++eritroCelula[eritroRel.dataset.idx]["valor"]; 
                         eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
-                    }
+                    }  
                 });
                 zerar.addEventListener('click', function(){
                     eritroCelula[i].valor = 0;
