@@ -44,9 +44,12 @@ function dragStart(e){
         //calcula a distancia percorrida pelo mouse
         const distanceX = e.clientX - startX;
         const distanceY = e.clientX - startY;
+
         //define a nova posição da div
         myDiv.style.left = (offSetX + distanceX) + 'px';
-        myDiv.style.top = (offSetY + distanceY) + 'px';
+        myDiv.style.top = (offSetY - distanceY) + 'px';
+        /*myDiv.style.right = (offSetX - distanceX) + 'px';
+        myDiv.style.botton = (offSetY - distanceY) + 'px'; */
     }
 
     function dragEnd(){

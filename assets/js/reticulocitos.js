@@ -9,8 +9,9 @@ reticulocitos.addEventListener('click', function(){
     painel.classList.add('painel')
     document.body.appendChild(painel)
 
-    fechar(painel, 'fechar', 'X')
+fechar(painel, 'fechar', 'X') //Função de fechar janela, chamada do arquivo main
 
+//Inces contendo informações dos botões
     let reticulocito = [{
         cel: 'Ret',
         valor: 0,
@@ -28,6 +29,7 @@ reticulocitos.addEventListener('click', function(){
         tecla1: 'H',
     }]
 
+//Variaveis criadas externamente para setar as configurações das contagens do painel
 let totalRet
 let totalCampo
 
@@ -61,7 +63,7 @@ painel.appendChild(hematimetricos)
 
 let eri = document.createElement('input')
 hematimetricos.appendChild(eri)
-eri.type = 'number';
+eri.type = 'float';
 eri.id = 'valor_absoluto';
 eri.placeholder ='Eritrócitos totais:'
 
@@ -71,9 +73,10 @@ hct.type = 'number';
 hct.id = 'valor_absoluto'
 hct.placeholder ='Hematócrito'
 
-let celulas = criaDiv()
+let celulas = criaDiv() //Div que formata os botões de células
 painel.appendChild(celulas)
 
+//Botão de contagem de reticulócitos
 for(let i=0; i < reticulocito.length; i++){
     let {cel, valor, imagem, tecla, tecla1} = reticulocito[i];
 
@@ -113,8 +116,15 @@ for(let i=0; i < reticulocito.length; i++){
             valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
             contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
         }
+        zerar.addEventListener('click', function(){
+            reticulocito[i].valor = 0
+            valorRet.innerText =0
+            contadorReti.innerHTML = `${totalRet = 0} \n <div style="font-size:12px;">Campos</div>`
+        })        
     });
 }
+
+//Botão de contagem dos campos
 for(let i=0; i< campo.length; i++){
     let {cel, valor, imagem, tecla, tecla1} = campo[i]
 
@@ -165,7 +175,8 @@ for(let i=0; i< campo.length; i++){
         })
 }
 
-function result(){ //Formatação da aba de resultados
+//Formatação da aba de resultados
+function result(){ 
 
     let janela = criaDiv()
     janela.classList.add('painelResult')
@@ -182,8 +193,12 @@ function result(){ //Formatação da aba de resultados
         let reti = criaP()
         reti.innerHTML = `Média de reticulócitos: ${valor / 10}`
         resul.appendChild(reti)
-        
         }
+        /* REVISAR
+        if (eri || hct > 0){
+        resul.innerHTML = `${eri} ${hct}`
+        }
+        */
 
     fechar(janela, 'botao', 'Fechar')
 }
