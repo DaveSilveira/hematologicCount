@@ -179,6 +179,8 @@ for(let i=0; i< campo.length; i++){
 function result(){ 
 
     let janela = criaDiv()
+    //Setando o css pelo js para exclusividade nesse codigo, pois a classe e tbm de relativa.js
+    janela.style.cssText = `text-align: center;`
     janela.classList.add('painelResult')
     document.body.appendChild(janela)
     janela.innerHTML = `<h1>Resultado</h1>`
@@ -194,11 +196,15 @@ function result(){
         reti.innerHTML = `Média de reticulócitos: ${valor / 10}`
         resul.appendChild(reti)
         }
-        /* REVISAR
-        if (eri || hct > 0){
-        resul.innerHTML = `${eri} ${hct}`
+
+        let eritrocitos = eri.value;
+        let hematocrito = hct.value;
+
+        if (eritrocitos || hematocrito > 0){
+        resul.innerHTML = `Eritrocitos totais: ${eritrocitos}
+        Hematócrito: ${hematocrito}`
         }
-        */
+
 
     fechar(janela, 'botao', 'Fechar')
 }
