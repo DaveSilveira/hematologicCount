@@ -257,5 +257,5 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
     fechar(janela, 'botao', 'Fechar')
 }
 
-const chamarPainel = mostraPainel(); //C
+const chamarPainel = mostraPainel(); 
 });

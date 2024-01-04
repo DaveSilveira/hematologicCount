@@ -60,6 +60,7 @@ contadorCampo.innerHTML = `${totalCampo = 0} \n <div style="font-size:12px;">Cam
 
 let hematimetricos = criaDiv()
 painel.appendChild(hematimetricos)
+centralizaDiv(hematimetricos)
 
 let eri = document.createElement('input')
 hematimetricos.appendChild(eri)
@@ -75,6 +76,7 @@ hct.placeholder ='Hematócrito'
 
 let celulas = criaDiv() //Div que formata os botões de células
 painel.appendChild(celulas)
+centralizaDiv(celulas)
 
 //Botão de contagem de reticulócitos
 for(let i=0; i < reticulocito.length; i++){

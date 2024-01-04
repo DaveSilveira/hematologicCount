@@ -20,8 +20,11 @@ function fechar(elementoPai, classe, textoDoBotao){
     fechar.innerText = textoDoBotao;
     fechar.addEventListener('click', () => elementoPai.remove());
 }
+function centralizaDiv(elementoPai){
+elementoPai.style.cssText = `display: flex; flex-drection: row; justify-content: center; align-content: center;`
+}
 
-// EM TESTE -- Janelas moveis
+/* EM TESTE -- Janelas moveis
 function moverdiv(A){
 const myDiv = A
 
@@ -48,8 +51,9 @@ function dragStart(e){
         //define a nova posição da div
         myDiv.style.left = (offSetX + distanceX) + 'px';
         myDiv.style.top = (offSetY - distanceY) + 'px';
-        /*myDiv.style.right = (offSetX - distanceX) + 'px';
-        myDiv.style.botton = (offSetY - distanceY) + 'px'; */
+        
+        //myDiv.style.right = (offSetX - distanceX) + 'px';
+        //myDiv.style.botton = (offSetY - distanceY) + 'px'; 
     }
 
     function dragEnd(){
@@ -58,7 +62,8 @@ function dragStart(e){
         document.removeEventListener('mouseup', dragEnd);
     }
 }
-}
+} 
+*/
 
 /*Explicaçao do programa ao usuário*/
 let chamaDisclaimer = criaDiv()
