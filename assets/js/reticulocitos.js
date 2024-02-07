@@ -9,6 +9,12 @@ reticulocitos.addEventListener('click', function(){
     painel.classList.add('painel')
     document.body.appendChild(painel)
 
+let titulo = criaDiv();
+painel.appendChild(titulo)
+titulo.innerText = 'Contagem de reticulócitos';
+titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
+    
+
 fechar(painel, 'fechar', 'X') //Função de fechar janela, chamada do arquivo main
 
 //Inces contendo informações dos botões

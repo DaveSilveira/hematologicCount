@@ -10,6 +10,11 @@ relativa.addEventListener('click', function(){
    // moverdiv(painel) //função de clicar e  mover (em testes, main.js)
     document.body.appendChild(painel)
 
+let titulo = criaDiv();
+painel.appendChild(titulo)
+titulo.innerText = 'Contagem relativa';
+titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
+
 fechar(painel, 'fechar', 'X')
 
 //valor inicial dos contadores

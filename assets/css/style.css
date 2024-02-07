@@ -1,5 +1,6 @@
 body{
     background-color: rgb(166, 205, 241);
+    user-select: none; /*impedir seleção de texto na pagina*/
 }
 p{
     margin-top: 4px;
@@ -87,6 +88,7 @@ p{
     height: 70%;
     padding: 10px;
     text-align: justify;
+    font-family: sans-serif;
     color: #5a5a5a;
     background-color: #ffffff;
     position: absolute;

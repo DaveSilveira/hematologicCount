@@ -1,6 +1,6 @@
 //Contagem de plaquetas
 let plaquetas = criaDiv();
- plaquetas.innerText = 'Plaquetas';
+ plaquetas.innerText = 'Liquidos';
  plaquetas.classList.add('botao');
  corpo.appendChild(plaquetas);
 
@@ -9,10 +9,16 @@ let plaquetas = criaDiv();
     painel.classList.add('painel')
     document.body.appendChild(painel)
 
+let titulo = criaDiv();
+painel.appendChild(titulo)
+titulo.innerText = 'Contagem de céluas em líquidos';
+titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
+
+
     fechar(painel, 'fechar', 'X')
     
     const plaqueta = [{
-        nome: 'plaq', 
+        nome: 'Hemácias', 
         valor: '0', 
         musica:'...', 
         imagem: 'URL(./assets/img/outra.png)', 
