@@ -7,7 +7,7 @@ let relativa = criaDiv();
 relativa.addEventListener('click', function(){
     const painel = criaDiv() //Abrir painel de cont. relat.
     painel.classList.add('painel')
-    moverdiv(painel) //função de clicar e  mover
+   // moverdiv(painel) //função de clicar e  mover (em testes, main.js)
     document.body.appendChild(painel)
 
 fechar(painel, 'fechar', 'X')
