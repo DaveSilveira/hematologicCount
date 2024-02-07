@@ -38,6 +38,9 @@ const celulas = [
     {cel: 'Outras2',nome: 'Outras 2',valor: 0, imagem: 'URL(./assets/img/outra.png)', musica: 'musica', tecla: 'p', tecla1: 'P'},
 ];
 
+const count = new Audio('./assets/sound/count.mp3')
+const final = new Audio('./assets/sound/final.mp3')
+
 //array que contém as infromaões dos eritros, precisa ficar separado pois o contador é diferente
 const eritroCelula = [
     {cel: 'Eritro', nome: 'Eritroblastos', valor: 0, imagem: 'URL(./assets/img/eritro.png)', musica: 'musica', tecla: 'u', tecla1: 'U'}
@@ -80,7 +83,7 @@ const eritroCelula = [
             contagens.appendChild(eritroblasto);
 
     for (let i = 0; i < eritroCelula.length; i++ ){ //para aparecer os eritros no painel
-        let {cel, valor, imagem,tecla} = eritroCelula[i];
+        let {cel, valor, imagem, tecla, tecla1} = eritroCelula[i];
         let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             eritroRel.style.backgroundImage = imagem; //Imagem de fundo da celula
             eritroRel.classList.add('celulas');
@@ -105,13 +108,20 @@ const eritroCelula = [
                 eritroRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                     valorEritro.innerText = ++eritroCelula[this.dataset.idx]["valor"]; 
                     eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
+                    count.play()
                     });
                 document.addEventListener('keydown', function(event){
                     if(event.key === tecla){
                         valorEritro.innerText = ++eritroCelula[eritroRel.dataset.idx]["valor"]; 
                         eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
-                    }  
-                });
+                        count.play()
+                    }});
+                document.addEventListener('keydown', function(event){
+                    if(event.key === tecla1){
+                        valorEritro.innerText = ++eritroCelula[eritroRel.dataset.idx]["valor"]; 
+                        eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
+                        count.play()
+                    }});
                 zerar.addEventListener('click', function(){
                     eritroCelula[i].valor = 0;
                     valorEritro.innerText = 0;
@@ -146,12 +156,14 @@ const eritroCelula = [
             leucoRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                count.play()
                if(relTotal == 100) return result();
             });
             document.addEventListener('keydown', function(event){
                 if(event.key === tecla){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                count.play()
                 if(relTotal == 100) return result();              
                 }
             });
@@ -159,6 +171,7 @@ const eritroCelula = [
                 if(event.key === tecla1){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                count.play()
                 if(relTotal == 100) return result();
                 }
             });
@@ -170,6 +183,8 @@ const eritroCelula = [
     }
  
 function result(){ //MOSTRA A JANELA DE RESULTADOS
+    
+    final.play()
 
     let janela = criaDiv()
         janela.classList.add('painelResult')
