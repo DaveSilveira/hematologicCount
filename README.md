@@ -11,12 +11,12 @@ Passo a passo do projeto:
 - [x] 1. Adicionar um contador relativo de leucocitos.
 - [x] 1.1 - Que conte eritroblastos separado da contagem relativa.
 - [x] 1.2 - Que mostre um painel de resultados, que contenha os resultados relativos e absolutos, caso o usuário queira.
-- [ ] 1.3 - Que possa ser zerado para que se inicie outra contagem.
+- [x] 1.3 - Que possa ser zerado para que se inicie outra contagem.
 - [x] 2. Adicionar um contador de reticulócitos.
-- [ ] 2.1 - Que conte dez campos e quando chegar na quantidade de campos ofereça o resultado ao usuário com a quantidade de reticulócitos contados.
-- [ ] 2.2 - Que possa ser zerado para que o usuário consiga iniciar uma outra contagem.
-- [x] 3. Adicionar um contador de plaquetas.
-- [ ] 3.1 - Que realize a contagem de plaquetas em dez campos e ofereça o resultado ao usuário quando a contagem acabar.
+- [x] 2.1 - Que conte dez campos e quando chegar na quantidade de campos ofereça o resultado ao usuário com a quantidade de reticulócitos contados.
+- [x] 2.2 - Que possa ser zerado para que o usuário consiga iniciar uma outra contagem.
+- [x] 3. Adicionar um contador de liquidos.
+- [x] 3.1 - Que realize a contagem de diferentes tipos de liquidos e ofereça o resultado ao usuário quando a contagem acabar.
 - [ ] 3.2 - Que possa ser zerado para que o usuário possa iniciar uma nova contagem.
 - [x] 4. Inserir um bloco de notas momentâneas.
 - [ ] 4.1 Que o bloco de notas não interfira nas contagens e o usuário utilize para anotações rápidas sem sair da interface.
