@@ -199,19 +199,25 @@ function result(){
 
     for(let i = 0; i < reticulocito.length; i++){
         let {valor} = reticulocito[i];
-
-        let reti = criaP()
-        reti.innerHTML = `Média de reticulócitos: ${valor / 10}`
-        resul.appendChild(reti)
-        }
-
         let eritrocitos = eri.value;
         let hematocrito = hct.value;
+        let media = valor / 10
+        let porcentagem = media * hematocrito / 45
 
+        let reti = criaP()
+        reti.innerHTML = `Média de reticulócitos: ${media}`
+        resul.appendChild(reti)
+    
         if (eritrocitos || hematocrito > 0){
-        resul.innerHTML = `Eritrocitos totais: ${eritrocitos}
-        Hematócrito: ${hematocrito}`
-        }
+        resul.innerHTML = `
+        Eritrocitos totais: ${eritrocitos} \n
+        Hematócrito: ${hematocrito} \n
+        Média de reticulócitos: ${media} \n
+        ${porcentagem}% de reticulócitos em ${eritrocitos} milhões/mm3 de hemácias. `
+        }    
+    
+    }
+        
 
 
     fechar(janela, 'botao', 'Fechar')
