@@ -35,8 +35,8 @@ titulo.style.cssText = `font-size:24px; font-family: sans-serif; display: inline
     }]
 
 //Variaveis criadas externamente para setar as configurações das contagens do painel
-let totalRet =0;
-let totalCampo =0;
+let totalRet = 0;
+let totalCampo = 0;
 
 const contagens = criaDiv()
 painel.appendChild(contagens)
@@ -188,7 +188,7 @@ function result(){
         let eriLabel = document.createElement('label')
         resul.appendChild(eriLabel)
         eriLabel.for = 'valor_eri';
-        eriLabel.textContent ='Valor total de eritrocitos:';
+        eriLabel.textContent ='Valor total de eritrocitos: ';
         let eri = document.createElement('input')
         resul.appendChild(eri)
         eri.type = 'number';
@@ -198,34 +198,35 @@ function result(){
         let hctLabel = document.createElement('label')
         resul.appendChild(hctLabel)
         hctLabel.for = 'valor_hct';
-        hctLabel.textContent ='Valor do hematocrito:';
+        hctLabel.textContent ='Valor do hematocrito: ';
         let hct = document.createElement('input')
         resul.appendChild(hct)
         hct.type = 'number';
         hct.id = 'valor_hct';
         hct.placeholder ='Hematócrito';
 
-        let eritrocitos = eri.value;
-        let hematocrito = hct.value;
-        let media = totalRet / totalCampo;
-        let porcentagem = (media * hematocrito / 45).toFixed(2)
-
         let enviar = document.createElement('button')
         resul.appendChild(enviar)
         enviar.innerText = 'Enviar';
+        
+        let media = (totalRet / totalCampo)
 
         let reti = criaP()
         reti.innerHTML = `Média de reticulócitos: ${media}`
         resul.appendChild(reti)
-    
+
         enviar.addEventListener('click', function(){
+            let eritrocitos = eri.value;
+            let hematocrito = hct.value;
+            let CAR = (media * hematocrito / 45).toFixed(3)
+            let porcentagem = (eritrocitos * CAR / 100).toFixed(2)
+
         resul.innerHTML = `
         <p>Eritrocitos totais: ${eritrocitos} milhões/mm³</p>
         <p>Hematócrito: ${hematocrito}%</p>
         <p>Média de reticulócitos: ${media}</p>
-        <p>${porcentagem}% de reticulócitos em ${eritrocitos} milhões/mm³ de hemácias.</p>`
-console.log(hematocrito)
-
+        <p>${CAR} de reticulócitos em ${eritrocitos} milhões/mm³ de hemácias, sendo 
+        ${porcentagem}% de reticulócitos.</p>`;
         });
     fechar(janela, 'botao', 'Fechar')
 }

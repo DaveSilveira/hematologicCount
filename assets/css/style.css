@@ -173,3 +173,6 @@ p{
 #valor_absoluto{
     width: 100px;
 }
+#valor_hct, #valor_eri, #abs{
+    width: 60px;
+}
