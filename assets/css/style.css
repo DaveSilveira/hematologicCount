@@ -46,7 +46,7 @@ p{
 }
 .painel{
     min-width: 40%;
-    min-height: 30%;
+    min-height: 40%;
     background-color: #ffffff;
     justify-content: center;
     align-items: center;
@@ -102,6 +102,7 @@ p{
     height: 30px;
     font-size: 24px;
     text-align: center;
+    
     margin: 4px;
     color: #ffffff;
     background-color: #0c136d;
@@ -165,7 +166,7 @@ p{
 /*Classes e Ids dos paineis de resultados*/
 .painelResult{
     width: 40%;
-    height: 95%;
+    min-height: 60%;
     background-color: #ffffff;
     padding-left: 2%;
 }

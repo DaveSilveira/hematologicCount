@@ -9,13 +9,12 @@ reticulocitos.addEventListener('click', function(){
     painel.classList.add('painel')
     document.body.appendChild(painel)
 
+    fechar(painel, 'fechar', 'X') //Função de fechar janela, chamada do arquivo main
+
 let titulo = criaDiv();
 painel.appendChild(titulo)
 titulo.innerText = 'Contagem de reticulócitos';
-titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
-    
-
-fechar(painel, 'fechar', 'X') //Função de fechar janela, chamada do arquivo main
+titulo.style.cssText = `font-size:24px; font-family: sans-serif; display: inline-block; margin: 10px 0px 0px 30px;`;
 
 //Inces contendo informações dos botões
     let reticulocito = [{
@@ -36,21 +35,29 @@ fechar(painel, 'fechar', 'X') //Função de fechar janela, chamada do arquivo ma
     }]
 
 //Variaveis criadas externamente para setar as configurações das contagens do painel
-let totalRet
-let totalCampo
+let totalRet =0;
+let totalCampo =0;
 
 const contagens = criaDiv()
 painel.appendChild(contagens)
 contagens.classList.add('valoresPainel')
 
+let cxBotao = criaDiv(); //caixa que engloba os botoes resultado e zerar
+cxBotao.classList.add('botaoPainel');
+contagens.appendChild(cxBotao);
+
 let zerar = criaDiv()
 zerar.classList.add('botao')
-painel.appendChild(zerar)
+cxBotao.appendChild(zerar)
 zerar.innerText = 'Zerar';
+zerar.addEventListener('click', function(){
+    contadorReti.innerHTML = `${totalRet = 0} \n <div style="font-size:12px;">Reticulócitos</div>`
+    contadorCampo.innerHTML = `${totalCampo = 0} \n <div style="font-size:12px;">Campos</div>`
+});
 
 let resultado = criaDiv()
 resultado.classList.add('botao')
-painel.appendChild(resultado)
+cxBotao.appendChild(resultado)
 resultado.innerText = 'Resultado';
 resultado.addEventListener('click', function(){result()} )
 
@@ -63,22 +70,6 @@ let contadorCampo = criaDiv()
 contagens.appendChild(contadorCampo)
 contadorCampo.classList.add('valorPainel')
 contadorCampo.innerHTML = `${totalCampo = 0} \n <div style="font-size:12px;">Campos</div>`;
-
-let hematimetricos = criaDiv()
-painel.appendChild(hematimetricos)
-centralizaDiv(hematimetricos)
-
-let eri = document.createElement('input')
-hematimetricos.appendChild(eri)
-eri.type = 'float';
-eri.id = 'valor_absoluto';
-eri.placeholder ='Eritrócitos totais:'
-
-let hct = document.createElement('input')
-hematimetricos.appendChild(hct)
-hct.type = 'number';
-hct.id = 'valor_absoluto'
-hct.placeholder ='Hematócrito'
 
 let celulas = criaDiv() //Div que formata os botões de células
 painel.appendChild(celulas)
@@ -123,13 +114,11 @@ for(let i=0; i < reticulocito.length; i++){
         if(event.key === tecla1){
             valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
             contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
-        }
+        }});
         zerar.addEventListener('click', function(){
-            reticulocito[i].valor = 0
-            valorRet.innerText =0
-            contadorReti.innerHTML = `${totalRet = 0} \n <div style="font-size:12px;">Campos</div>`
-        })        
-    });
+            reticulocito[i].valor = 0;
+            valorRet.innerText = 0;
+        });
 }
 
 //Botão de contagem dos campos
@@ -179,8 +168,7 @@ for(let i=0; i< campo.length; i++){
         zerar.addEventListener('click', function(){
             campo[i].valor = 0
             valorCampo.innerText =0
-            contadorCampo.innerHTML = `${totalCampo = 0} \n <div style="font-size:12px;">Campos</div>`
-        })
+        });
 }
 
 //Formatação da aba de resultados
@@ -197,29 +185,48 @@ function result(){
     janela.appendChild(resul)
     resul.classList.add('absoluto')
 
-    for(let i = 0; i < reticulocito.length; i++){
-        let {valor} = reticulocito[i];
+        let eriLabel = document.createElement('label')
+        resul.appendChild(eriLabel)
+        eriLabel.for = 'valor_eri';
+        eriLabel.textContent ='Valor total de eritrocitos:';
+        let eri = document.createElement('input')
+        resul.appendChild(eri)
+        eri.type = 'number';
+        eri.id = 'valor_eri';
+        eri.placeholder ='Eritrócitos totais:';
+
+        let hctLabel = document.createElement('label')
+        resul.appendChild(hctLabel)
+        hctLabel.for = 'valor_hct';
+        hctLabel.textContent ='Valor do hematocrito:';
+        let hct = document.createElement('input')
+        resul.appendChild(hct)
+        hct.type = 'number';
+        hct.id = 'valor_hct';
+        hct.placeholder ='Hematócrito';
+
         let eritrocitos = eri.value;
         let hematocrito = hct.value;
-        let media = valor / 10
+        let media = totalRet / totalCampo;
         let porcentagem = (media * hematocrito / 45).toFixed(2)
+
+        let enviar = document.createElement('button')
+        resul.appendChild(enviar)
+        enviar.innerText = 'Enviar';
 
         let reti = criaP()
         reti.innerHTML = `Média de reticulócitos: ${media}`
         resul.appendChild(reti)
     
-        if (eritrocitos || hematocrito > 0){
+        enviar.addEventListener('click', function(){
         resul.innerHTML = `
         <p>Eritrocitos totais: ${eritrocitos} milhões/mm³</p>
         <p>Hematócrito: ${hematocrito}%</p>
         <p>Média de reticulócitos: ${media}</p>
         <p>${porcentagem}% de reticulócitos em ${eritrocitos} milhões/mm³ de hemácias.</p>`
-        }    
-    
-    }
-        
+console.log(hematocrito)
 
-
+        });
     fechar(janela, 'botao', 'Fechar')
 }
 });

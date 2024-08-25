@@ -55,7 +55,6 @@ const eritroCelula = [
         let cxBotao = criaDiv(); //caixa que engloba os botoes resultado e zerar
         cxBotao.classList.add('botaoPainel');
         contagens.appendChild(cxBotao);
-        //cxBotao.style.cssText = 'display: none;';invisivel por enquanto
         
         let verResul = criaDiv(); //Botao de ver resultado
         verResul.classList.add('botao');
@@ -199,6 +198,7 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
     let abs = document.createElement('input')
     abs.type = 'number';
     abs.id = 'abs';
+    abs.placeholder = '0';
     absoluto.innerHTML = `Valor total de leucocitos:`;
     absoluto.appendChild(abs)
     let enviar = document.createElement('button')
@@ -245,11 +245,11 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
         if(eritroCelula[0].valor >= 1){
             let corrigido = Math.trunc((abs.value * 100) / (eritroCelula[0].valor + 100));
             eritroCorrigido = (abs.value - corrigido)
-            result.innerHTML = `${(corrigido * valor) / 100} / mm3`;
+            result.innerHTML = `${(corrigido * valor) / 100} / mm³`;
             porcentagem.innerHTML = `${valor}%`;
             resCorrigido.innerText = `Valor Global de Leucocitos: ${corrigido}`
         }else{
-            result.innerHTML = `${abs.value * valor / 100} / mm3`;
+            result.innerHTML = `${abs.value * valor / 100} / mm³`;
             porcentagem.innerHTML= `${valor}%`;
             resCorrigido.innerText = `Valor Global de Leucocitos: ${abs.value}`}
         });
@@ -268,8 +268,8 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
         let result = criaP()
         enviar.addEventListener('click', function(){
             if(eritroCelula[0].valor >= 1){
-            result.innerHTML = `${eritroCorrigido} / mm3  -  ${valor} em 100 leucocitos`
-            }else{result.innerHTML = `0 / mm3  -  ${valor} em 100 leucocitos`}
+            result.innerHTML = `${eritroCorrigido} / mm³  -  ${valor} em 100 leucocitos`
+            }else{result.innerHTML = `0 / mm³  -  ${valor} em 100 leucocitos`}
         });
         result.innerHTML = `${valor} em 100 leucócitos`;
         valores.appendChild(result)
