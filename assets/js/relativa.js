@@ -83,12 +83,13 @@ const eritroCelula = [
             contagens.appendChild(eritroblasto);
 
     for (let i = 0; i < eritroCelula.length; i++ ){ //para aparecer os eritros no painel
-        let {cel, valor, imagem, tecla, tecla1} = eritroCelula[i];
+        let {cel, valor, imagem, tecla, tecla1, nome} = eritroCelula[i];
         let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             eritroRel.style.backgroundImage = imagem; //Imagem de fundo da celula
             eritroRel.classList.add('celulas');
                 painel.appendChild(eritroRel);
-                eritroRel.dataset.idx = i; 
+                eritroRel.dataset.idx = i;
+                eritroRel.setAttribute("name", nome)
         
                 let valorEritro = criaDiv(); //quantidade de cada eritrocontada
                 eritroRel.appendChild(valorEritro);
@@ -130,13 +131,14 @@ const eritroCelula = [
             }
 
     for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
-    let {cel, valor, imagem, tecla, tecla1} = celulas[i];
+    let {cel, valor, imagem, tecla, tecla1, nome} = celulas[i];
 
             let leucoRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             leucoRel.style.backgroundImage = imagem; //Imagem de fundo da celula
             leucoRel.classList.add('celulas');
             painel.appendChild(leucoRel);
             leucoRel.dataset.idx = i;
+            leucoRel.setAttribute('name', nome)
             
             let valorCelula = criaDiv(); //quantidade de cada celula contada
             leucoRel.appendChild(valorCelula);

@@ -45,12 +45,12 @@ contagens.classList.add('valoresPainel')
 
 let zerar = criaDiv()
 zerar.classList.add('botao')
-contagens.appendChild(zerar)
+painel.appendChild(zerar)
 zerar.innerText = 'Zerar';
 
 let resultado = criaDiv()
 resultado.classList.add('botao')
-contagens.appendChild(resultado)
+painel.appendChild(resultado)
 resultado.innerText = 'Resultado';
 resultado.addEventListener('click', function(){result()} )
 
@@ -202,7 +202,7 @@ function result(){
         let eritrocitos = eri.value;
         let hematocrito = hct.value;
         let media = valor / 10
-        let porcentagem = media * hematocrito / 45
+        let porcentagem = (media * hematocrito / 45).toFixed(2)
 
         let reti = criaP()
         reti.innerHTML = `Média de reticulócitos: ${media}`
@@ -210,10 +210,10 @@ function result(){
     
         if (eritrocitos || hematocrito > 0){
         resul.innerHTML = `
-        Eritrocitos totais: ${eritrocitos} \n
-        Hematócrito: ${hematocrito} \n
-        Média de reticulócitos: ${media} \n
-        ${porcentagem}% de reticulócitos em ${eritrocitos} milhões/mm3 de hemácias. `
+        <p>Eritrocitos totais: ${eritrocitos} milhões/mm³</p>
+        <p>Hematócrito: ${hematocrito}%</p>
+        <p>Média de reticulócitos: ${media}</p>
+        <p>${porcentagem}% de reticulócitos em ${eritrocitos} milhões/mm³ de hemácias.</p>`
         }    
     
     }
