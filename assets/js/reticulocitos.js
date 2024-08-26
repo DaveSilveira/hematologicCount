@@ -197,8 +197,8 @@ function result(){
         eri.type = 'number';
         eri.step = '0.01';
         eri.id = 'valor_eri';
-        eri.placeholder ='Eritrócitos totais:';
-
+        eri.placeholder ='0,00:';
+    
         let hctLabel = document.createElement('label')
         resul.appendChild(hctLabel)
         hctLabel.for = 'valor_hct';
@@ -209,8 +209,8 @@ function result(){
         hct.max = '95';
         hct.min = '10';
         hct.id = 'valor_hct';
-        hct.placeholder ='Hematócrito';
-
+        hct.placeholder ='00';
+        
         let enviar = document.createElement('button')
         resul.appendChild(enviar)
         enviar.innerText = 'Enviar';
