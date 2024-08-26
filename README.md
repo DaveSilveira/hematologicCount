@@ -17,7 +17,7 @@ Passo a passo do projeto:
 - [x] 2.2 - Que possa ser zerado para que o usuário consiga iniciar uma outra contagem.
 - [x] 3. Adicionar um contador de liquidos.
 - [x] 3.1 - Que realize a contagem de diferentes tipos de liquidos e ofereça o resultado ao usuário quando a contagem acabar.
-- [ ] 3.2 - Que possa ser zerado para que o usuário possa iniciar uma nova contagem.
+- [x] 3.2 - Que possa ser zerado para que o usuário possa iniciar uma nova contagem.
 - [x] 4. Inserir um bloco de notas momentâneas.
 - [ ] 4.1 Que o bloco de notas não interfira nas contagens e o usuário utilize para anotações rápidas sem sair da interface.
 - [x] 5. Botão de fechar em cada uma das janelas de contagem da interface, assim como no bloco de notas e nas notas.
