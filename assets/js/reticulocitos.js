@@ -173,18 +173,21 @@ for(let i=0; i< campo.length; i++){
 
 //Formatação da aba de resultados
 function result(){ 
-
     let janela = criaDiv()
     //Setando o css pelo js para exclusividade nesse codigo, pois a classe e tbm de relativa.js
     janela.style.cssText = `text-align: center;`
     janela.classList.add('painelResult')
     document.body.appendChild(janela)
     janela.innerHTML = `<h1>Resultado</h1>`
+//if steatment necessária para impedir o usuario de abrir a janela de resultado antes da contagem de campos necessária para o calculo
+    if(totalCampo < 5){
+        alert('Você não contou a quantidade suficiente de campos.')
+        janela.remove()
+    }
 
     let resul = criaDiv()
     janela.appendChild(resul)
-    resul.classList.add('absoluto')
-
+    resul.classList.add('resulReti')
         let eriLabel = document.createElement('label')
         resul.appendChild(eriLabel)
         eriLabel.for = 'valor_eri';
@@ -192,6 +195,7 @@ function result(){
         let eri = document.createElement('input')
         resul.appendChild(eri)
         eri.type = 'number';
+        eri.step = '0.01';
         eri.id = 'valor_eri';
         eri.placeholder ='Eritrócitos totais:';
 
@@ -202,6 +206,8 @@ function result(){
         let hct = document.createElement('input')
         resul.appendChild(hct)
         hct.type = 'number';
+        hct.max = '95';
+        hct.min = '10';
         hct.id = 'valor_hct';
         hct.placeholder ='Hematócrito';
 
@@ -209,10 +215,11 @@ function result(){
         resul.appendChild(enviar)
         enviar.innerText = 'Enviar';
         
-        let media = (totalRet / totalCampo)
+        let media = (totalRet / totalCampo).toFixed(2)
 
         let reti = criaP()
-        reti.innerHTML = `Média de reticulócitos: ${media}`
+        reti.innerHTML = `<b><p>Média de reticulócitos: ${media}</p></b>
+        <p>Média de reticulócitos = Reticulócitos contados / Campos contados</p>`;
         resul.appendChild(reti)
 
         enviar.addEventListener('click', function(){
@@ -222,12 +229,16 @@ function result(){
             let porcentagem = (eritrocitos * CAR / 100).toFixed(2)
 
         resul.innerHTML = `
-        <p>Eritrocitos totais: ${eritrocitos} milhões/mm³</p>
+        <justify><p>Eritrocitos totais: ${eritrocitos} milhões/mm³</p>
         <p>Hematócrito: ${hematocrito}%</p>
-        <p>Média de reticulócitos: ${media}</p>
-        <p>${CAR} de reticulócitos em ${eritrocitos} milhões/mm³ de hemácias, sendo 
-        ${porcentagem}% de reticulócitos.</p>`;
+        <p><b>Média de reticulócitos: ${media}</b></p>
+        <p>${CAR} reticulócitos em ${eritrocitos} milhões/mm³ de hemácias, sendo 
+        ${porcentagem}% de reticulócitos.</p>
+        <p>Média de reticulócitos = Reticulócitos contados / Campos contados</p>
+        <p>Contagem Absoluta de Reticulócitos = Média de Ret. x Hct / 45</p><justify>
+        `;
         });
+
     fechar(janela, 'botao', 'Fechar')
 }
 });

@@ -13,10 +13,10 @@ function criaP(){
     let p = document.createElement('p')
     return p;
 }
-function fechar(elementoPai, classe, textoDoBotao){
+function fechar(elementoPai, classeDoBotao, textoDoBotao){
     let fechar = criaDiv()
     elementoPai.appendChild(fechar)
-    fechar.classList.add(classe)
+    fechar.classList.add(classeDoBotao)
     fechar.innerText = textoDoBotao;
     fechar.addEventListener('click', () => elementoPai.remove());
 }
@@ -90,7 +90,6 @@ disclaimer.innerHTML = `<h1>Contador de céluas</h1>
     frisar que ao atualizar ou fechar a página as notas desaparecem.
 </p>
 <p>
-    Alguns bugs acontecem durante a contagem, o contador está em desenvolvimento ainda.
     \n <a href='https://github.com/DaveSilveira/'>Criador</a>
 </p>
 `;
@@ -100,5 +99,4 @@ disclaimer.appendChild(fechar)
 fechar.classList.add('botao')
 fechar.innerText ='Fechar';
 fechar.addEventListener('click', function(){disclaimer.style.cssText = 'display:none;'});
-
  });

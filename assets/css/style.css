@@ -84,6 +84,11 @@ p{
     left: 50%;
     transform: translate(-50%,-50%);
 }
+.resulReti{
+    margin: auto;
+    width:80%;
+    justify-content: center;
+}
 .disclaimer{
     width: 60%;
     height: 70%;
@@ -175,4 +180,7 @@ p{
 }
 #valor_hct, #valor_eri, #abs{
     width: 60px;
+    border-color: #7881fc;
+    background-color: #7881fc;
+    color: #ffffff;
 }
