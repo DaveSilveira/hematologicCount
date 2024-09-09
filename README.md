@@ -16,4 +16,3 @@ Passo a passo do projeto:
 - [x] 2.1 - Que conte dez campos e quando chegar na quantidade de campos ofereça o resultado ao usuário com a quantidade de reticulócitos contados.
 - [x] 2.2 - Que possa ser zerado para que o usuário consiga iniciar uma outra contagem.
 - [x] 3. Botão de fechar em cada uma das janelas de contagem da interface, assim como no bloco de notas e nas notas.
-
