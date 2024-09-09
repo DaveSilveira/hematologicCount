@@ -1,0 +1,15 @@
+{
+  "name": "hematologiccount",
+  "version": "1.0.0",
+  "description": "<img src=\"assets/img/mieloblasto.png\" width='60px'><img src=\"assets/img/promielo.png\" width='60px'><img src=\"assets/img/mielo.png\" width='60px'><img src=\"assets/img/meta.png\" width='60px'><img src=\"assets/img/bastao.png\" width='60px'><img src=\"assets/img/meta.png\" width='60px'><img src=\"assets/img/seg.png\" width='60px'><img src=\"assets/img/eos.png\" width='60px'><img src=\"assets/img/bas.png\" width='60px'><img src=\"assets/img/linTip.png\" width='60px'><img src=\"assets/img/eritro.png\" width='60px'><br>\r Status: In progress 🛠️\r <p>A hematologic count with reticulocytes function, relactive count and platelets count. </p>",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^32.0.2"
+  }
+}
