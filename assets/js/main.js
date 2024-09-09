@@ -1,6 +1,5 @@
 /*  VARIAVEIS E FUNÇÕES GLOBAIS   */
 let corpo = document.querySelector('.corpo');
-
 function criaDiv(){
     const criarDiv = document.createElement('div');
     return criarDiv;

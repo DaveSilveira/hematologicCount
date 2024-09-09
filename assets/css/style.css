@@ -8,10 +8,10 @@ p{
 }
 .titulo{
     width: 20%;
-    height: 30px;
+    height: 4%;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 100%;
+    font-size: clamp(0.2em, 0.5em + 1vw, 1.4em);
     padding: 0px;
     color: #ffffff;
     background-color: #0c136d;
@@ -21,7 +21,7 @@ p{
 }
 .corpo{
     width: 80%;
-    height: 30px;
+    height: 4%;
     position: absolute;
     top: 0%;
     left: 20%;

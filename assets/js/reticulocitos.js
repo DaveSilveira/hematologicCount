@@ -1,3 +1,26 @@
+/* ESTE CÓDIGO INDEPENDE DO RESTANTE, PARA RODÁ-LO EM OUTRO LUGAR BASTA CHAMAR
+    O ELEMENTO PAI ONDE ELE VAI SE ANCORAR E INCORPORÁ-LO NO CÓDIGO*/
+    
+//Funções necessárias para o código funcionar
+function fechar(elementoPai, classeDoBotao, textoDoBotao){
+    let fechar = criaDiv()
+    elementoPai.appendChild(fechar)
+    fechar.classList.add(classeDoBotao)
+    fechar.innerText = textoDoBotao;
+    fechar.addEventListener('click', () => elementoPai.remove());
+}
+function criaDiv(){
+    const criarDiv = document.createElement('div');
+    return criarDiv;
+}
+function centralizaDiv(elementoPai){
+    elementoPai.style.cssText = `display: flex; flex-drection: row; justify-content: center; align-content: center;`
+}
+function criaP(){
+    let p = document.createElement('p')
+    return p;
+}
+
 //CONTAGEM DE RETICULÓCITOS
 let reticulocitos = criaDiv()
 reticulocitos.innerText = 'Reticulócitos';

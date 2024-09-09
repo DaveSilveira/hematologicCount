@@ -1,4 +1,23 @@
-
+/* ESTE CÓDIGO INDEPENDE DO RESTANTE, PARA RODÁ-LO EM OUTRO LUGAR BASTA CHAMAR
+    O ELEMENTO PAI ONDE ELE VAI SE ANCORAR E INCORPORÁ-LO NO CÓDIGO*/
+    
+//Funções necessárias para o código funcionar
+function criaDiv(){
+    const criarDiv = document.createElement('div');
+    return criarDiv;
+}
+function criaP(){
+    let p = document.createElement('p')
+    return p;
+}
+function fechar(elementoPai, classeDoBotao, textoDoBotao){
+    let fechar = criaDiv()
+    elementoPai.appendChild(fechar)
+    fechar.classList.add(classeDoBotao)
+    fechar.innerText = textoDoBotao;
+    fechar.addEventListener('click', () => elementoPai.remove());
+}
+//Funções necessárias para o código funcionar
 let relativa = criaDiv();
  relativa.innerText = 'Contagem Relativa';
  relativa.classList.add('botao');
@@ -279,6 +298,5 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
 
     fechar(janela, 'botao', 'Fechar')
 }
-
-const chamarPainel = mostraPainel(); 
+mostraPainel(); 
 });
