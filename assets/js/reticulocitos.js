@@ -32,14 +32,14 @@ reticulocitos.addEventListener('click', function(){
     painel.classList.add('painel')
     document.body.appendChild(painel)
 
-    fechar(painel, 'fechar', 'X') //Função de fechar janela, chamada do arquivo main
-
+    fechar(painel, 'fechar', 'X') //Função de fechar janela
+    
 let titulo = criaDiv();
 painel.appendChild(titulo)
 titulo.innerText = 'Contagem de reticulócitos';
 titulo.style.cssText = `font-size:24px; font-family: sans-serif; display: inline-block; margin: 10px 0px 0px 30px;`;
 
-//Inces contendo informações dos botões
+//Indices contendo informações dos botões
     let reticulocito = [{
         cel: 'Ret',
         valor: 0,
@@ -211,56 +211,13 @@ function result(){
     let resul = criaDiv()
     janela.appendChild(resul)
     resul.classList.add('resulReti')
-        let eriLabel = document.createElement('label')
-        resul.appendChild(eriLabel)
-        eriLabel.for = 'valor_eri';
-        eriLabel.textContent ='Valor total de eritrocitos: ';
-        let eri = document.createElement('input')
-        resul.appendChild(eri)
-        eri.type = 'number';
-        eri.step = '0.01';
-        eri.id = 'valor_eri';
-        eri.placeholder ='0,00:';
     
-        let hctLabel = document.createElement('label')
-        resul.appendChild(hctLabel)
-        hctLabel.for = 'valor_hct';
-        hctLabel.textContent ='Valor do hematocrito: ';
-        let hct = document.createElement('input')
-        resul.appendChild(hct)
-        hct.type = 'number';
-        hct.max = '95';
-        hct.min = '10';
-        hct.id = 'valor_hct';
-        hct.placeholder ='00';
-        
-        let enviar = document.createElement('button')
-        resul.appendChild(enviar)
-        enviar.innerText = 'Enviar';
-        
-        let media = (totalRet / totalCampo).toFixed(2)
+        let media = ((totalRet / 1000)*100).toFixed(2)
 
         let reti = criaP()
-        reti.innerHTML = `<b><p>Média de reticulócitos: ${media}</p></b>
-        <p>Média de reticulócitos = Reticulócitos contados / Campos contados</p>`;
+        reti.innerHTML = `<b><p>Percentual de reticulócitos: ${media}</p></b> </br>
+        <p>Fórmula utilizada = (Reticulócitos contados (${totalRet}) / 1000) x 100</p>`;
         resul.appendChild(reti)
-
-        enviar.addEventListener('click', function(){
-            let eritrocitos = eri.value;
-            let hematocrito = hct.value;
-            let CAR = (media * hematocrito / 45).toFixed(3)
-            let porcentagem = (eritrocitos * CAR / 100).toFixed(2)
-
-        resul.innerHTML = `
-        <justify><p>Eritrocitos totais: ${eritrocitos} milhões/mm³</p>
-        <p>Hematócrito: ${hematocrito}%</p>
-        <p><b>Média de reticulócitos: ${media}</b></p>
-        <p>${CAR} reticulócitos em ${eritrocitos} milhões/mm³ de hemácias, sendo 
-        ${porcentagem}% de reticulócitos.</p>
-        <p>Média de reticulócitos = Reticulócitos contados / Campos contados</p>
-        <p>Contagem Absoluta de Reticulócitos = Média de Ret. x Hct / 45</p><justify>
-        `;
-        });
 
     fechar(janela, 'botao', 'Fechar')
 }
