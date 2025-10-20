@@ -183,8 +183,37 @@ p{
 }
 /*Layout para celulares*/
 @media (max-width: 600px){
-    .body{
-        background-color: white;
+    .titulo{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(0.2em, 0.5em + 1vw, 1.4em);
+    padding: 0px;
+    color: #ffffff;
+    background-color: #0c136d;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    }
+    .corpo{
+    height: 4%;
+    display: flex;
+    position: absolute;
+    top: 0%;
+    left: 20%;
+    background-color: #8a8b8d;
+    }
+    .botao{
+    font-size: 10px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #0c136d;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif ;
+    }
+    .teclaCelula{
+    display: none;
     }
     .painel{
         min-width: 90%;
