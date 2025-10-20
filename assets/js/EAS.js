@@ -33,7 +33,14 @@ EAS.addEventListener('click', function(){
  titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
 
  fechar(painel, 'fechar', 'X') //Botão de fechar a janela
- 
+//array que contém os elementos que podem ser quantificados por número no EAS
+    const elementos = [
+        {tipo: 'epitelial',qnt: '0',img: '',tecla: '',tecla1: ''},
+        {tipo: 'piocitos',qnt: '0',img: '',tecla: '',tecla1: ''},
+        {tipo: 'hemacias',qnt: '0',img: '',tecla: '',tecla1: ''},
+        {tipo: 'cilindros',qnt: '0',img: '',tecla: '',tecla1: ''},
+        {tipo: 'leveduras',qnt: '0',img: '',tecla: '',tecla1: ''} //verificar classificação de quantidade
+    ]
 }); //Final do evento de janela
 
 //Criador: https://github.com/DaveSilveira

@@ -33,6 +33,13 @@ liquidos.addEventListener('click', function(){
  titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
 
  fechar(painel, 'fechar', 'X') //Botão de fechar a janela
+//Array que contem as células que podem ser encontradas nos liquidos
+    const celulas =[
+        {celula:'',qtd:'',img:'',tecla:'',tecla1:''},
+        {celula:'',qtd:'',img:'',tecla:'',tecla1:''},
+        {celula:'',qtd:'',img:'',tecla:'',tecla1:''},
+        {celula:'',qtd:'',img:'',tecla:'',tecla1:''},
+    ]
 
 }); //Final do evento de janela
 //Criador: https://github.com/DaveSilveira
