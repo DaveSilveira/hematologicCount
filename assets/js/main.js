@@ -89,6 +89,12 @@ disclaimer.innerHTML = `<h1>Contador de céluas</h1>
     frisar que ao atualizar ou fechar a página as notas desaparecem.
 </p>
 <p>
+    Após um periodo de tempo resolvi adicionar também um contador de células em líquidos e de sedimentos
+    urinários, para atualizar meus aprendizados em javascript e também incrementar coisas novas ao aplicativo.
+    A ideia da criação de um aplicativo que funcione em um computador se da pelo fato do analista de laboratório
+    realizar as alterações de informações e contagens no computador, o que traria tudo para um só lugar.s
+</p>
+<p>
     \n <a href='https://github.com/DaveSilveira/'>Criador</a>
 </p>
 `;

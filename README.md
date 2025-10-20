@@ -8,11 +8,13 @@ Contador de leucócitos com contagem paralela de eritroblastos (o que não inter
 
 Passo a passo do projeto:
 
-- [x] 1. Adicionar um contador relativo de leucocitos.
+- [x] 1. Criar um contador relativo de leucocitos.
 - [x] 1.1 - Que conte eritroblastos separado da contagem relativa.
 - [x] 1.2 - Que mostre um painel de resultados, que contenha os resultados relativos e absolutos, caso o usuário queira.
 - [x] 1.3 - Que possa ser zerado para que se inicie outra contagem.
-- [x] 2. Adicionar um contador de reticulócitos.
+- [x] 2. Criar um contador de reticulócitos.
 - [x] 2.1 - Que conte dez campos e quando chegar na quantidade de campos ofereça o resultado ao usuário com a quantidade de reticulócitos contados.
 - [x] 2.2 - Que possa ser zerado para que o usuário consiga iniciar uma outra contagem.
-- [x] 3. Botão de fechar em cada uma das janelas de contagem da interface, assim como no bloco de notas e nas notas.
+- [ ] 3. - Criar um contador de células em líquidos.
+- [ ] 4. - Criar um contador de células urinárias.
+- [x] 5. Botão de fechar em cada uma das janelas de contagem da interface, assim como no bloco de notas e nas notas.

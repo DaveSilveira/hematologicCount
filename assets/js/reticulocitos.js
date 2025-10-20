@@ -1,7 +1,5 @@
-/* ESTE CÓDIGO INDEPENDE DO RESTANTE, PARA RODÁ-LO EM OUTRO LUGAR BASTA CHAMAR
-    O ELEMENTO PAI ONDE ELE VAI SE ANCORAR E INCORPORÁ-LO NO CÓDIGO*/
-    
-//Funções necessárias para o código funcionar
+/* */
+//Funções necessárias para tornar o código menor.
 function fechar(elementoPai, classeDoBotao, textoDoBotao){
     let fechar = criaDiv()
     elementoPai.appendChild(fechar)
@@ -20,8 +18,7 @@ function criaP(){
     let p = document.createElement('p')
     return p;
 }
-
-//CONTAGEM DE RETICULÓCITOS
+//Anconragem do botão no html
 let reticulocitos = criaDiv()
 reticulocitos.innerText = 'Reticulócitos';
 reticulocitos.classList.add('botao')
@@ -33,7 +30,7 @@ reticulocitos.addEventListener('click', function(){
     document.body.appendChild(painel)
 
     fechar(painel, 'fechar', 'X') //Função de fechar janela
-    
+
 let titulo = criaDiv();
 painel.appendChild(titulo)
 titulo.innerText = 'Contagem de reticulócitos';
@@ -221,4 +218,6 @@ function result(){
 
     fechar(janela, 'botao', 'Fechar')
 }
-});
+}); //Final do evento de janela
+
+//Criador: https://github.com/DaveSilveira

@@ -1,7 +1,5 @@
-/* ESTE CÓDIGO INDEPENDE DO RESTANTE, PARA RODÁ-LO EM OUTRO LUGAR BASTA CHAMAR
-    O ELEMENTO PAI ONDE ELE VAI SE ANCORAR E INCORPORÁ-LO NO CÓDIGO*/
-    
-//Funções necessárias para o código funcionar
+/* */
+//Funções necessárias para tornar o código menor.
 function criaDiv(){
     const criarDiv = document.createElement('div');
     return criarDiv;
@@ -17,24 +15,24 @@ function fechar(elementoPai, classeDoBotao, textoDoBotao){
     fechar.innerText = textoDoBotao;
     fechar.addEventListener('click', () => elementoPai.remove());
 }
-//Funções necessárias para o código funcionar
+//Anconragem do botão no html
 let relativa = criaDiv();
  relativa.innerText = 'Contagem Relativa';
  relativa.classList.add('botao');
  corpo.appendChild(relativa);
 
+//Janela onde todo o evento de contagem irá ocorrer
 relativa.addEventListener('click', function(){
-    const painel = criaDiv() //Abrir painel de cont. relat.
+    const painel = criaDiv()
     painel.classList.add('painel')
-   // moverdiv(painel) //função de clicar e  mover (em testes, main.js)
     document.body.appendChild(painel)
 
-let titulo = criaDiv();
+let titulo = criaDiv(); //titulo que aparece na janela de contagem
 painel.appendChild(titulo)
 titulo.innerText = 'Contagem relativa';
 titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
 
-fechar(painel, 'fechar', 'X')
+fechar(painel, 'fechar', 'X') //Botão de fechar a janela
 
 //valor inicial dos contadores
 let relTotal = 0;
@@ -299,4 +297,6 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
     fechar(janela, 'botao', 'Fechar')
 }
 mostraPainel(); 
-});
+}); //Final do evento de janela
+
+//Criador: https://github.com/DaveSilveira
