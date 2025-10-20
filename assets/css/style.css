@@ -22,18 +22,18 @@ p{
 .corpo{
     width: 80%;
     height: 4%;
+    display: flex;
     position: absolute;
     top: 0%;
     left: 20%;
     background-color: #8a8b8d;
 }
 .botao{
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     color: #ffffff;
     background-color: #0c136d;
-    margin-left: 1%;
-    margin-top: 4px;
+    margin: 4px;
     padding: 4px;
     border-radius: 10px;
     cursor: pointer;
@@ -51,6 +51,12 @@ p{
     justify-content: center;
     align-items: center;
     border-radius: 5%;
+}
+.painel, .painelResult{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .result{
     font-family: Arial, Helvetica, sans-serif;
@@ -77,12 +83,6 @@ p{
 }
 .divValue{
     text-align: justify;
-}
-.painel, .painelResult{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
 }
 .resulReti{
     margin: auto;
@@ -180,4 +180,30 @@ p{
 }
 #valor_hct, #valor_eri, #abs{
     width: 60px;
+}
+/*Layout para celulares*/
+@media (max-width: 600px){
+    .body{
+        background-color: white;
+    }
+    .painel{
+        min-width: 90%;
+        min-height: 80%;
+    }
+    .painel, .painelResult{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    }
+    .celulas{
+    width: 80px;
+    height: 70px;
+    object-fit:fill;
+    border-radius: 80%;
+    text-align: center;
+    padding-top: 10px;
+    display: inline-block;
+    margin: 10px;
+    }
 }
