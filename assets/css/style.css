@@ -221,8 +221,8 @@ p{
     }
     .painel, .painelResult{
     position: absolute;
-    top: 50%;
-    left: 50%;
+    min-width: 90%;
+    min-height: 80%;
     transform: translate(-50%,-50%);
     }
     .celulas{
