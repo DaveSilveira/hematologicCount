@@ -40,19 +40,19 @@ let eritroTotal = 0;
 
 //Array que contém as informações dos leucocitos usados no contador
 const celulas = [
-    {cel: 'Blasto', nome: 'Blasto',valor: 0, imagem: 'URL(./assets/img/mieloblasto.png)', musica: 'musica', tecla: 'b', tecla1: 'B'},
-    {cel: 'Promie', nome: 'Promielócito',valor: 0, imagem: 'URL(./assets/img/promielo.png)', musica: 'musica', tecla: 'v', tecla1: 'V'},
-    {cel: 'Mieloc', nome: 'Mielócito',valor: 0, imagem: 'URL(./assets/img/mielo.png)', musica: 'musica', tecla: 'c', tecla1: 'C'},
-    {cel: 'Metami', nome: 'Metamielócito',valor: 0, imagem: 'URL(./assets/img/meta.png)', musica: 'musica', tecla: 'm', tecla1: 'M'},
-    {cel: 'Bastao', nome: 'Bastonete',valor: 0, imagem: 'URL(./assets/img/bastao.png)', musica: 'musica', tecla: 'g', tecla1: 'G'},
-    {cel: 'Segmen', nome: 'Segmentado',valor: 0, imagem: 'URL(./assets/img/seg.png)', musica: 'musica', tecla: 'h', tecla1: 'H'},
-    {cel: 'Eosino', nome: 'Eosinófilo',valor: 0, imagem: 'URL(./assets/img/eos.png)', musica: 'musica', tecla: 'l', tecla1: 'L'},
-    {cel: 'Basofi', nome: 'Basófilo',valor: 0, imagem: 'URL(./assets/img/bas.png)', musica: 'musica', tecla: 'f', tecla1: 'F'},
-    {cel: 'Monoci', nome: 'Monócito',valor: 0, imagem: 'URL(./assets/img/mon.png)', musica: 'musica', tecla: 'k', tecla1: 'K'},
-    {cel: 'LinTip', nome: 'Linfócito Típico',valor: 0, imagem: 'URL(./assets/img/linTip.png)', musica: 'musica', tecla: 'j', tecla1: 'J'},
-    {cel: 'LinAti', nome: 'Linfócito Atípico',valor: 0, imagem: 'URL(./assets/img/linAtip.png)', musica: 'musica', tecla: 'i', tecla1: 'I'},
-    {cel: 'Outras', nome: 'Outras',valor: 0, imagem: 'URL(./assets/img/outra.png)', musica: 'musica', tecla: 'o', tecla1: 'O'},
-    {cel: 'Outras2',nome: 'Outras 2',valor: 0, imagem: 'URL(./assets/img/outra.png)', musica: 'musica', tecla: 'p', tecla1: 'P'},
+    {cel: 'Blasto', nome: 'Blasto',valor: 0, imagem: 'URL(./assets/img/mieloblasto.png)', som: 'musica', tecla: 'b', tecla1: 'B'},
+    {cel: 'Promie', nome: 'Promielócito',valor: 0, imagem: 'URL(./assets/img/promielo.png)', som: 'musica', tecla: 'v', tecla1: 'V'},
+    {cel: 'Mieloc', nome: 'Mielócito',valor: 0, imagem: 'URL(./assets/img/mielo.png)', som: 'musica', tecla: 'c', tecla1: 'C'},
+    {cel: 'Metami', nome: 'Metamielócito',valor: 0, imagem: 'URL(./assets/img/meta.png)', som: 'musica', tecla: 'm', tecla1: 'M'},
+    {cel: 'Bastao', nome: 'Bastonete',valor: 0, imagem: 'URL(./assets/img/bastao.png)', som: 'musica', tecla: 'g', tecla1: 'G'},
+    {cel: 'Segmen', nome: 'Segmentado',valor: 0, imagem: 'URL(./assets/img/seg.png)', som: 'musica', tecla: 'h', tecla1: 'H'},
+    {cel: 'Eosino', nome: 'Eosinófilo',valor: 0, imagem: 'URL(./assets/img/eos.png)', som: 'musica', tecla: 'l', tecla1: 'L'},
+    {cel: 'Basofi', nome: 'Basófilo',valor: 0, imagem: 'URL(./assets/img/bas.png)', som: 'musica', tecla: 'f', tecla1: 'F'},
+    {cel: 'Monoci', nome: 'Monócito',valor: 0, imagem: 'URL(./assets/img/mon.png)', som: 'musica', tecla: 'k', tecla1: 'K'},
+    {cel: 'LinTip', nome: 'Linfócito Típico',valor: 0, imagem: 'URL(./assets/img/linTip.png)', som: 'musica', tecla: 'j', tecla1: 'J'},
+    {cel: 'LinAti', nome: 'Linfócito Atípico',valor: 0, imagem: 'URL(./assets/img/linAtip.png)', som: 'musica', tecla: 'i', tecla1: 'I'},
+    {cel: 'Outras', nome: 'Outras',valor: 0, imagem: 'URL(./assets/img/outra.png)', som: 'musica', tecla: 'o', tecla1: 'O'},
+    {cel: 'Outras2',nome: 'Outras 2',valor: 0, imagem: 'URL(./assets/img/outra.png)', som: 'musica', tecla: 'p', tecla1: 'P'},
 ];
 
 const count = new Audio('./assets/sound/count.mp3')
@@ -125,18 +125,21 @@ const eritroCelula = [
                 eritroRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                     valorEritro.innerText = ++eritroCelula[this.dataset.idx]["valor"]; 
                     eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
+                    count.currentTime = 0
                     count.play()
                     });
                 document.addEventListener('keydown', function(event){
                     if(event.key === tecla){
                         valorEritro.innerText = ++eritroCelula[eritroRel.dataset.idx]["valor"]; 
                         eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
+                        count.currentTime = 0
                         count.play()
                     }});
                 document.addEventListener('keydown', function(event){
                     if(event.key === tecla1){
                         valorEritro.innerText = ++eritroCelula[eritroRel.dataset.idx]["valor"]; 
                         eritroblasto.innerHTML = `${++eritroTotal} \n <div style="font-size:12px;">Eritroblastos</div>`;
+                        count.currentTime = 0
                         count.play()
                     }});
                 zerar.addEventListener('click', function(){
@@ -174,6 +177,7 @@ const eritroCelula = [
             leucoRel.addEventListener('click', function(){ //joga os valores nos leucocitos
                 valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                count.currentTime = 0
                 count.play()
                if(relTotal == 100) return result();
             });
@@ -181,6 +185,7 @@ const eritroCelula = [
                 if(event.key === tecla){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                count.currentTime = 0
                 count.play()
                 if(relTotal == 100) return result();              
                 }
@@ -189,6 +194,7 @@ const eritroCelula = [
                 if(event.key === tecla1){
                 valorCelula.innerText = ++celulas[leucoRel.dataset.idx]["valor"]; 
                 relativa.innerHTML = `${++relTotal} \n <div style="font-size:12px;">Leucocitos</div>`;
+                count.currentTime = 0
                 count.play()
                 if(relTotal == 100) return result();
                 }

@@ -216,8 +216,8 @@ p{
     display: none;
     }
     .painel{
-        min-width: 90%;
-        min-height: 80%;
+    min-width: 90%;
+    min-height: 80%;
     }
     .painel, .painelResult{
     position: absolute;
@@ -234,5 +234,18 @@ p{
     padding-top: 10px;
     display: inline-block;
     margin: 10px;
+    }
+    .disclaimer{
+    min-width: 90%;
+    min-height: 80%;
+    padding: 6px;
+    text-align: justify;
+    font-family: sans-serif;
+    color: #5a5a5a;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     }
 }

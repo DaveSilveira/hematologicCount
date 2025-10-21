@@ -1,5 +1,6 @@
 /*  VARIAVEIS E FUNÇÕES GLOBAIS   */
 let corpo = document.querySelector('.corpo');
+let titulo = document.querySelector('.titulo');
 function criaDiv(){
     const criarDiv = document.createElement('div');
     return criarDiv;
@@ -65,11 +66,7 @@ function dragStart(e){
 */
 
 /*Explicaçao do programa ao usuário*/
-let chamaDisclaimer = criaDiv()
-chamaDisclaimer.classList.add('botao')
-corpo.appendChild(chamaDisclaimer)
-chamaDisclaimer.innerText = 'Sobre';
-chamaDisclaimer.addEventListener('click', function(){
+titulo.addEventListener('click', function(){
 
 const disclaimer = criaDiv()
 disclaimer.classList.add('disclaimer')

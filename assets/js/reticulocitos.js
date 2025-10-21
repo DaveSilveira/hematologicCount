@@ -54,6 +54,9 @@ titulo.style.cssText = `font-size:24px; font-family: sans-serif; display: inline
         tecla1: 'H',
     }]
 
+const retiSom = new Audio('./assets/sound/count.mp3')
+const campoSom = new Audio('./assets/sound/final.mp3')
+
 //Variaveis criadas externamente para setar as configurações das contagens do painel
 let totalRet = 0;
 let totalCampo = 0;
@@ -123,17 +126,23 @@ for(let i=0; i < reticulocito.length; i++){
     retCount.addEventListener('click', function(){
         valorRet.innerHTML = ++reticulocito[this.dataset.idx]['valor']
         contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
+        retiSom.currentTime = 0
+        retiSom.play()
     });
     document.addEventListener('keydown', function(event){
         if(event.key === tecla){
-            valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
-            contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
+        valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
+        contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
+        retiSom.currentTime = 0
+        retiSom.play()
         }
     });
     document.addEventListener('keydown', function(event){
         if(event.key === tecla1){
-            valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
-            contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
+        valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
+        contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
+        retiSom.currentTime = 0
+        retiSom.play()
         }});
         zerar.addEventListener('click', function(){
             reticulocito[i].valor = 0;
@@ -169,12 +178,16 @@ for(let i=0; i< campo.length; i++){
         campoCount.addEventListener('click', function(){
             valorCampo.innerHTML = ++campo[this.dataset.idx]['valor']
             contadorCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
+            campoSom.currentTime = 0
+            campoSom.play()
             if(totalCampo === 10) return result()
         });
         document.addEventListener('keydown', function(event){
             if(event.key === tecla){
             valorCampo.innerHTML = ++campo[campoCount.dataset.idx]['valor']
             contadorCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
+            campoSom.currentTime = 0;
+            campoSom.play()
             if(totalCampo === 10) return result()
             }
         });
@@ -183,6 +196,8 @@ for(let i=0; i< campo.length; i++){
             valorCampo.innerHTML = ++campo[campoCount.dataset.idx]['valor']
             contadorCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
             if(totalCampo === 10) return result()
+            campoSom.currentTime = 0;
+            campoSom.play()
             }
         });
         zerar.addEventListener('click', function(){
