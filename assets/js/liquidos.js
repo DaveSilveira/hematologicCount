@@ -47,7 +47,7 @@ const celulasNeu = [
 const celulas =[
         {celula:'Segme',valor:'0',img:'URL(./assets/img/seg.png)',tecla:'h',tecla1:'H'},
         {celula:'Linfo',valor:'0',img:'URL(./assets/img/linTip.png)',tecla:'j',tecla1:'J'},
-        {celula:'Plasm',valor:'0',img:'URL(./assets/img/linAtip.png)',tecla:'o',tecla1:'O'},
+        {celula:'Plasm',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'o',tecla1:'O'},
         {celula:'Monoc',valor:'0',img:'URL(./assets/img/mon.png)',tecla:'k',tecla1:'K'},
         {celula:'Eosin',valor:'0',img:'URL(./assets/img/eos.png)',tecla:'l',tecla1:'L'},
         {celula:'Basof',valor:'0',img:'URL(./assets/img/bas.png)',tecla:'g',tecla1:'G'},
