@@ -21,6 +21,8 @@ let EAS = criaDiv();
  EAS.classList.add('botao');
  corpo.appendChild(EAS);
 
+//EAS.style.cssText = 'display: none' //Para realização de testes
+
 //Janela onde todo o evento de contagem irá ocorrer
 EAS.addEventListener('click', function(){
  const painel = criaDiv()
@@ -29,7 +31,7 @@ EAS.addEventListener('click', function(){
 
  const titulo = criaDiv()
  painel.appendChild(titulo)
- titulo.innerText = 'Contagem de sedimentos urinários - em desenvolvimento'
+ titulo.innerText = 'Contagem de sedimentos urinários'
  titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
 
  fechar(painel, 'fechar', 'X') //Botão de fechar a janela

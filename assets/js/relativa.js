@@ -149,7 +149,7 @@ const eritroCelula = [
                 
             }
 
-    for (let i = 0; i < celulas.length; i++ ){ //para aparecer os leucocitos no painel
+    for (let i = 0; i < celulas.length; i++){ //para aparecer os leucocitos no painel
     let {cel, valor, imagem, tecla, tecla1, nome} = celulas[i];
 
             let leucoRel = criaDiv(); //setando a div para cada item 'div:' do objeto
