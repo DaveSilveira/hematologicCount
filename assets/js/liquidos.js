@@ -136,6 +136,22 @@ function mostraPainel(){
         //    count.play()
         //    if(relTotal == 100) return result();
         });
+        document.addEventListener('keydown', function(event){
+            if(event.key === tecla){
+                valorCelula.innerText = ++celulas[celDif.dataset.idx]["valor"]; 
+                difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
+                //count.currentTime = 0
+                //count.play()
+                //if(relTotal == 100) return result();
+        }});
+        document.addEventListener('keydown', function(event){
+            if(event.key === tecla1){
+                valorCelula.innerText = ++celulas[celDif.dataset.idx]["valor"]; 
+                difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
+                //count.currentTime = 0
+                //count.play()
+                //if(relTotal == 100) return result();
+        }});
     }
 }
 return mostraPainel()
