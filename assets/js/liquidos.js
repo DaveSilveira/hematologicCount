@@ -40,9 +40,9 @@ let difCountTotal = 0
 
 //Array que contem as células que podem ser encontradas nos liquidos
 const celulasNeu = [
-        {celula:'',valor:'',img:'',tecla:'',tecla1:''},
-        {celula:'',valor:'',img:'',tecla:'',tecla1:''},
-        {celula:'',valor:'',img:'',tecla:'',tecla1:''}
+        {celula:'Cél',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'t',tecla1:'T'},
+        {celula:'Leu',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'y',tecla1:'Y'},
+        {celula:'Hem',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'u',tecla1:'U'}
 ];
 const celulas =[
         {celula:'Segme',valor:'0',img:'URL(./assets/img/seg.png)',tecla:'h',tecla1:'H'},
@@ -57,7 +57,7 @@ const celulas =[
         {celula:'Outra2',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'a',tecla1:'A'}
 ];
 function mostraPainel(){
-    const contagens = criaDiv(); //Aqui aparecereá os valores totais 
+    const contagens = criaDiv(); //Aqui aparecereá os valores totais da contagem neubauer
     painel.appendChild(contagens);
     contagens.classList.add('valoresPainel')
 
@@ -95,16 +95,66 @@ function mostraPainel(){
     leuNeu.innerHTML = `${leuNeuTotal = 0} \n <div style="font-size:12px;">Leucócitos</div>`;
     contagens.appendChild(leuNeu);
 
+    /*Criação dos botões de contagem na neubauer*/
+    for(let i = 0; i < celulasNeu.length; i++){
+        let {celula,valor,img,tecla,tecla1} = celulasNeu[i];
+        
+        let celNeu = criaDiv() //setando a div para cada celula naubauer contida no array celulasNeu
+        celNeu.style.backgroundImage = img //imagem de fundo da célula
+        celNeu.classList.add('celulas')
+        painel.appendChild(celNeu)
+        celNeu.dataset.idx = i;
+        
+        let valorCelula = criaDiv(); //quantidade de cada celula contada
+        celNeu.appendChild(valorCelula);
+        valorCelula.classList.add('valorCelula');
+        valorCelula.innerText = valor;
+
+        let nomeLeuco = criaDiv(); //nome de cada cel ao centro
+        celNeu.appendChild(nomeLeuco);
+        nomeLeuco.classList.add('nomeLeuco');
+        nomeLeuco.innerText = celula;
+
+        let teclaCelula = criaDiv();
+        celNeu.appendChild(teclaCelula);
+        teclaCelula.classList.add('teclaCelula');
+        teclaCelula.innerText = tecla;
+
+        celNeu.addEventListener('click', function(){ //joga os valores nos leucocitos
+            valorCelula.innerText = ++celulasNeu[this.dataset.idx]["valor"]; 
+            difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
+        //    count.currentTime = 0
+        //    count.play()
+        //    if(relTotal == 100) return result();
+        });
+        document.addEventListener('keydown', function(event){
+            if(event.key === tecla){
+                valorCelula.innerText = ++celulasNeu[celDif.dataset.idx]["valor"]; 
+                difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
+                //count.currentTime = 0
+                //count.play()
+                //if(relTotal == 100) return result();
+        }});
+        document.addEventListener('keydown', function(event){
+            if(event.key === tecla1){
+                valorCelula.innerText = ++celulasNeu[celDif.dataset.idx]["valor"]; 
+                difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
+                //count.currentTime = 0
+                //count.play()
+                //if(relTotal == 100) return result();
+        }});
+    }
+
+    /*Parte da contagem na diferencial*/
+    const contagensDif =criaDiv()
+    painel.appendChild(contagensDif)
+    contagensDif.classList.add('valoresPainel')
+
     let difCount = criaDiv() //Aqui o valor total da contagem diferencial
     difCount.classList.add('valorPainel');
     difCount.innerHTML = `${difCountTotal = 0} \n <div style="font-size:12px;">Contagem diferencial</div>`;
-    contagens.appendChild(difCount);
+    contagensDif.appendChild(difCount);
 
-    /*Criação dos botões de contagem na neubauer*/
-    
-    //criar em laço de repetição?
-
-    /*Criação dos botões de contagem na diferencial*/
     for(let i = 0; i < celulas.length; i++){ // laço para a contagem diferencial
         let {celula,valor,img,tecla,tecla1} = celulas[i];
 
