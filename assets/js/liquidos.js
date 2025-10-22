@@ -32,7 +32,7 @@ liquidos.addEventListener('click', function(){
  const titulo = criaDiv()
  painel.appendChild(titulo)
  titulo.innerText = 'Contagem de células em líquidos'
- titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
+ titulo.style.cssText = `font-size:18px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
 
  fechar(painel, 'fechar', 'X') //Botão de fechar a janela
 
