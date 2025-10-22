@@ -40,9 +40,9 @@ let difCountTotal = 0
 
 //Array que contem as células que podem ser encontradas nos liquidos
 const celulasNeu = [
-        {celula:'Cél',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'t',tecla1:'T'},
-        {celula:'Leu',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'y',tecla1:'Y'},
-        {celula:'Hem',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'u',tecla1:'U'}
+        {celula:'Cel',nome:'Célula',valor:0,img:'URL(./assets/img/outra.png)',tecla:'t',tecla1:'T'},
+        {celula:'Leu',nome:'Leucócitos',valor:0,img:'URL(./assets/img/outra.png)',tecla:'y',tecla1:'Y'},
+        {celula:'Hem',nome:'Hemácias',valor:0,img:'URL(./assets/img/outra.png)',tecla:'u',tecla1:'U'}
 ];
 const celulas =[
         {celula:'Segme',valor:'0',img:'URL(./assets/img/seg.png)',tecla:'h',tecla1:'H'},
@@ -75,30 +75,16 @@ function mostraPainel(){
     zerar.classList.add('botao');
     zerar.innerHTML = 'Zerar';
     cxBotao.appendChild(zerar);
-    zerar.addEventListener('click', function(){
-        celNeu.innerHTML = `${celNeuTotal = 0} \n <div style="font-size:12px;">Células</div>`;
-        eriNeu.innerHTML = `${eriNeuTotal = 0} \n <div style="font-size:12px;">Hemácias</div>`;
-        leuNeu.innerHTML = `${leuNeuTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
-    });
-    let celNeu = criaDiv(); //Aqui o total de celulas em neubauer
-    celNeu.classList.add('valorPainel');
-    celNeu.innerHTML = `${celNeuTotal = 0} \n <div style="font-size:12px;">Células</div>`;
-    contagens.appendChild(celNeu);
-    
-    let eriNeu = criaDiv(); //Aqui o total de hemacias em neubauer
-    eriNeu.classList.add('valorPainel');
-    eriNeu.innerHTML = `${eriNeuTotal = 0} \n <div style="font-size:12px;">Hemácias</div>`;
-    contagens.appendChild(eriNeu);
-
-    let leuNeu = criaDiv(); //Aqui o n de leucocitos em neubauer
-    leuNeu.classList.add('valorPainel');
-    leuNeu.innerHTML = `${leuNeuTotal = 0} \n <div style="font-size:12px;">Leucócitos</div>`;
-    contagens.appendChild(leuNeu);
 
     /*Criação dos botões de contagem na neubauer*/
     for(let i = 0; i < celulasNeu.length; i++){
-        let {celula,valor,img,tecla,tecla1} = celulasNeu[i];
+        let {celula,nome,valor,img,tecla,tecla1} = celulasNeu[i];
         
+        let celuNeu = criaDiv(); //Aqui o total de celulas em neubauer
+        celuNeu.classList.add('valorPainel');
+        celuNeu.innerHTML = `${celulasNeu[0].valor} \n <div style="font-size:12px;">${nome}</div>`;
+        contagens.appendChild(celuNeu);
+
         let celNeu = criaDiv() //setando a div para cada celula naubauer contida no array celulasNeu
         celNeu.style.backgroundImage = img //imagem de fundo da célula
         celNeu.classList.add('celulas')
@@ -121,28 +107,27 @@ function mostraPainel(){
         teclaCelula.innerText = tecla;
 
         celNeu.addEventListener('click', function(){ //joga os valores nos leucocitos
-            valorCelula.innerText = ++celulasNeu[this.dataset.idx]["valor"]; 
-            difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
-        //    count.currentTime = 0
-        //    count.play()
-        //    if(relTotal == 100) return result();
+            valorCelula.innerText = Number(++celulasNeu[this.dataset.idx]["valor"]);
+            celuNeu.innerHTML = `${celulasNeu[this.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
+        console.log(celulasNeu[2].valor)
+        console.log(celulas[1].valor)
         });
         document.addEventListener('keydown', function(event){
             if(event.key === tecla){
-                valorCelula.innerText = ++celulasNeu[celDif.dataset.idx]["valor"]; 
-                difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
-                //count.currentTime = 0
-                //count.play()
-                //if(relTotal == 100) return result();
+            valorCelula.innerText = Number(++celulasNeu[celNeu.dataset.idx]["valor"]);
+            celuNeu.innerHTML = `${celulasNeu[celNeu.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
+    
         }});
         document.addEventListener('keydown', function(event){
             if(event.key === tecla1){
-                valorCelula.innerText = ++celulasNeu[celDif.dataset.idx]["valor"]; 
-                difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
-                //count.currentTime = 0
-                //count.play()
-                //if(relTotal == 100) return result();
+            valorCelula.innerText = Number(++celulasNeu[celNeu.dataset.idx]["valor"]);
+            celuNeu.innerHTML = `${celulasNeu[celNeu.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
+
         }});
+        zerar.addEventListener('click', function(){
+            valorCelula.innerText = 0;
+            celuNeu.innerHTML = `${0} \n <div style="font-size:12px;">${nome}</div>`;
+        });
     }
 
     /*Parte da contagem na diferencial*/
@@ -182,26 +167,22 @@ function mostraPainel(){
         celDif.addEventListener('click', function(){ //joga os valores nos leucocitos
             valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
             difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
-        //    count.currentTime = 0
-        //    count.play()
-        //    if(relTotal == 100) return result();
         });
         document.addEventListener('keydown', function(event){
             if(event.key === tecla){
                 valorCelula.innerText = ++celulas[celDif.dataset.idx]["valor"]; 
                 difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
-                //count.currentTime = 0
-                //count.play()
-                //if(relTotal == 100) return result();
         }});
         document.addEventListener('keydown', function(event){
             if(event.key === tecla1){
                 valorCelula.innerText = ++celulas[celDif.dataset.idx]["valor"]; 
                 difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
-                //count.currentTime = 0
-                //count.play()
-                //if(relTotal == 100) return result();
         }});
+        zerar.addEventListener('click', function(){
+            celulas[i].valor = 0;
+            valorCelula.innerText = 0;
+            difCount.innerHTML = `${difCountTotal = 0} \n <div style="font-size:12px;">Contagem diferencial</div>`;
+        });
     }
 }
 return mostraPainel()
