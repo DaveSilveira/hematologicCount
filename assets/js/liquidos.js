@@ -35,23 +35,26 @@ liquidos.addEventListener('click', function(){
  titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
 
  fechar(painel, 'fechar', 'X') //Botão de fechar a janela
+
+let difCountTotal = 0
+
 //Array que contem as células que podem ser encontradas nos liquidos
 const celulasNeu = [
-        {celula:'',qtd:'',img:'',tecla:'',tecla1:''},
-        {celula:'',qtd:'',img:'',tecla:'',tecla1:''},
-        {celula:'',qtd:'',img:'',tecla:'',tecla1:''}
+        {celula:'',valor:'',img:'',tecla:'',tecla1:''},
+        {celula:'',valor:'',img:'',tecla:'',tecla1:''},
+        {celula:'',valor:'',img:'',tecla:'',tecla1:''}
 ];
 const celulas =[
-        {celula:'Segme',qtd:'0',img:'URL(./assets/img/seg.png)',tecla:'h',tecla1:''},
-        {celula:'Linfo',qtd:'0',img:'URL(./assets/img/linTip.png)',tecla:'j',tecla1:''},
-        {celula:'Plasm',qtd:'0',img:'URL(./assets/img/linAtip.png)',tecla:'o',tecla1:''},
-        {celula:'Monoc',qtd:'0',img:'URL(./assets/img/mon.png)',tecla:'k',tecla1:''},
-        {celula:'Eosin',qtd:'0',img:'URL(./assets/img/eos.png)',tecla:'l',tecla1:''},
-        {celula:'Basof',qtd:'0',img:'URL(./assets/img/bas.png)',tecla:'g',tecla1:''},
-        {celula:'Macro',qtd:'0',img:'URL(./assets/img/outra.png)',tecla:'f',tecla1:''},
-        {celula:'Mesot',qtd:'0',img:'URL(./assets/img/outra.png)',tecla:'d',tecla1:''},
-        {celula:'Outra1',qtd:'0',img:'URL(./assets/img/outra.png)',tecla:'s',tecla1:''},
-        {celula:'Outra2',qtd:'0',img:'URL(./assets/img/outra.png)',tecla:'a',tecla1:''}
+        {celula:'Segme',valor:'0',img:'URL(./assets/img/seg.png)',tecla:'h',tecla1:'H'},
+        {celula:'Linfo',valor:'0',img:'URL(./assets/img/linTip.png)',tecla:'j',tecla1:'J'},
+        {celula:'Plasm',valor:'0',img:'URL(./assets/img/linAtip.png)',tecla:'o',tecla1:'O'},
+        {celula:'Monoc',valor:'0',img:'URL(./assets/img/mon.png)',tecla:'k',tecla1:'K'},
+        {celula:'Eosin',valor:'0',img:'URL(./assets/img/eos.png)',tecla:'l',tecla1:'L'},
+        {celula:'Basof',valor:'0',img:'URL(./assets/img/bas.png)',tecla:'g',tecla1:'G'},
+        {celula:'Macro',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'f',tecla1:'F'},
+        {celula:'Mesot',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'d',tecla1:'D'},
+        {celula:'Outra1',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'s',tecla1:'S'},
+        {celula:'Outra2',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'a',tecla1:'A'}
 ];
 function mostraPainel(){
     const contagens = criaDiv(); //Aqui aparecereá os valores totais 
@@ -92,13 +95,18 @@ function mostraPainel(){
     leuNeu.innerHTML = `${leuNeuTotal = 0} \n <div style="font-size:12px;">Leucócitos</div>`;
     contagens.appendChild(leuNeu);
 
+    let difCount = criaDiv() //Aqui o valor total da contagem diferencial
+    difCount.classList.add('valorPainel');
+    difCount.innerHTML = `${difCountTotal = 0} \n <div style="font-size:12px;">Contagem diferencial</div>`;
+    contagens.appendChild(difCount);
+
     /*Criação dos botões de contagem na neubauer*/
     
     //criar em laço de repetição?
 
     /*Criação dos botões de contagem na diferencial*/
     for(let i = 0; i < celulas.length; i++){ // laço para a contagem diferencial
-        let {celula,qtd,img,tecla,tecla1} = celulas[i];
+        let {celula,valor,img,tecla,tecla1} = celulas[i];
 
         let celDif = criaDiv() //setando a div para cada celula diferencial contida no array celula
         celDif.style.backgroundImage = img //imagem de fundo da célula
@@ -109,7 +117,7 @@ function mostraPainel(){
         let valorCelula = criaDiv(); //quantidade de cada celula contada
         celDif.appendChild(valorCelula);
         valorCelula.classList.add('valorCelula');
-        //valorCelula.innerText = valor;
+        valorCelula.innerText = valor;
 
         let nomeLeuco = criaDiv(); //nome de cada cel ao centro
         celDif.appendChild(nomeLeuco);
@@ -119,7 +127,15 @@ function mostraPainel(){
         let teclaCelula = criaDiv();
         celDif.appendChild(teclaCelula);
         teclaCelula.classList.add('teclaCelula');
-        teclaCelula.innerText = tecla;        
+        teclaCelula.innerText = tecla;
+
+        celDif.addEventListener('click', function(){ //joga os valores nos leucocitos
+            valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
+            difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
+        //    count.currentTime = 0
+        //    count.play()
+        //    if(relTotal == 100) return result();
+        });
     }
 }
 return mostraPainel()
