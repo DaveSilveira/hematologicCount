@@ -40,19 +40,19 @@ let difCountTotal = 0
 
 //Array que contem as células que podem ser encontradas nos liquidos
 const celulasNeu = [
-        {celula:'Leu',nome:'Leucócitos',valor:0,img:'URL(./assets/img/outra.png)',tecla:'y',tecla1:'Y'},
-        {celula:'Hem',nome:'Hemácias',valor:0,img:'URL(./assets/img/outra.png)',tecla:'u',tecla1:'U'},
-        {celula:'Cel',nome:'Célula',valor:0,img:'URL(./assets/img/outra.png)',tecla:'t',tecla1:'T'}
+        {celula:'Leu',nome:'Leucócitos',valor:0,img:'URL(./assets/img/leucocitoNeu.png)',tecla:'y',tecla1:'Y'},
+        {celula:'Hem',nome:'Hemácias',valor:0,img:'URL(./assets/img/hemaciaNeu.png)',tecla:'u',tecla1:'U'},
+        {celula:'Outra',nome:'Célula',valor:0,img:'URL(./assets/img/outraNeu.png)',tecla:'t',tecla1:'T'}
 ];
 const celulas =[
         {celula:'Segme',valor:'0',img:'URL(./assets/img/seg.png)',tecla:'h',tecla1:'H'},
         {celula:'Linfo',valor:'0',img:'URL(./assets/img/linTip.png)',tecla:'j',tecla1:'J'},
-        {celula:'Plasm',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'o',tecla1:'O'},
+        {celula:'Plasm',valor:'0',img:'URL(./assets/img/plasmocito.png)',tecla:'o',tecla1:'O'},
         {celula:'Monoc',valor:'0',img:'URL(./assets/img/mon.png)',tecla:'k',tecla1:'K'},
         {celula:'Eosin',valor:'0',img:'URL(./assets/img/eos.png)',tecla:'l',tecla1:'L'},
         {celula:'Basof',valor:'0',img:'URL(./assets/img/bas.png)',tecla:'g',tecla1:'G'},
-        {celula:'Macro',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'f',tecla1:'F'},
-        {celula:'Mesot',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'d',tecla1:'D'},
+        {celula:'Macro',valor:'0',img:'URL(./assets/img/macrofago.png)',tecla:'f',tecla1:'F'},
+        {celula:'Mesot',valor:'0',img:'URL(./assets/img/mesotelial.png)',tecla:'d',tecla1:'D'},
         {celula:'Outra1',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'s',tecla1:'S'},
         {celula:'Outra2',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'a',tecla1:'A'}
 ];

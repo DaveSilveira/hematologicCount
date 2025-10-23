@@ -255,7 +255,6 @@ p{
     .celulas{
     width: min(45vw, 90px);
     height: 80px;
-    object-fit:fill;
     border-radius: 80%;
     text-align: center;
     padding-top: 10px;
