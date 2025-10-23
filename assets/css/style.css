@@ -52,6 +52,12 @@ p{
     align-items: center;
     border-radius: 5%;
 }
+.tituloCount{
+        position: absolute;
+        font-size: 18px;
+        font-family: sans-serif;
+        margin: 10px 0px 0px 30px;
+    }
 .painel, .painelResult{
     position: absolute;
     top: 50%;
@@ -225,6 +231,21 @@ p{
     min-width: 90%;
     min-height: 80%;
     }
+    .caixaCelulas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-width: 90%;
+    min-height: 80%;
+    }
+    .tituloCount{
+    position: absolute;
+    font-size: 18px;
+    font-family: sans-serif;
+    top: 4px;
+    left: 2px;
+    }
     .painel, .painelResult{
     position: absolute;
     min-width: 90%;
@@ -232,14 +253,17 @@ p{
     transform: translate(-50%,-50%);
     }
     .celulas{
-    width: 80px;
-    height: 70px;
+    width: min(45vw, 90px);
+    height: 80px;
     object-fit:fill;
     border-radius: 80%;
     text-align: center;
     padding-top: 10px;
     display: inline-block;
     margin: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     }
     .disclaimer{
     min-width: 90%;

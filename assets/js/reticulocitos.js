@@ -25,16 +25,16 @@ reticulocitos.classList.add('botao')
 corpo.appendChild(reticulocitos)
 
 reticulocitos.addEventListener('click', function(){
-    let painel = criaDiv()
-    painel.classList.add('painel')
-    document.body.appendChild(painel)
+let painel = criaDiv()
+painel.classList.add('painel')
+document.body.appendChild(painel)
 
-    fechar(painel, 'fechar', 'X') //Função de fechar janela
+fechar(painel, 'fechar', 'X') //Função de fechar janela
 
 let titulo = criaDiv();
 painel.appendChild(titulo)
+titulo.classList.add('tituloCount')
 titulo.innerText = 'Contagem de reticulócitos';
-titulo.style.cssText = `font-size:24px; font-family: sans-serif; display: inline-block; margin: 10px 0px 0px 30px;`;
 
 //Indices contendo informações dos botões
     let reticulocito = [{
@@ -94,9 +94,9 @@ contagens.appendChild(contadorCampo)
 contadorCampo.classList.add('valorPainel')
 contadorCampo.innerHTML = `${totalCampo = 0} \n <div style="font-size:12px;">Campos</div>`;
 
-let celulas = criaDiv() //Div que formata os botões de células
-painel.appendChild(celulas)
-centralizaDiv(celulas)
+let caixaCelulas = criaDiv()
+painel.appendChild(caixaCelulas)
+caixaCelulas.classList.add('caixaCelulas')
 
 //Botão de contagem de reticulócitos
 for(let i=0; i < reticulocito.length; i++){
@@ -105,7 +105,7 @@ for(let i=0; i < reticulocito.length; i++){
     let retCount = criaDiv()
     retCount.classList.add('celulas')
     retCount.style.backgroundImage = imagem;
-    celulas.appendChild(retCount)
+    caixaCelulas.appendChild(retCount)
     retCount.dataset.idx = i;
 
     let valorRet = criaDiv()
@@ -156,7 +156,7 @@ for(let i=0; i< campo.length; i++){
 
     let campoCount = criaDiv()
     campoCount.style.backgroundImage = imagem;
-    celulas.appendChild(campoCount)
+    caixaCelulas.appendChild(campoCount)
     campoCount.classList.add('celulas')
     campoCount.dataset.idx = i;
 

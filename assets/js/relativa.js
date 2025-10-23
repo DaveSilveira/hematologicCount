@@ -23,14 +23,14 @@ let relativa = criaDiv();
 
 //Janela onde todo o evento de contagem irá ocorrer
 relativa.addEventListener('click', function(){
-    const painel = criaDiv()
-    painel.classList.add('painel')
-    document.body.appendChild(painel)
+const painel = criaDiv()
+painel.classList.add('painel')
+document.body.appendChild(painel)
 
 let titulo = criaDiv(); //titulo que aparece na janela de contagem
 painel.appendChild(titulo)
+titulo.classList.add('tituloCount')
 titulo.innerText = 'Contagem relativa';
-titulo.style.cssText = `font-size:24px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
 
 fechar(painel, 'fechar', 'X') //Botão de fechar a janela
 
@@ -88,22 +88,26 @@ const eritroCelula = [
             relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
         });
 
-            let relativa = criaDiv(); //Aqui o total de leucocitos
-            relativa.classList.add('valorPainel');
-            relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
-            contagens.appendChild(relativa);
+        let relativa = criaDiv(); //Aqui o total de leucocitos
+        relativa.classList.add('valorPainel');
+        relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
+        contagens.appendChild(relativa);
 
-            let eritroblasto = criaDiv(); //Aqui o n de eritroblastos
-            eritroblasto.classList.add('valorPainel');
-            eritroblasto.innerHTML = `${eritroTotal = 0} \n <div style="font-size:12px;">Eritroblastos</div>`;
-            contagens.appendChild(eritroblasto);
+        let eritroblasto = criaDiv(); //Aqui o n de eritroblastos
+        eritroblasto.classList.add('valorPainel');
+        eritroblasto.innerHTML = `${eritroTotal = 0} \n <div style="font-size:12px;">Eritroblastos</div>`;
+        contagens.appendChild(eritroblasto);
+
+        let caixaCelulas = criaDiv()
+        painel.appendChild(caixaCelulas)
+        caixaCelulas.classList.add('caixaCelulas')
 
     for (let i = 0; i < eritroCelula.length; i++ ){ //para aparecer os eritros no painel
         let {cel, valor, imagem, tecla, tecla1, nome} = eritroCelula[i];
         let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             eritroRel.style.backgroundImage = imagem; //Imagem de fundo da celula
             eritroRel.classList.add('celulas');
-                painel.appendChild(eritroRel);
+                caixaCelulas.appendChild(eritroRel);
                 eritroRel.dataset.idx = i;
                 eritroRel.setAttribute("name", nome)
         
@@ -155,7 +159,7 @@ const eritroCelula = [
             let leucoRel = criaDiv(); //setando a div para cada item 'div:' do objeto
             leucoRel.style.backgroundImage = imagem; //Imagem de fundo da celula
             leucoRel.classList.add('celulas');
-            painel.appendChild(leucoRel);
+            caixaCelulas.appendChild(leucoRel);
             leucoRel.dataset.idx = i;
             leucoRel.setAttribute('name', nome)
             
@@ -300,7 +304,7 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
         result.classList.add('result')    
         }
 
-    fechar(janela, 'botao', 'Fechar')
+    fechar(janela,'botao', 'Fechar')
 }
 mostraPainel(); 
 }); //Final do evento de janela

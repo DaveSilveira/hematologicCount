@@ -31,8 +31,8 @@ liquidos.addEventListener('click', function(){
 
  const titulo = criaDiv()
  painel.appendChild(titulo)
+ titulo.classList.add('tituloCount')
  titulo.innerText = 'Contagem de células em líquidos'
- titulo.style.cssText = `font-size:18px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
 
  fechar(painel, 'fechar', 'X') //Botão de fechar a janela
 
@@ -40,9 +40,9 @@ let difCountTotal = 0
 
 //Array que contem as células que podem ser encontradas nos liquidos
 const celulasNeu = [
-        {celula:'Cel',nome:'Célula',valor:0,img:'URL(./assets/img/outra.png)',tecla:'t',tecla1:'T'},
         {celula:'Leu',nome:'Leucócitos',valor:0,img:'URL(./assets/img/outra.png)',tecla:'y',tecla1:'Y'},
-        {celula:'Hem',nome:'Hemácias',valor:0,img:'URL(./assets/img/outra.png)',tecla:'u',tecla1:'U'}
+        {celula:'Hem',nome:'Hemácias',valor:0,img:'URL(./assets/img/outra.png)',tecla:'u',tecla1:'U'},
+        {celula:'Cel',nome:'Célula',valor:0,img:'URL(./assets/img/outra.png)',tecla:'t',tecla1:'T'}
 ];
 const celulas =[
         {celula:'Segme',valor:'0',img:'URL(./assets/img/seg.png)',tecla:'h',tecla1:'H'},
@@ -76,6 +76,10 @@ function mostraPainel(){
     zerar.innerHTML = 'Zerar';
     cxBotao.appendChild(zerar);
 
+    let caixaCelulasNeu = criaDiv()
+    painel.appendChild(caixaCelulasNeu)
+    caixaCelulasNeu.classList.add('caixaCelulas')
+
     /*Criação dos botões de contagem na neubauer*/
     for(let i = 0; i < celulasNeu.length; i++){
         let {celula,nome,valor,img,tecla,tecla1} = celulasNeu[i];
@@ -88,7 +92,7 @@ function mostraPainel(){
         let celNeu = criaDiv() //setando a div para cada celula naubauer contida no array celulasNeu
         celNeu.style.backgroundImage = img //imagem de fundo da célula
         celNeu.classList.add('celulas')
-        painel.appendChild(celNeu)
+        caixaCelulasNeu.appendChild(celNeu)
         celNeu.dataset.idx = i;
         
         let valorCelula = criaDiv(); //quantidade de cada celula contada
@@ -135,6 +139,10 @@ function mostraPainel(){
     painel.appendChild(contagensDif)
     contagensDif.classList.add('valoresPainel')
 
+    let caixaCelulasDif = criaDiv()
+    painel.appendChild(caixaCelulasDif)
+    caixaCelulasDif.classList.add('caixaCelulas')
+
     let difCount = criaDiv() //Aqui o valor total da contagem diferencial
     difCount.classList.add('valorPainel');
     difCount.innerHTML = `${difCountTotal = 0} \n <div style="font-size:12px;">Contagem diferencial</div>`;
@@ -146,7 +154,7 @@ function mostraPainel(){
         let celDif = criaDiv() //setando a div para cada celula diferencial contida no array celula
         celDif.style.backgroundImage = img //imagem de fundo da célula
         celDif.classList.add('celulas')
-        painel.appendChild(celDif)
+        caixaCelulasDif.appendChild(celDif)
         celDif.dataset.idx = i;
         
         let valorCelula = criaDiv(); //quantidade de cada celula contada

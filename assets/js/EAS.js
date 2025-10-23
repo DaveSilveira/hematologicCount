@@ -21,8 +21,6 @@ let EAS = criaDiv();
  EAS.classList.add('botao');
  corpo.appendChild(EAS);
 
-//EAS.style.cssText = 'display: none' //Para realização de testes
-
 //Janela onde todo o evento de contagem irá ocorrer
 EAS.addEventListener('click', function(){
  const painel = criaDiv()
@@ -31,10 +29,11 @@ EAS.addEventListener('click', function(){
 
  const titulo = criaDiv()
  painel.appendChild(titulo)
+ titulo.classList.add('tituloCount')
  titulo.innerText = 'Contagem de sedimentos urinários'
- titulo.style.cssText = `font-size:18px; font-family: sans-serif; position: absolute; margin: 10px 0px 0px 30px;`;
 
  fechar(painel, 'fechar', 'X') //Botão de fechar a janela
+
 //array que contém os elementos que podem ser quantificados por número no EAS
     const elementos = [
         {tipo: 'epitelial',qnt: '0',img: '',tecla: '',tecla1: ''},
