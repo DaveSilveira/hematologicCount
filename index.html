@@ -12,6 +12,10 @@
 <div class="corpo"></div>
 <div class="rodape"></div>
 </body>
+<script>
+    document.addEventListener('gesturestart', (e) => e.preventDefault()); //evitar zoom de pinça
+    document.addEventListener('dbclick', (e) => e.preventDefault()); //evitar zoom de duplo toque
+</script>
 <script src="./assets/js/main.js"></script>
 <script src="./assets/js/relativa.js"></script>
 <script src="./assets/js/reticulocitos.js"></script>

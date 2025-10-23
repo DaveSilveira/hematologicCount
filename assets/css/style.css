@@ -183,6 +183,9 @@ p{
 }
 /*Layout para celulares*/
 @media (max-width: 600px){
+    *{
+        user-select: none; /*impedir seleção de texto na pagina*/
+    }
     .titulo{
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
