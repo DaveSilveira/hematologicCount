@@ -36,12 +36,84 @@ EAS.addEventListener('click', function(){
 
 //array que contém os elementos que podem ser quantificados por número no EAS
     const elementos = [
-        {tipo: 'epitelial',qnt: '0',img: '',tecla: '',tecla1: ''},
-        {tipo: 'piocitos',qnt: '0',img: '',tecla: '',tecla1: ''},
-        {tipo: 'hemacias',qnt: '0',img: '',tecla: '',tecla1: ''},
-        {tipo: 'cilindros',qnt: '0',img: '',tecla: '',tecla1: ''},
-        {tipo: 'leveduras',qnt: '0',img: '',tecla: '',tecla1: ''} //verificar classificação de quantidade
+        {nome: 'Célula',valor: '0',img: 'URL(./assets/img/epitelialNeu.png)',tecla: 'g',tecla1: 'G'},
+        {nome: 'Piócito',valor: '0',img: 'URL(./assets/img/leucocitoNeu.png)',tecla: 'h',tecla1: 'H'},
+        {nome: 'Hemácia',valor: '0',img: 'URL(./assets/img/hemaciaNeu.png)',tecla: 'j',tecla1: 'J'},
+        {nome: 'Cilindro',valor: '0',img: 'URL(./assets/img/cilindro.png)',tecla: 'k',tecla1: 'K'},
+        {nome: 'Levedura',valor: '0',img: 'URL(./assets/img/levedura.png)',tecla: 'l',tecla1: 'L'} //verificar classificação de quantidade
     ]
+function mostraPainel(){
+    const contagens = criaDiv(); //Aqui aparecereá os valores totais da contagem neubauer
+    painel.appendChild(contagens);
+    contagens.classList.add('valoresPainel')
+
+    let cxBotao = criaDiv(); //caixa que engloba o botão zerar
+    cxBotao.classList.add('botaoPainel');
+    contagens.appendChild(cxBotao);
+
+    let zerar = criaDiv(); //botao para zerar contagem
+    zerar.classList.add('botao');
+    zerar.innerHTML = 'Zerar';
+    cxBotao.appendChild(zerar);
+
+    let caixaContagem = criaDiv()
+    painel.appendChild(caixaContagem)
+    caixaContagem.classList.add('caixaCelulas')
+
+    /*Criação dos botões de contagem na neubauer*/
+    for(let i = 0; i < elementos.length; i++){
+        let {nome,valor,img,tecla,tecla1} = elementos[i];
+        
+        let totalElemento = criaDiv(); //Aqui o total de celulas em neubauer
+        totalElemento.classList.add('valorPainel');
+        totalElemento.innerHTML = `${elementos[0].valor} \n <div style="font-size:12px;">${nome}</div>`;
+        contagens.appendChild(totalElemento);
+
+        let elemento = criaDiv() //setando a div para cada celula naubauer contida no array celulasNeu
+        elemento.style.backgroundImage = img //imagem de fundo da célula
+        elemento.classList.add('celulas')
+        caixaContagem.appendChild(elemento)
+        elemento.dataset.idx = i;
+
+        let valorElemento = criaDiv(); //quantidade de cada celula contada
+        elemento.appendChild(valorElemento);
+        valorElemento.classList.add('valorCelula');
+        valorElemento.innerText = valor;
+
+        let nomeElemento = criaDiv(); //nome de cada cel ao centro
+        elemento.appendChild(nomeElemento);
+        nomeElemento.classList.add('nomeLeuco');
+        nomeElemento.innerText = nome;
+
+        let teclaElemento = criaDiv();
+        elemento.appendChild(teclaElemento);
+        teclaElemento.classList.add('teclaCelula');
+        teclaElemento.innerText = tecla;
+
+    elemento.addEventListener('click', function(){ //joga os valores nos elementos
+        valorElemento.innerText = Number(++elementos[this.dataset.idx]["valor"]);
+        totalElemento.innerHTML = `${elementos[this.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
+        });
+    document.addEventListener('keydown', function(event){
+        if(event.key === tecla){
+        valorElemento.innerText = Number(++elementos[elemento.dataset.idx]["valor"]);
+        totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
+    
+        }});
+    document.addEventListener('keydown', function(event){
+        if(event.key === tecla1){
+        valorElemento.innerText = Number(++elementos[elemento.dataset.idx]["valor"]);
+        totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
+
+        }});
+    zerar.addEventListener('click', function(){
+        valorElemento.innerText = 0;
+        totalElemento.innerHTML = `${0} \n <div style="font-size:12px;">${nome}</div>`;
+        });
+
+    }
+}
+return mostraPainel()
 }); //Final do evento de janela
 
 //Criador: https://github.com/DaveSilveira
