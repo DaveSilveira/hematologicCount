@@ -56,6 +56,25 @@ function mostraPainel(){
     zerar.innerHTML = 'Zerar';
     cxBotao.appendChild(zerar);
 
+    let caixafator = criaDiv()
+    cxBotao.appendChild(caixafator)
+    caixafator.classList.add('caixaContadorEAS')
+
+    const fatorX4 = criaDiv()
+    fatorX4.classList.add('valorPainel')
+    fatorX4.innerHTML = `x4 \n <div style="font-size:12px;"></div>`;
+    caixafator.appendChild(fatorX4)
+
+    const fatorX8 = criaDiv()
+    fatorX8.classList.add('valorPainel')
+    fatorX8.innerHTML = `x8 \n <div style="font-size:12px;"></div>`;
+    caixafator.appendChild(fatorX8)
+
+    const fatorX16 = criaDiv()
+    fatorX16.classList.add('valorPainel')
+    fatorX16.innerHTML = `x16 \n <div style="font-size:12px;"></div>`;
+    caixafator.appendChild(fatorX16)
+
     let caixaContadores = criaDiv()
     painel.appendChild(caixaContadores)
     caixaContadores.classList.add('caixaContadorEAS')

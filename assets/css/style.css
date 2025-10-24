@@ -1,6 +1,11 @@
 body{
     background-color: rgb(166, 205, 241);
     user-select: none; /*impedir seleção de texto na pagina*/
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
 }
 p{
     margin-top: 4px;
@@ -196,9 +201,7 @@ p{
 }
 /*Layout para celulares*/
 @media (max-width: 600px){
-    *{
-        user-select: none; /*impedir seleção de texto na pagina*/
-    }
+    
     input, select, textarea{
         font-size: 16px;
     }
