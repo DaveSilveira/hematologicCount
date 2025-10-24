@@ -58,26 +58,26 @@ function mostraPainel(){
 
     const tituloFator = criaDiv()
     tituloFator.classList.add('valorPainel')
-    tituloFator.innerHTML = `<div style="font-size:12px;">Fator de multiplicação</div>`;
+    tituloFator.innerHTML = `<div style="font-size:12px;">Fator de multiplicação:</div>`;
     caixaFator.appendChild(tituloFator)
 
     const fatorX1 = criaDiv()
-    fatorX1.classList.add('valorPainel')
+    fatorX1.classList.add('botao')
     fatorX1.innerHTML = `<div style="font-size:12px;">x1</div>`;
     caixaFator.appendChild(fatorX1)
 
     const fatorX4 = criaDiv()
-    fatorX4.classList.add('valorPainel')
+    fatorX4.classList.add('botao')
     fatorX4.innerHTML = `<div style="font-size:12px;">x4</div>`;
     caixaFator.appendChild(fatorX4)
 
     const fatorX8 = criaDiv()
-    fatorX8.classList.add('valorPainel')
+    fatorX8.classList.add('botao')
     fatorX8.innerHTML = `<div style="font-size:12px;">x8</div>`;
     caixaFator.appendChild(fatorX8)
 
     const fatorX16 = criaDiv()
-    fatorX16.classList.add('valorPainel')
+    fatorX16.classList.add('botao')
     fatorX16.innerHTML = `<div style="font-size:12px;">x16</div>`;
     caixaFator.appendChild(fatorX16)
 
