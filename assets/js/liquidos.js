@@ -127,6 +127,7 @@ function mostraPainel(){
 
         }});
         zerar.addEventListener('click', function(){
+            celulasNeu[i].valor = 0
             valorCelula.innerText = 0;
             celuNeu.innerHTML = `${0} \n <div style="font-size:12px;">${nome}</div>`;
         });

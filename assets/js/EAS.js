@@ -47,33 +47,39 @@ function mostraPainel(){
     painel.appendChild(contagens);
     contagens.classList.add('valoresPainel')
 
-    let cxBotao = criaDiv(); //caixa que engloba o botão zerar
-    cxBotao.classList.add('botaoPainel');
-    contagens.appendChild(cxBotao);
+    let caixaFator = criaDiv()
+    painel.appendChild(caixaFator)
+    caixaFator.classList.add('caixaContadorEAS')
 
     let zerar = criaDiv(); //botao para zerar contagem
     zerar.classList.add('botao');
     zerar.innerHTML = 'Zerar';
-    cxBotao.appendChild(zerar);
+    caixaFator.appendChild(zerar);
 
-    let caixafator = criaDiv()
-    cxBotao.appendChild(caixafator)
-    caixafator.classList.add('caixaContadorEAS')
+    const tituloFator = criaDiv()
+    tituloFator.classList.add('valorPainel')
+    tituloFator.innerHTML = `<div style="font-size:12px;">Fator de multiplicação</div>`;
+    caixaFator.appendChild(tituloFator)
+
+    const fatorX1 = criaDiv()
+    fatorX1.classList.add('valorPainel')
+    fatorX1.innerHTML = `<div style="font-size:12px;">x1</div>`;
+    caixaFator.appendChild(fatorX1)
 
     const fatorX4 = criaDiv()
     fatorX4.classList.add('valorPainel')
-    fatorX4.innerHTML = `x4 \n <div style="font-size:12px;"></div>`;
-    caixafator.appendChild(fatorX4)
+    fatorX4.innerHTML = `<div style="font-size:12px;">x4</div>`;
+    caixaFator.appendChild(fatorX4)
 
     const fatorX8 = criaDiv()
     fatorX8.classList.add('valorPainel')
-    fatorX8.innerHTML = `x8 \n <div style="font-size:12px;"></div>`;
-    caixafator.appendChild(fatorX8)
+    fatorX8.innerHTML = `<div style="font-size:12px;">x8</div>`;
+    caixaFator.appendChild(fatorX8)
 
     const fatorX16 = criaDiv()
     fatorX16.classList.add('valorPainel')
-    fatorX16.innerHTML = `x16 \n <div style="font-size:12px;"></div>`;
-    caixafator.appendChild(fatorX16)
+    fatorX16.innerHTML = `<div style="font-size:12px;">x16</div>`;
+    caixaFator.appendChild(fatorX16)
 
     let caixaContadores = criaDiv()
     painel.appendChild(caixaContadores)
@@ -127,13 +133,24 @@ function mostraPainel(){
         if(event.key === tecla1){
         valorElemento.innerText = Number(++elementos[elemento.dataset.idx]["valor"]);
         totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-
         }});
     zerar.addEventListener('click', function(){
+        elementos[i].valor = 0
         valorElemento.innerText = 0;
         totalElemento.innerHTML = `${0} \n <div style="font-size:12px;">${nome}</div>`;
         });
-
+    fatorX1.addEventListener('click', function(){
+        totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"] * 1} \n <div style="font-size:12px;">${nome}</div>`
+        });
+    fatorX4.addEventListener('click', function(){
+        totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"] * 4} \n <div style="font-size:12px;">${nome}</div>`
+        });
+    fatorX8.addEventListener('click', function(){
+        totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"] * 8} \n <div style="font-size:12px;">${nome}</div>`
+        });
+    fatorX16.addEventListener('click', function(){
+        totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"] * 16} \n <div style="font-size:12px;">${nome}</div>`
+        });
     }
 }
 return mostraPainel()
