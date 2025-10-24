@@ -35,13 +35,13 @@ EAS.addEventListener('click', function(){
  fechar(painel, 'fechar', 'X') //Botão de fechar a janela
 
 //array que contém os elementos que podem ser quantificados por número no EAS
-    const elementos = [
-        {nome: 'Célula',valor: '0',img: 'URL(./assets/img/epitelialNeu.png)',tecla: 'g',tecla1: 'G'},
-        {nome: 'Piócito',valor: '0',img: 'URL(./assets/img/leucocitoNeu.png)',tecla: 'h',tecla1: 'H'},
-        {nome: 'Hemácia',valor: '0',img: 'URL(./assets/img/hemaciaNeu.png)',tecla: 'j',tecla1: 'J'},
-        {nome: 'Cilindro',valor: '0',img: 'URL(./assets/img/cilindro.png)',tecla: 'k',tecla1: 'K'},
-        {nome: 'Levedura',valor: '0',img: 'URL(./assets/img/levedura.png)',tecla: 'l',tecla1: 'L'} //verificar classificação de quantidade
-    ]
+const elementos = [
+    {nome: 'Célula',valor: '0',img: 'URL(./assets/img/epitelialNeu.png)',tecla: 'g',tecla1: 'G'},
+    {nome: 'Piócito',valor: '0',img: 'URL(./assets/img/leucocitoNeu.png)',tecla: 'h',tecla1: 'H'},
+    {nome: 'Hemácia',valor: '0',img: 'URL(./assets/img/hemaciaNeu.png)',tecla: 'j',tecla1: 'J'},
+    {nome: 'Cilindro',valor: '0',img: 'URL(./assets/img/cilindro.png)',tecla: 'k',tecla1: 'K'},
+    {nome: 'Levedura',valor: '0',img: 'URL(./assets/img/levedura.png)',tecla: 'l',tecla1: 'L'} //verificar classificação de quantidade
+]
 function mostraPainel(){
     const contagens = criaDiv(); //Aqui aparecereá os valores totais da contagem neubauer
     painel.appendChild(contagens);
@@ -56,6 +56,10 @@ function mostraPainel(){
     zerar.innerHTML = 'Zerar';
     cxBotao.appendChild(zerar);
 
+    let caixaContadores = criaDiv()
+    painel.appendChild(caixaContadores)
+    caixaContadores.classList.add('caixaContadorEAS')
+
     let caixaContagem = criaDiv()
     painel.appendChild(caixaContagem)
     caixaContagem.classList.add('caixaCelulas')
@@ -67,7 +71,7 @@ function mostraPainel(){
         let totalElemento = criaDiv(); //Aqui o total de celulas em neubauer
         totalElemento.classList.add('valorPainel');
         totalElemento.innerHTML = `${elementos[0].valor} \n <div style="font-size:12px;">${nome}</div>`;
-        contagens.appendChild(totalElemento);
+        caixaContadores.appendChild(totalElemento);
 
         let elemento = criaDiv() //setando a div para cada celula naubauer contida no array celulasNeu
         elemento.style.backgroundImage = img //imagem de fundo da célula

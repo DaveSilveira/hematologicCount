@@ -1,13 +1,8 @@
-/*  VARIAVEIS E FUNÇÕES GLOBAIS   */
 let corpo = document.querySelector('.corpo');
 let titulo = document.querySelector('.titulo');
 function criaDiv(){
     const criarDiv = document.createElement('div');
     return criarDiv;
-}
-function criaModal(){
-    const modal = document.createElement('dialog');
-    return modal;
 }
 function criaP(){
     let p = document.createElement('p')
@@ -20,51 +15,6 @@ function fechar(elementoPai, classeDoBotao, textoDoBotao){
     fechar.innerText = textoDoBotao;
     fechar.addEventListener('click', () => elementoPai.remove());
 }
-function centralizaDiv(elementoPai){
-elementoPai.style.cssText = `display: flex; flex-drection: row; justify-content: center; align-content: center;`
-}
-
-/* EM TESTE -- Janelas moveis
-function moverdiv(A){
-const myDiv = A
-
-myDiv.addEventListener('mousedown', dragStart);
-
-function dragStart(e){
-    //armazena posição inicial do mouse
-    const startX = e.clientX;
-    const startY = e.clientY;
-
-    //armazena apsoição inicial da div
-    const offSetX = myDiv.offsetLeft;
-    const offSetY = myDiv.offsetTop;
-
-    //Eventos que acompanham o movimento do mouse
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('mouseup', dragEnd);
-
-    function drag(e){
-        //calcula a distancia percorrida pelo mouse
-        const distanceX = e.clientX - startX;
-        const distanceY = e.clientX - startY;
-
-        //define a nova posição da div
-        myDiv.style.left = (offSetX + distanceX) + 'px';
-        myDiv.style.top = (offSetY - distanceY) + 'px';
-        
-        //myDiv.style.right = (offSetX - distanceX) + 'px';
-        //myDiv.style.botton = (offSetY - distanceY) + 'px'; 
-    }
-
-    function dragEnd(){
-        //remove eventos de acompanhamento do movimento do mouse
-        document.removeEventListener('mousemove', drag);
-        document.removeEventListener('mouseup', dragEnd);
-    }
-}
-} 
-*/
-
 /*Explicaçao do programa ao usuário*/
 titulo.addEventListener('click', function(){
 

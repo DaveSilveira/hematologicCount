@@ -21,8 +21,6 @@ let liquidos = criaDiv();
  liquidos.classList.add('botao');
  corpo.appendChild(liquidos);
 
- //liquidos.style.cssText = 'display: none' //Para realização de testes
-
 //Janela onde todo o evento de contagem irá ocorrer
 liquidos.addEventListener('click', function(){
  const painel = criaDiv()

@@ -11,9 +11,6 @@ function criaDiv(){
     const criarDiv = document.createElement('div');
     return criarDiv;
 }
-function centralizaDiv(elementoPai){
-    elementoPai.style.cssText = `display: flex; flex-drection: row; justify-content: center; align-content: center;`
-}
 function criaP(){
     let p = document.createElement('p')
     return p;
