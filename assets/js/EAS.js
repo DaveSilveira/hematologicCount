@@ -40,7 +40,7 @@ const elementos = [
     {nome: 'Piócito',valor: '0',img: 'URL(./assets/img/leucocitoNeu.png)',tecla: 'h',tecla1: 'H'},
     {nome: 'Hemácia',valor: '0',img: 'URL(./assets/img/hemaciaNeu.png)',tecla: 'j',tecla1: 'J'},
     {nome: 'Cilindro',valor: '0',img: 'URL(./assets/img/cilindro.png)',tecla: 'k',tecla1: 'K'},
-    {nome: 'Levedura',valor: '0',img: 'URL(./assets/img/levedura.png)',tecla: 'l',tecla1: 'L'} //verificar classificação de quantidade
+    //{nome: 'Levedura',valor: '0',img: 'URL(./assets/img/levedura.png)',tecla: 'l',tecla1: 'L'} //verificar classificação de quantidade
 ]
 function mostraPainel(){
     const contagens = criaDiv(); //Aqui aparecereá os valores totais da contagem neubauer
