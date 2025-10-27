@@ -50,7 +50,7 @@ p{
     color: #0c136d;
 }
 .painel{
-    min-width: 40%;
+    min-width: 500px;
     min-height: 40%;
     background-color: #ffffff;
     justify-content: center;
@@ -62,7 +62,7 @@ p{
         font-size: 18px;
         font-family: sans-serif;
         margin: 10px 0px 0px 30px;
-    }
+}
 .painel, .painelResult{
     position: absolute;
     top: 50%;
@@ -99,6 +99,14 @@ p{
     margin: auto;
     width:80%;
     justify-content: center;
+}
+.caixaCelulas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-width: 90%;
+    min-height: 80%;
 }
 .disclaimer{
     width: 60%;
@@ -201,7 +209,6 @@ p{
 }
 /*Layout para celulares*/
 @media (max-width: 600px){
-    
     input, select, textarea{
         font-size: 16px;
     }
