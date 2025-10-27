@@ -207,6 +207,14 @@ p{
 #valor_hct, #valor_eri, #abs{
     width: 60px;
 }
+.gitIcon{
+    width: 60px;
+    height: 80px;
+    bottom: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 /*Layout para celulares*/
 @media (max-width: 600px){
     input, select, textarea{
@@ -284,14 +292,13 @@ p{
     .disclaimer{
     min-width: 90%;
     min-height: 90%;
+    font-size: 12px;
     padding: 6px;
     text-align: justify;
     font-family: sans-serif;
-    color: #5a5a5a;
+    color: #353434;
     background-color: #ffffff;
     position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%,-50%);
     }
 }

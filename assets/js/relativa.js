@@ -104,9 +104,10 @@ const eritroCelula = [
 
     for (let i = 0; i < eritroCelula.length; i++ ){ //para aparecer os eritros no painel
         let {cel, valor, imagem, tecla, tecla1, nome} = eritroCelula[i];
-        let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
-            eritroRel.style.backgroundImage = imagem; //Imagem de fundo da celula
-            eritroRel.classList.add('celulas');
+
+                let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
+                eritroRel.style.backgroundImage = imagem; //Imagem de fundo da celula
+                eritroRel.classList.add('celulas');
                 caixaCelulas.appendChild(eritroRel);
                 eritroRel.dataset.idx = i;
                 eritroRel.setAttribute("name", nome)

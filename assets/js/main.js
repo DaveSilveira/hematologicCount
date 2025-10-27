@@ -21,7 +21,7 @@ titulo.addEventListener('click', function(){
 const disclaimer = criaDiv()
 disclaimer.classList.add('disclaimer')
 document.body.appendChild(disclaimer)
-disclaimer.innerHTML = `<h1>Contador de céluas</h1>
+disclaimer.innerHTML = `<p><b>Contador de céluas</b></p>
 <p>
     A intenção da criação do contador hematologico é de praticar meus aprendizados em javascript
     com uma ferramenta que ajuda profissionais da área da saúde na bancada de laboratório clínico.
@@ -41,10 +41,13 @@ disclaimer.innerHTML = `<h1>Contador de céluas</h1>
     A ideia da criação de um aplicativo que funcione em um computador se da pelo fato do analista de laboratório
     realizar as alterações de informações e contagens no computador, o que traria tudo para um só lugar.s
 </p>
-<p>
-    \n <a href='https://github.com/DaveSilveira/'>Criador</a>
-</p>
 `;
+
+let gitIcon = document.createElement('img')
+gitIcon.classList.add('gitIcon')
+disclaimer.appendChild(gitIcon)
+gitIcon.src = './assets/img/gitDaveSemFundo.png'
+gitIcon.addEventListener('click', ()=> window.open('https://github.com/DaveSilveira'), '_blank')
 
 let fechar = criaDiv()
 disclaimer.appendChild(fechar)
