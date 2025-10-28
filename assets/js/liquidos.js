@@ -68,6 +68,7 @@ function mostraPainel(){
     verResul.innerHTML = 'Resultado';
     cxBotao.appendChild(verResul);
     verResul.addEventListener('click', function(){result()});
+    verResul.style.display = 'none'
 
     let zerar = criaDiv(); //botao para zerar contagem
     zerar.classList.add('botao');
