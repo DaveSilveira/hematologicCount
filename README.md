@@ -3,6 +3,9 @@
 Status: In progress 🛠️
 <p>A hematologic relative count with reticulocytes count.</p>
 
+**enUs** us
+
+
 **ptBr** 🇧🇷
 Contador de leucócitos com contagem paralela de eritroblastos (o que não interfere na contagem relativa), um contador de reticulócitos e um contador de plaquetas, que mostre o resultado de ambas as contagens quando se termina. O diferencial vai para o contador relativo que ainda faz uma contagem absoluta, quando inserido a contagem global de leucocitos e correção, caso haja eritroblastos na contagem.
 
