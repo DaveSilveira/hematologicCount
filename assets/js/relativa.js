@@ -226,13 +226,14 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
     let abs = document.createElement('input')
     abs.type = 'number';
     abs.id = 'abs';
-    abs.min = '100'
+    abs.min = '100';
+    abs.step = '100';
     abs.placeholder = '0';
     absoluto.innerHTML = `Valor total de leucocitos:`;
     absoluto.appendChild(abs)
     let enviar = document.createElement('button')
     absoluto.appendChild(enviar)
-    enviar.innerText = 'Enviar'
+    enviar.innerText = 'Calcular'
 
     let resCorrigido = criaP()
     resCorrigido.innerHTML = 'Valor Global de Leucocitos:';

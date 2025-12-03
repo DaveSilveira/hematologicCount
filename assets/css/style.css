@@ -215,6 +215,12 @@ p{
     background-repeat: no-repeat;
     background-position: center;
 }
+/*Layouts responsivos*/
+@media (min-width: 800px) {
+    .painel{
+        max-width: 512px;
+    }
+}
 /*Layout para celulares*/
 @media (max-width: 600px){
     input, select, textarea{

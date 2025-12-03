@@ -41,7 +41,10 @@ const elementos = [
     {nome: 'Hemácia',valor: '0',img: 'URL(./assets/img/hemaciaNeu.png)',tecla: 'j',tecla1: 'J'},
     {nome: 'Cilindro',valor: '0',img: 'URL(./assets/img/cilindro.png)',tecla: 'k',tecla1: 'K'},
     //{nome: 'Levedura',valor: '0',img: 'URL(./assets/img/levedura.png)',tecla: 'l',tecla1: 'L'} //verificar classificação de quantidade
-]
+];
+
+const count = new Audio('./assets/sound/count.mp3')
+
 function mostraPainel(){
     const contagens = criaDiv(); //Aqui aparecereá os valores totais da contagem neubauer
     painel.appendChild(contagens);
@@ -122,18 +125,23 @@ function mostraPainel(){
     elemento.addEventListener('click', function(){ //joga os valores nos elementos
         valorElemento.innerText = Number(++elementos[this.dataset.idx]["valor"]);
         totalElemento.innerHTML = `${elementos[this.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-        });
+    count.currentTime = 0
+    count.play()    
+    });
     document.addEventListener('keydown', function(event){
         if(event.key === tecla){
         valorElemento.innerText = Number(++elementos[elemento.dataset.idx]["valor"]);
         totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-    
+    count.currentTime = 0
+    count.play()
         }});
     document.addEventListener('keydown', function(event){
         if(event.key === tecla1){
         valorElemento.innerText = Number(++elementos[elemento.dataset.idx]["valor"]);
         totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-        }});
+    count.currentTime = 0
+    count.play()    
+    }});
     zerar.addEventListener('click', function(){
         elementos[i].valor = 0
         valorElemento.innerText = 0;

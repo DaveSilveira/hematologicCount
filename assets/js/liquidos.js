@@ -38,22 +38,25 @@ let difCountTotal = 0
 
 //Array que contem as células que podem ser encontradas nos liquidos
 const celulasNeu = [
-        {celula:'Leu',nome:'Leucócitos',valor:0,img:'URL(./assets/img/leucocitoNeu.png)',tecla:'y',tecla1:'Y'},
-        {celula:'Hem',nome:'Hemácias',valor:0,img:'URL(./assets/img/hemaciaNeu.png)',tecla:'u',tecla1:'U'},
-        {celula:'Outra',nome:'Célula',valor:0,img:'URL(./assets/img/outraNeu.png)',tecla:'t',tecla1:'T'}
+        {celula:'Leu',nome:'Leucócitos',valor:0,img:'URL(./assets/img/leucocitoNeu.png)', som: 'musica', tecla:'y',tecla1:'Y'},
+        {celula:'Hem',nome:'Hemácias',valor:0,img:'URL(./assets/img/hemaciaNeu.png)', som: 'musica', tecla:'u',tecla1:'U'},
+        {celula:'Outra',nome:'Célula',valor:0,img:'URL(./assets/img/outraNeu.png)', som: 'musica', tecla:'t',tecla1:'T'}
 ];
 const celulas =[
-        {celula:'Segme',valor:'0',img:'URL(./assets/img/seg.png)',tecla:'h',tecla1:'H'},
-        {celula:'Linfo',valor:'0',img:'URL(./assets/img/linTip.png)',tecla:'j',tecla1:'J'},
-        {celula:'Plasm',valor:'0',img:'URL(./assets/img/plasmocito.png)',tecla:'o',tecla1:'O'},
-        {celula:'Monoc',valor:'0',img:'URL(./assets/img/mon.png)',tecla:'k',tecla1:'K'},
-        {celula:'Eosin',valor:'0',img:'URL(./assets/img/eos.png)',tecla:'l',tecla1:'L'},
-        {celula:'Basof',valor:'0',img:'URL(./assets/img/bas.png)',tecla:'g',tecla1:'G'},
-        {celula:'Macro',valor:'0',img:'URL(./assets/img/macrofago.png)',tecla:'f',tecla1:'F'},
-        {celula:'Mesot',valor:'0',img:'URL(./assets/img/mesotelial.png)',tecla:'d',tecla1:'D'},
-        {celula:'Outra1',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'s',tecla1:'S'},
-        {celula:'Outra2',valor:'0',img:'URL(./assets/img/outra.png)',tecla:'a',tecla1:'A'}
+        {celula:'Segme',valor:'0',img:'URL(./assets/img/seg.png)', som: 'musica', tecla:'h',tecla1:'H'},
+        {celula:'Linfo',valor:'0',img:'URL(./assets/img/linTip.png)', som: 'musica', tecla:'j',tecla1:'J'},
+        {celula:'Plasm',valor:'0',img:'URL(./assets/img/plasmocito.png)', som: 'musica', tecla:'o',tecla1:'O'},
+        {celula:'Monoc',valor:'0',img:'URL(./assets/img/mon.png)', som: 'musica', tecla:'k',tecla1:'K'},
+        {celula:'Eosin',valor:'0',img:'URL(./assets/img/eos.png)', som: 'musica', tecla:'l',tecla1:'L'},
+        {celula:'Basof',valor:'0',img:'URL(./assets/img/bas.png)', som: 'musica', tecla:'g',tecla1:'G'},
+        {celula:'Macro',valor:'0',img:'URL(./assets/img/macrofago.png)', som: 'musica', tecla:'f',tecla1:'F'},
+        {celula:'Mesot',valor:'0',img:'URL(./assets/img/mesotelial.png)', som: 'musica', tecla:'d',tecla1:'D'},
+        {celula:'Outra1',valor:'0',img:'URL(./assets/img/outra.png)', som: 'musica', tecla:'s',tecla1:'S'},
+        {celula:'Outra2',valor:'0',img:'URL(./assets/img/outra.png)', som: 'musica', tecla:'a',tecla1:'A'}
 ];
+
+const count = new Audio('./assets/sound/count.mp3')
+
 function mostraPainel(){
     const contagens = criaDiv(); //Aqui aparecereá os valores totais da contagem neubauer
     painel.appendChild(contagens);
@@ -114,18 +117,22 @@ function mostraPainel(){
             celuNeu.innerHTML = `${celulasNeu[this.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
         console.log(celulasNeu[2].valor)
         console.log(celulas[1].valor)
+        count.currentTime = 0
+        count.play()
         });
         document.addEventListener('keydown', function(event){
             if(event.key === tecla){
             valorCelula.innerText = Number(++celulasNeu[celNeu.dataset.idx]["valor"]);
             celuNeu.innerHTML = `${celulasNeu[celNeu.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-    
+            count.currentTime = 0
+            count.play()
         }});
         document.addEventListener('keydown', function(event){
             if(event.key === tecla1){
             valorCelula.innerText = Number(++celulasNeu[celNeu.dataset.idx]["valor"]);
             celuNeu.innerHTML = `${celulasNeu[celNeu.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-
+            count.currentTime = 0
+            count.play()
         }});
         zerar.addEventListener('click', function(){
             celulasNeu[i].valor = 0
@@ -175,17 +182,23 @@ function mostraPainel(){
         celDif.addEventListener('click', function(){ //joga os valores nos leucocitos
             valorCelula.innerText = ++celulas[this.dataset.idx]["valor"]; 
             difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
+        count.currentTime = 0
+        count.play()
         });
         document.addEventListener('keydown', function(event){
             if(event.key === tecla){
                 valorCelula.innerText = ++celulas[celDif.dataset.idx]["valor"]; 
                 difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
-        }});
+        count.currentTime = 0
+        count.play()
+            }});
         document.addEventListener('keydown', function(event){
             if(event.key === tecla1){
                 valorCelula.innerText = ++celulas[celDif.dataset.idx]["valor"]; 
                 difCount.innerHTML = `${++difCountTotal} \n <div style="font-size:12px;">Contagem diferencial</div>`;
-        }});
+        count.currentTime = 0
+        count.play()
+            }});
         zerar.addEventListener('click', function(){
             celulas[i].valor = 0;
             valorCelula.innerText = 0;
