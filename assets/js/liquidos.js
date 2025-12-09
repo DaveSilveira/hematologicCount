@@ -115,8 +115,6 @@ function mostraPainel(){
         celNeu.addEventListener('click', function(){ //joga os valores nos leucocitos
             valorCelula.innerText = Number(++celulasNeu[this.dataset.idx]["valor"]);
             celuNeu.innerHTML = `${celulasNeu[this.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-        console.log(celulasNeu[2].valor)
-        console.log(celulas[1].valor)
         count.currentTime = 0
         count.play()
         });
