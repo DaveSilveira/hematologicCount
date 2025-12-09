@@ -1,7 +1,7 @@
 # hematologicCount 
 <img src="assets/img/mieloblasto.png" width='60px'><img src="assets/img/promielo.png" width='60px'><img src="assets/img/mielo.png" width='60px'><img src="assets/img/meta.png" width='60px'><img src="assets/img/bastao.png" width='60px'><img src="assets/img/meta.png" width='60px'><img src="assets/img/seg.png" width='60px'><img src="assets/img/eos.png" width='60px'><img src="assets/img/bas.png" width='60px'><img src="assets/img/linTip.png" width='60px'><img src="assets/img/eritro.png" width='60px'><br>
 Status: In progress 🛠️
-<p>A blood cell count with.</p>
+<p><b>A body cells counter.</b></p>
 
 **enUs**<br>
 The counter's intention is to create an interface that integrates various laboratory counters in one place, that works on desktop and mobile devices directly from the browser, and that is practical and easy to use. Currently, the project is still under development and already includes a differential counter, a reticulocyte counter, a cell counter in noble fluids, and a cell counter in urine for microscopy. For the inicial necessities I decided take the count in PT-BR.
