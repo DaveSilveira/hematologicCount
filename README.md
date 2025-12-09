@@ -9,19 +9,21 @@ The counter's intention is to create an interface that integrates various labora
 **ptBr**<br>
 A intenção do contador é criar uma interface que integre diversos contadores utilizados em laboratório em um unico lugar, que funcione em desktop e celular diretamente do navegador, que seja algo prático e fácil de usar. No momento o projeto ainda está em desenvolvimento e já conta com um contador diferencial, contador de reticulócitos, de células em líquidos nobres e de células em urina para exame de sedmentoscopia. 
 
-<a href="https://davesilveira.github.io/hematologicCount/" target="blank">Click here to see how the project is going.</a>
+<a href="https://davesilveira.github.io/hematologicCount/" target="_blank">Click here to see how the project is going.</a>
 
-Passo a passo do projeto:
+Project step-by-step:
 
-- [x] 1. Criar um contador relativo de leucocitos.
-- [x] 1.1 - Contador de eritroblastos separado da contagem relativa.
-- [x] 1.2 - Painel de resultados, que contenha os resultados relativos e absolutos, caso o usuário queira.
-- [x] 1.3 - Que possa ser zerado para que se inicie outra contagem.
-- [x] 2. Criar um contador de reticulócitos.
-- [x] 2.1 - Que conte dez campos e quando chegar na quantidade de campos ofereça o resultado ao usuário com a quantidade de reticulócitos contados.
-- [x] 2.2 - Que possa ser zerado para que o usuário consiga iniciar uma outra contagem.
-- [x] 3. - Criar um contador de células em líquidos.
-- [ ] 3.1 - Com painel de resultados de contagem.
-- [x] 4. - Criar um contador de células urinárias.
-- [ ] 4.1 - Botões de fator de multiplicação.
-- [x] 5. Botão de fechar em cada uma das janelas de contagem da interface, assim como no bloco de notas e nas notas.
+- [x] 1. Create a relative counter.
+- [x] 1.1 - Erythroblasts counter separated in relative counter.
+- [x] 1.2 - Result painel, that contain the relatives and absolutes results when the Global White Cells entered.
+- [x] 1.3 - That can be restarted to start a new counter.
+- [x] 2. Create a reticulocytes counter.
+- [x] 2.1 - For while, this counter take 10 fields of view and make the average of count.
+- [x] 2.2 - That can be restarted to start a new count.
+- [x] 3. - Create a body cavity fluids counter.
+- [ ] 3.1 - With results count painel.
+- [x] 4. - Create a urinary sedmentoscopy counter.
+- [ ] 4.1 - With bottons for mutiplication fator.
+- [x] 5. A close botton in all windows of the interface.
+
+The intenction is display the counters in separate windows, that can be closed to start an another counter display.
