@@ -1,6 +1,7 @@
 body{
     background-color: rgb(166, 205, 241);
     user-select: none; /*impedir seleção de texto na pagina*/
+    touch-action: manipulation;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
