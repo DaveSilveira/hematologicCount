@@ -40,14 +40,14 @@ let eritroTotal = 0;
 
 //Array que contém as informações dos leucocitos usados no contador
 const celulas = [
-    {cel: 'Blasto', nome: 'Blasto',valor: 0, imagem: 'URL(./assets/img/mieloblasto.png)', som: 'musica', tecla: 'b', tecla1: 'B'},
-    {cel: 'Promie', nome: 'Promielócito',valor: 0, imagem: 'URL(./assets/img/promielo.png)', som: 'musica', tecla: 'v', tecla1: 'V'},
-    {cel: 'Mieloc', nome: 'Mielócito',valor: 0, imagem: 'URL(./assets/img/mielo.png)', som: 'musica', tecla: 'c', tecla1: 'C'},
-    {cel: 'Metami', nome: 'Metamielócito',valor: 0, imagem: 'URL(./assets/img/meta.png)', som: 'musica', tecla: 'm', tecla1: 'M'},
+    {cel: 'Blasto', nome: 'Blasto',valor: 0, imagem: 'URL(./assets/img/mieloblasto.png)', som: 'musica', tecla: 'm', tecla1: 'M'},
+    {cel: 'Promie', nome: 'Promielócito',valor: 0, imagem: 'URL(./assets/img/promielo.png)', som: 'musica', tecla: 'n', tecla1: 'N'},
+    {cel: 'Mieloc', nome: 'Mielócito',valor: 0, imagem: 'URL(./assets/img/mielo.png)', som: 'musica', tecla: 'a', tecla1: 'A'},
+    {cel: 'Metami', nome: 'Metamielócito',valor: 0, imagem: 'URL(./assets/img/meta.png)', som: 'musica', tecla: 's', tecla1: 'S'},
     {cel: 'Bastao', nome: 'Bastonete',valor: 0, imagem: 'URL(./assets/img/bastao.png)', som: 'musica', tecla: 'g', tecla1: 'G'},
     {cel: 'Segmen', nome: 'Segmentado',valor: 0, imagem: 'URL(./assets/img/seg.png)', som: 'musica', tecla: 'h', tecla1: 'H'},
-    {cel: 'Eosino', nome: 'Eosinófilo',valor: 0, imagem: 'URL(./assets/img/eos.png)', som: 'musica', tecla: 'l', tecla1: 'L'},
-    {cel: 'Basofi', nome: 'Basófilo',valor: 0, imagem: 'URL(./assets/img/bas.png)', som: 'musica', tecla: 'f', tecla1: 'F'},
+    {cel: 'Eosino', nome: 'Eosinófilo',valor: 0, imagem: 'URL(./assets/img/eos.png)', som: 'musica', tecla: 'f', tecla1: 'F'},
+    {cel: 'Basofi', nome: 'Basófilo',valor: 0, imagem: 'URL(./assets/img/bas.png)', som: 'musica', tecla: 'd', tecla1: 'D'},
     {cel: 'Monoci', nome: 'Monócito',valor: 0, imagem: 'URL(./assets/img/mon.png)', som: 'musica', tecla: 'k', tecla1: 'K'},
     {cel: 'LinTip', nome: 'Linfócito Típico',valor: 0, imagem: 'URL(./assets/img/linTip.png)', som: 'musica', tecla: 'j', tecla1: 'J'},
     {cel: 'LinAti', nome: 'Linfócito Atípico',valor: 0, imagem: 'URL(./assets/img/linAtip.png)', som: 'musica', tecla: 'i', tecla1: 'I'},
