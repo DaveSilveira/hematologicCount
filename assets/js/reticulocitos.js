@@ -25,8 +25,7 @@ titulo.innerText = 'Contagem de reticulócitos';
         valor: 0,
         musica: '',
         imagem: 'URL(./assets/img/reticulocito.png)',
-        tecla: 'g',
-        tecla1: 'G',  
+        tecla: 'g', 
     }]
     let campo = [{
         cel: 'Campo',
@@ -34,7 +33,6 @@ titulo.innerText = 'Contagem de reticulócitos';
         musica: '',
         imagem: 'URL(./assets/img/campoReti.png)',
         tecla: 'h',
-        tecla1: 'H',
     }]
 
 const retiSom = new Audio('./assets/sound/count.mp3')
@@ -113,20 +111,13 @@ for(let i=0; i < reticulocito.length; i++){
         retiSom.play()
     });
     document.addEventListener('keydown', function(event){
-        if(event.key === tecla){
+        if(event.key === tecla || event.key === tecla.toUpperCase()){
         valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
         contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
         retiSom.currentTime = 0
         retiSom.play()
         }
     });
-    document.addEventListener('keydown', function(event){
-        if(event.key === tecla1){
-        valorRet.innerHTML = ++reticulocito[retCount.dataset.idx]['valor']
-        contadorReti.innerHTML = `${++totalRet} \n <div style="font-size:12px;">Reticulócitos</div>`;
-        retiSom.currentTime = 0
-        retiSom.play()
-        }});
         zerar.addEventListener('click', function(){
             reticulocito[i].valor = 0;
             valorRet.innerText = 0;
@@ -166,21 +157,12 @@ for(let i=0; i< campo.length; i++){
             if(totalCampo === 10) return result()
         });
         document.addEventListener('keydown', function(event){
-            if(event.key === tecla){
+            if(event.key === tecla || event.key === tecla.toUpperCase()){
             valorCampo.innerHTML = ++campo[campoCount.dataset.idx]['valor']
             contadorCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
             campoSom.currentTime = 0;
             campoSom.play()
             if(totalCampo === 10) return result()
-            }
-        });
-        document.addEventListener('keydown', function(event){
-            if(event.key === tecla1){
-            valorCampo.innerHTML = ++campo[campoCount.dataset.idx]['valor']
-            contadorCampo.innerHTML = `${++totalCampo} \n <div style="font-size:12px;">Campos</div>`;
-            if(totalCampo === 10) return result()
-            campoSom.currentTime = 0;
-            campoSom.play()
             }
         });
         zerar.addEventListener('click', function(){

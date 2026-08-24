@@ -106,14 +106,7 @@ function mostraPainel(){
         count.play()
         });
         document.addEventListener('keydown', function(event){
-            if(event.key === tecla){
-            valorCelula.innerText = Number(++celulasNeu[celNeu.dataset.idx]["valor"]);
-            celuNeu.innerHTML = `${celulasNeu[celNeu.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-            count.currentTime = 0
-            count.play()
-        }});
-        document.addEventListener('keydown', function(event){
-            if(event.key === tecla1){
+            if(event.key === tecla || event.key === tecla.toUpperCase()){
             valorCelula.innerText = Number(++celulasNeu[celNeu.dataset.idx]["valor"]);
             celuNeu.innerHTML = `${celulasNeu[celNeu.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
             count.currentTime = 0

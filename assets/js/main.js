@@ -29,9 +29,5 @@ disclaimer.appendChild(gitIcon)
 gitIcon.src = './assets/img/gitDaveSemFundo.png'
 gitIcon.addEventListener('click', ()=> window.open('https://github.com/DaveSilveira'), '_blank')
 
-let fechar = criaDiv()
-disclaimer.appendChild(fechar)
-fechar.classList.add('botao')
-fechar.innerText ='Fechar';
-fechar.addEventListener('click', function(){disclaimer.style.cssText = 'display:none;'});
+fechar(disclaimer, 'botao', 'Fechar')
  });

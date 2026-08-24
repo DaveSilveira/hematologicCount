@@ -118,19 +118,12 @@ function mostraPainel(){
     count.play()    
     });
     document.addEventListener('keydown', function(event){
-        if(event.key === tecla){
+        if(event.key === tecla || event.key === tecla.toUpperCase()){
         valorElemento.innerText = Number(++elementos[elemento.dataset.idx]["valor"]);
         totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
     count.currentTime = 0
     count.play()
         }});
-    document.addEventListener('keydown', function(event){
-        if(event.key === tecla1){
-        valorElemento.innerText = Number(++elementos[elemento.dataset.idx]["valor"]);
-        totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-    count.currentTime = 0
-    count.play()    
-    }});
     zerar.addEventListener('click', function(){
         elementos[i].valor = 0
         valorElemento.innerText = 0;
