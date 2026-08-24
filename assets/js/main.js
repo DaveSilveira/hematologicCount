@@ -1,20 +1,7 @@
-let corpo = document.querySelector('.corpo');
-let titulo = document.querySelector('.titulo');
-function criaDiv(){
-    const criarDiv = document.createElement('div');
-    return criarDiv;
-}
-function criaP(){
-    let p = document.createElement('p')
-    return p;
-}
-function fechar(elementoPai, classeDoBotao, textoDoBotao){
-    let fechar = criaDiv()
-    elementoPai.appendChild(fechar)
-    fechar.classList.add(classeDoBotao)
-    fechar.innerText = textoDoBotao;
-    fechar.addEventListener('click', () => elementoPai.remove());
-}
+import { criaDiv } from './utils.js';
+import { titulo } from './utils.js';
+import { fechar } from './utils.js';
+
 /*Explicaçao do programa ao usuário*/
 titulo.addEventListener('click', function(){
 

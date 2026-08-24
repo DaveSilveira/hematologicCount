@@ -1,20 +1,6 @@
-/* */
-//Funções necessárias para tornar o código menor.
-function fechar(elementoPai, classeDoBotao, textoDoBotao){
-    let fechar = criaDiv()
-    elementoPai.appendChild(fechar)
-    fechar.classList.add(classeDoBotao)
-    fechar.innerText = textoDoBotao;
-    fechar.addEventListener('click', () => elementoPai.remove());
-}
-function criaDiv(){
-    const criarDiv = document.createElement('div');
-    return criarDiv;
-}
-function criaP(){
-    let p = document.createElement('p')
-    return p;
-}
+import { criaDiv, criaP } from './utils.js';
+import { corpo, fechar } from './utils.js';
+
 //Anconragem do botão no html
 let reticulocitos = criaDiv()
 reticulocitos.innerText = 'Reticulócitos';
@@ -26,7 +12,7 @@ let painel = criaDiv()
 painel.classList.add('painel')
 document.body.appendChild(painel)
 
-fechar(painel, 'fechar', 'X') //Função de fechar janela
+fechar(painel, 'fechar', 'X')
 
 let titulo = criaDiv();
 painel.appendChild(titulo)

@@ -1,20 +1,7 @@
-/* */
-//Funções necessárias para tornar o código menor.
-function criaDiv(){
-    const criarDiv = document.createElement('div');
-    return criarDiv;
-}
-function criaP(){
-    let p = document.createElement('p')
-    return p;
-}
-function fechar(elementoPai, classeDoBotao, textoDoBotao){
-    let fechar = criaDiv()
-    elementoPai.appendChild(fechar)
-    fechar.classList.add(classeDoBotao)
-    fechar.innerText = textoDoBotao;
-    fechar.addEventListener('click', () => elementoPai.remove());
-}
+/*Contagem relativa do hemograma*/
+import { criaDiv, criaP, fechar } from './utils.js';
+import { corpo } from './utils.js';
+
 //Anconragem do botão no html
 let relativa = criaDiv();
  relativa.innerText = 'Contagem Relativa';
@@ -32,7 +19,7 @@ painel.appendChild(titulo)
 titulo.classList.add('tituloCount')
 titulo.innerText = 'Contagem relativa';
 
-fechar(painel, 'fechar', 'X') //Botão de fechar a janela
+fechar(painel, 'fechar', 'X')
 
 //valor inicial dos contadores
 let relTotal = 0;
@@ -90,7 +77,7 @@ const eritroCelula = [
         zerar.addEventListener('click', function(){
             eritroblasto.innerHTML = `${eritroTotal = 0} \n <div style="font-size:12px;">Eritroblastos</div>`;
             relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
-        });
+        }); 
 
         let relativa = criaDiv(); //Aqui o total de leucocitos
         relativa.classList.add('valorPainel');

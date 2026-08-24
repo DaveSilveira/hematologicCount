@@ -1,20 +1,7 @@
-/* */
-//Funções necessárias para tornar o código menor.
-function criaDiv(){
-    const criarDiv = document.createElement('div')
-    return criarDiv;
-}
-function criaP(){
-    let p = document.createElement('p')
-    return p;
-}
-function fechar(elementoPai, classeDoBotao, textoDoBotao){
-    let fechar = criaDiv()
-    elementoPai.appendChild(fechar)
-    fechar.classList.add(classeDoBotao)
-    fechar.innerText = textoDoBotao;
-    fechar.addEventListener('click', () => elementoPai.remove());
-}
+import { criaDiv } from './utils.js';
+import { corpo } from './utils.js';
+import { fechar } from './utils.js';
+
 //Anconragem do botão no html
 let liquidos = criaDiv();
  liquidos.innerText = 'Contagem de Líquidos';
