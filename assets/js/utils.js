@@ -19,7 +19,6 @@ export function fechar(elementoPai, classeDoBotao, textoDoBotao){
     fechar.addEventListener('click', () => elementoPai.remove());
 }
 
-// Variables to necessary for the application
-
+// Variables necessary to anchoring the elements in the HTML document.
 export const corpo = document.querySelector('.corpo');
 export const titulo = document.querySelector('.titulo');

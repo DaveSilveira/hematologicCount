@@ -1,5 +1,6 @@
 import { criaDiv, criaP } from './utils.js';
 import { corpo, fechar } from './utils.js';
+import { configCount } from './config.js';
 
 //Anconragem do botão no html
 let reticulocitos = criaDiv()
@@ -22,6 +23,7 @@ titulo.innerText = 'Contagem de reticulócitos';
 //Indices contendo informações dos botões
     let reticulocito = [{
         cel: 'Ret',
+        nome: 'Reticulócitos',
         valor: 0,
         musica: '',
         imagem: 'URL(./assets/img/reticulocito.png)',
@@ -29,6 +31,7 @@ titulo.innerText = 'Contagem de reticulócitos';
     }]
     let campo = [{
         cel: 'Campo',
+        nome: 'Campo de contagem',
         valor: 0,
         musica: '',
         imagem: 'URL(./assets/img/campoReti.png)',
@@ -58,6 +61,8 @@ zerar.addEventListener('click', function(){
     contadorReti.innerHTML = `${totalRet = 0} \n <div style="font-size:12px;">Reticulócitos</div>`
     contadorCampo.innerHTML = `${totalCampo = 0} \n <div style="font-size:12px;">Campos</div>`
 });
+
+configCount('Config', painel, reticulocito, campo)
 
 let resultado = criaDiv()
 resultado.classList.add('botao')

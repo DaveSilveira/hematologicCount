@@ -1,6 +1,7 @@
-import { criaDiv } from './utils.js';
+import { criaDiv, fechar } from './utils.js';
 import { corpo } from './utils.js';
-import { fechar } from './utils.js';
+import { configCount } from './config.js';
+
 
 //Anconragem do botão no html
 let liquidos = criaDiv();
@@ -27,19 +28,19 @@ let difCountTotal = 0
 const celulasNeu = [
         {celula:'Leu',nome:'Leucócitos',valor:0,img:'URL(./assets/img/leucocitoNeu.png)', som: 'musica', tecla:'y',tecla1:'Y'},
         {celula:'Hem',nome:'Hemácias',valor:0,img:'URL(./assets/img/hemaciaNeu.png)', som: 'musica', tecla:'u',tecla1:'U'},
-        {celula:'Outra',nome:'Célula',valor:0,img:'URL(./assets/img/outraNeu.png)', som: 'musica', tecla:'t',tecla1:'T'}
+        {celula:'Outra',nome:'Outras',valor:0,img:'URL(./assets/img/outraNeu.png)', som: 'musica', tecla:'t',tecla1:'T'}
 ];
 const celulas =[
-        {celula:'Segme',valor:'0',img:'URL(./assets/img/seg.png)', som: 'musica', tecla:'h',tecla1:'H'},
-        {celula:'Linfo',valor:'0',img:'URL(./assets/img/linTip.png)', som: 'musica', tecla:'j',tecla1:'J'},
-        {celula:'Plasm',valor:'0',img:'URL(./assets/img/plasmocito.png)', som: 'musica', tecla:'o',tecla1:'O'},
-        {celula:'Monoc',valor:'0',img:'URL(./assets/img/mon.png)', som: 'musica', tecla:'k',tecla1:'K'},
-        {celula:'Eosin',valor:'0',img:'URL(./assets/img/eos.png)', som: 'musica', tecla:'l',tecla1:'L'},
-        {celula:'Basof',valor:'0',img:'URL(./assets/img/bas.png)', som: 'musica', tecla:'g',tecla1:'G'},
-        {celula:'Macro',valor:'0',img:'URL(./assets/img/macrofago.png)', som: 'musica', tecla:'f',tecla1:'F'},
-        {celula:'Mesot',valor:'0',img:'URL(./assets/img/mesotelial.png)', som: 'musica', tecla:'d',tecla1:'D'},
-        {celula:'Outra1',valor:'0',img:'URL(./assets/img/outra.png)', som: 'musica', tecla:'s',tecla1:'S'},
-        {celula:'Outra2',valor:'0',img:'URL(./assets/img/outra.png)', som: 'musica', tecla:'a',tecla1:'A'}
+        {celula:'Segme',nome:'Segmentados',valor:'0',img:'URL(./assets/img/seg.png)', som: 'musica', tecla:'h',tecla1:'H'},
+        {celula:'Linfo',nome:'Linfócitos',valor:'0',img:'URL(./assets/img/linTip.png)', som: 'musica', tecla:'j',tecla1:'J'},
+        {celula:'Plasm',nome:'Plasmócitos',valor:'0',img:'URL(./assets/img/plasmocito.png)', som: 'musica', tecla:'o',tecla1:'O'},
+        {celula:'Monoc',nome:'Monócitos',valor:'0',img:'URL(./assets/img/mon.png)', som: 'musica', tecla:'k',tecla1:'K'},
+        {celula:'Eosin',nome:'Eosinófilos',valor:'0',img:'URL(./assets/img/eos.png)', som: 'musica', tecla:'l',tecla1:'L'},
+        {celula:'Basof',nome:'Basófilos',valor:'0',img:'URL(./assets/img/bas.png)', som: 'musica', tecla:'g',tecla1:'G'},
+        {celula:'Macro',nome:'Macrófagos',valor:'0',img:'URL(./assets/img/macrofago.png)', som: 'musica', tecla:'f',tecla1:'F'},
+        {celula:'Mesot',nome:'Mesoteliais',valor:'0',img:'URL(./assets/img/mesotelial.png)', som: 'musica', tecla:'d',tecla1:'D'},
+        {celula:'Outra1',nome:'Outras1',valor:'0',img:'URL(./assets/img/outra.png)', som: 'musica', tecla:'s',tecla1:'S'},
+        {celula:'Outra2',nome:'Outras2',valor:'0',img:'URL(./assets/img/outra.png)', som: 'musica', tecla:'a',tecla1:'A'}
 ];
 
 const count = new Audio('./assets/sound/count.mp3')
@@ -64,6 +65,8 @@ function mostraPainel(){
     zerar.classList.add('botao');
     zerar.innerHTML = 'Zerar';
     cxBotao.appendChild(zerar);
+
+    configCount('Config', painel, celulasNeu, celulas)
 
     let caixaCelulasNeu = criaDiv()
     painel.appendChild(caixaCelulasNeu)

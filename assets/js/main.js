@@ -1,6 +1,6 @@
-import { criaDiv } from './utils.js';
+import { criaDiv, fechar } from './utils.js';
 import { titulo } from './utils.js';
-import { fechar } from './utils.js';
+import { cores } from './config.js';
 
 /*Explicaçao do programa ao usuário*/
 titulo.addEventListener('click', function(){
@@ -31,3 +31,5 @@ gitIcon.addEventListener('click', ()=> window.open('https://github.com/DaveSilve
 
 fechar(disclaimer, 'botao', 'Fechar')
  });
+
+ cores()

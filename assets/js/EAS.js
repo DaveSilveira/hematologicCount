@@ -2,7 +2,7 @@
 //Funções necessárias para tornar o código menor.
 import { criaDiv, fechar } from './utils.js';
 import { corpo } from './utils.js';
-
+import { configCount } from './config.js';
 
 //Anconragem do botão no html
 let EAS = criaDiv();
@@ -31,6 +31,7 @@ const elementos = [
     {nome: 'Cilindro',valor: '0',img: 'URL(./assets/img/cilindro.png)',tecla: 'k',tecla1: 'K'},
     //{nome: 'Levedura',valor: '0',img: 'URL(./assets/img/levedura.png)',tecla: 'l',tecla1: 'L'} //verificar classificação de quantidade
 ];
+const vazio =[];
 
 const count = new Audio('./assets/sound/count.mp3')
 
@@ -47,6 +48,8 @@ function mostraPainel(){
     zerar.classList.add('botao');
     zerar.innerHTML = 'Zerar';
     caixaFator.appendChild(zerar);
+
+    configCount('Config', painel, elementos, vazio)
 
     const tituloFator = criaDiv()
     tituloFator.classList.add('valorPainel')

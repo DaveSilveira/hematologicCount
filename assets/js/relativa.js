@@ -1,6 +1,7 @@
 /*Contagem relativa do hemograma*/
 import { criaDiv, criaP, fechar } from './utils.js';
 import { corpo } from './utils.js';
+import { configCount } from './config.js';
 
 //Anconragem do botão no html
 let relativa = criaDiv();
@@ -77,7 +78,9 @@ const eritroCelula = [
         zerar.addEventListener('click', function(){
             eritroblasto.innerHTML = `${eritroTotal = 0} \n <div style="font-size:12px;">Eritroblastos</div>`;
             relativa.innerHTML = `${relTotal = 0} \n <div style="font-size:12px;">Leucocitos</div>`;
-        }); 
+        });
+
+        configCount('config', cxBotao, celulas, eritroCelula);
 
         let relativa = criaDiv(); //Aqui o total de leucocitos
         relativa.classList.add('valorPainel');
@@ -94,7 +97,7 @@ const eritroCelula = [
         caixaCelulas.classList.add('caixaCelulas')
 
     for (let i = 0; i < eritroCelula.length; i++ ){ //para aparecer os eritros no painel
-        let {cel, valor, imagem, tecla, tecla1, nome} = eritroCelula[i];
+        let {cel, valor, imagem, tecla, nome} = eritroCelula[i];
 
                 let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
                 eritroRel.style.backgroundImage = imagem; //Imagem de fundo da celula
