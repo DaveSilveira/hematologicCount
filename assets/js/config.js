@@ -86,16 +86,22 @@ export function cores(){
     let temaMenu = criaDiv()
     temaMenu.classList.add('botao')
     corpo.appendChild(temaMenu)
-    temaMenu.innerText = 'Tema'
+    temaMenu.innerText = 'Cor'
     temaMenu.style.position = 'absolute'
     temaMenu.style.right = '10px'
 
     const painelCores = criaDiv()
     temaMenu.appendChild(painelCores)
     painelCores.classList.add('painelCores')
+    painelCores.style.display = 'none'
 
-
-    temaMenu.addEventListener('click', (e)=> painelCores.style.display = 'block');
+    temaMenu.addEventListener('click', function(){ 
+        if(painelCores.style.display == 'none'){
+            painelCores.style.display = 'block'
+        } else {
+            painelCores.style.display = 'none'
+        }
+    });
 
     let esquemaCores = [
         {nome: 'Claro', cor: '#dddbdb', botao: '#2299dd', botaoTexto: '#ffffff'},
