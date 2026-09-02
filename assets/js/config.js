@@ -87,8 +87,7 @@ export function cores(){
     temaMenu.classList.add('botao')
     corpo.appendChild(temaMenu)
     temaMenu.innerText = 'Cor'
-    temaMenu.style.position = 'absolute'
-    temaMenu.style.right = '10px'
+
 
     const painelCores = criaDiv()
     temaMenu.appendChild(painelCores)
@@ -104,10 +103,10 @@ export function cores(){
     });
 
     let esquemaCores = [
-        {nome: 'Claro', cor: '#dddbdb', botao: '#2299dd', botaoTexto: '#ffffff'},
-        {nome: 'Escuro', cor: '#333333', botao: '#444444', botaoTexto: '#ffffff'},
-        {nome: 'Rosado', cor: '#f8c9f6', botao: '#cf25e6', botaoTexto: '#ffffff'},
-        {nome: 'Classico', cor: '#a6cdf1', botao: '#0c136d', botaoTexto: '#ffffff'},
+        {nome: 'Claro', cor: '#dddbdb', painelFundo: '#ffffff', botao: '#2299dd', botaoTexto: '#ffffff'},
+        {nome: 'Escuro', cor: '#333333', painelFundo: '#747272', botao: '#555555', botaoTexto: '#ffffff'},
+        {nome: 'Rosado', cor: '#fab9f7', painelFundo: '#f5d9f3', botao: '#cf25e6', botaoTexto: '#ffffff'},
+        {nome: 'Classico', cor: '#a6cdf1', painelFundo: '#ffffff', botao: '#0c136d', botaoTexto: '#ffffff'},
     ];
     for (let i = 0; i < esquemaCores.length; i++) {
         let {nome, cor} = esquemaCores[i];
@@ -119,9 +118,11 @@ export function cores(){
 
         let botoes = document.getElementsByClassName('botao');
         let titulo = document.querySelector('.titulo');
+        let fechar = document.getElementsByClassName('fechar');
+        let painel = document.getElementsByClassName('painel');
 
         botaoTema.addEventListener('click', function() {
-            let {cor, corTexto, botao, botaoTexto} = esquemaCores[this.dataset.idx];
+            let {cor, corTexto, painelFundo, botao, botaoTexto} = esquemaCores[this.dataset.idx];
             document.body.style.backgroundColor = cor;
             document.body.style.color = corTexto;
             titulo.style.color = corTexto;
@@ -129,6 +130,13 @@ export function cores(){
             for (let j = 0; j < botoes.length; j++) {
                 botoes[j].style.backgroundColor = botao;
                 botoes[j].style.color = botaoTexto;
+            }
+            for (let j = 0; j < fechar.length; j++) {
+                fechar[j].style.backgroundColor = botao;
+                fechar[j].style.color = botaoTexto;
+            }
+            for (let j = 0; j < painel.length; j++) {
+                painel[j].style.backgroundColor = painelFundo;
             }
         });
     }

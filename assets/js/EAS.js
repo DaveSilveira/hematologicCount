@@ -1,6 +1,6 @@
 /* */
 //Funções necessárias para tornar o código menor.
-import { criaDiv, fechar } from './utils.js';
+import { criaDiv, fechar, teclaEvent, cliqueEvent } from './utils.js';
 import { corpo } from './utils.js';
 import { configCount } from './config.js';
 
@@ -32,8 +32,6 @@ const elementos = [
     //{nome: 'Levedura',valor: '0',img: 'URL(./assets/img/levedura.png)',tecla: 'l',tecla1: 'L'} //verificar classificação de quantidade
 ];
 const vazio =[];
-
-const count = new Audio('./assets/sound/count.mp3')
 
 function mostraPainel(){
     const contagens = criaDiv(); //Aqui aparecereá os valores totais da contagem neubauer
@@ -86,7 +84,7 @@ function mostraPainel(){
 
     /*Criação dos botões de contagem na neubauer*/
     for(let i = 0; i < elementos.length; i++){
-        let {nome,valor,img,tecla,tecla1} = elementos[i];
+        let {nome,valor,img,tecla,} = elementos[i];
         
         let totalElemento = criaDiv(); //Aqui o total de celulas em neubauer
         totalElemento.classList.add('valorPainel');
@@ -113,20 +111,23 @@ function mostraPainel(){
         elemento.appendChild(teclaElemento);
         teclaElemento.classList.add('teclaCelula');
         teclaElemento.innerText = tecla;
+        
+    cliqueEvent({
+        celula: elemento, 
+        valorCelula: valorElemento, 
+        valorPainel: totalElemento,
+        array: elementos, 
+        nomePainel: nome
+    })
+    teclaEvent({
+        tecla: tecla,
+        valorCelula: valorElemento,
+        valorPainel: totalElemento,
+        array: elementos,
+        celulas: elemento,
+        nomePainel: nome
+    })
 
-    elemento.addEventListener('click', function(){ //joga os valores nos elementos
-        valorElemento.innerText = Number(++elementos[this.dataset.idx]["valor"]);
-        totalElemento.innerHTML = `${elementos[this.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-    count.currentTime = 0
-    count.play()    
-    });
-    document.addEventListener('keydown', function(event){
-        if(event.key === tecla || event.key === tecla.toUpperCase()){
-        valorElemento.innerText = Number(++elementos[elemento.dataset.idx]["valor"]);
-        totalElemento.innerHTML = `${elementos[elemento.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nome}</div>`;
-    count.currentTime = 0
-    count.play()
-        }});
     zerar.addEventListener('click', function(){
         elementos[i].valor = 0
         valorElemento.innerText = 0;
@@ -149,4 +150,4 @@ function mostraPainel(){
 return mostraPainel()
 }); //Final do evento de janela
 
-//Criador: https://github.com/DaveSilveira
+//Criador: https://github.com/DaveSilveira/* */
