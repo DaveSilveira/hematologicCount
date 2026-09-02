@@ -205,12 +205,15 @@ function result(){ //Show resuts window event
     let absoluto = criaDiv()
     absoluto.classList.add('absoluto')
     janela.appendChild(absoluto)
-    let abs = document.createElement('input')
-    abs.type = 'number';
-    abs.id = 'abs';
-    abs.min = '100';
-    abs.step = '100';
-    abs.placeholder = '0';
+    let abs = Object.assign(document.createElement('input'), {
+        type: 'number',
+        inputMode: 'numeric',
+        pattern: '[0-9]*',
+        id: 'abs',
+        min: '100',
+        step: '100',
+        placeholder: '0'
+    });
     absoluto.innerHTML = `Valor total de leucocitos:`;
     absoluto.appendChild(abs)
     let enviar = document.createElement('button')

@@ -203,6 +203,4 @@ function result(){
 
     fechar(janela, 'botao', 'Fechar')
 }
-}); //Final do evento de janela
-
-//Criador: https://github.com/DaveSilveira
+});
