@@ -1,5 +1,5 @@
 # hematologicCount 
-<img src="assets/img/mieloblasto.png" width='40px'><img src="assets/img/promielo.png" width='40px'><img src="assets/img/mielo.png" width='40px'><img src="assets/img/meta.png" width='40px'><img src="assets/img/bastao.png" width='40px'><img src="assets/img/meta.png" width='40px'><img src="assets/img/seg.png" width='40px'><img src="assets/img/eos.png" width='40px'><img src="assets/img/bas.png" width='40px'><img src="assets/img/linTip.png" width='40'><img src="assets/img/eritro.png" width='60px'><br>
+<img src="assets/img/mieloblasto.png" width='20px'><img src="assets/img/promielo.png" width='20px'><img src="assets/img/mielo.png" width='20px'><img src="assets/img/meta.png" width='20px'><img src="assets/img/bastao.png" width='20px'><img src="assets/img/meta.png" width='20px'><img src="assets/img/seg.png" width='20px'><img src="assets/img/eos.png" width='20px'><img src="assets/img/bas.png" width='20px'><img src="assets/img/linTip.png" width='20'><img src="assets/img/eritro.png" width='20px'><br>
 Status: In progress 🛠️
 <p><b>A body cells counter.</b></p>
 **enUs**<br>
