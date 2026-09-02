@@ -2,7 +2,7 @@ import { criaDiv, fechar } from './utils.js';
 import { titulo } from './utils.js';
 import { cores } from './config.js';
 
-/*Explicaçao do programa ao usuário*/
+/*User's explanation*/
 titulo.addEventListener('click', function(){
 
 const disclaimer = criaDiv()

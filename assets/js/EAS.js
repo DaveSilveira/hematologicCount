@@ -1,16 +1,15 @@
-/* */
-//Funções necessárias para tornar o código menor.
+//SEDMENTS COUNTING
 import { criaDiv, fechar, teclaEvent, cliqueEvent } from './utils.js';
 import { corpo } from './utils.js';
 import { configCount } from './config.js';
 
-//Anconragem do botão no html
+//Button Achor in HTML
 let EAS = criaDiv();
  EAS.innerText = 'EAS';
  EAS.classList.add('botao');
  corpo.appendChild(EAS);
 
-//Janela onde todo o evento de contagem irá ocorrer
+//Event window
 EAS.addEventListener('click', function(){
  const painel = criaDiv()
  painel.classList.add('painel')
@@ -21,9 +20,8 @@ EAS.addEventListener('click', function(){
  titulo.classList.add('tituloCount')
  titulo.innerText = 'Contagem de sedimentos urinários'
 
- fechar(painel, 'fechar', 'X') //Botão de fechar a janela
-
-//array que contém os elementos que podem ser quantificados por número no EAS
+ fechar(painel, 'fechar', 'X') //Close window button
+//Elements array
 const elementos = [
     {nome: 'Célula',valor: '0',img: 'URL(./assets/img/epitelialNeu.png)',tecla: 'g',tecla1: 'G'},
     {nome: 'Piócito',valor: '0',img: 'URL(./assets/img/leucocitoNeu.png)',tecla: 'h',tecla1: 'H'},
@@ -34,7 +32,7 @@ const elementos = [
 const vazio =[];
 
 function mostraPainel(){
-    const contagens = criaDiv(); //Aqui aparecereá os valores totais da contagem neubauer
+    const contagens = criaDiv(); //Here the total values appear
     painel.appendChild(contagens);
     contagens.classList.add('valoresPainel')
 
@@ -42,7 +40,7 @@ function mostraPainel(){
     painel.appendChild(caixaFator)
     caixaFator.classList.add('caixaContadorEAS')
 
-    let zerar = criaDiv(); //botao para zerar contagem
+    let zerar = criaDiv(); //Reset button
     zerar.classList.add('botao');
     zerar.innerHTML = 'Zerar';
     caixaFator.appendChild(zerar);
@@ -82,27 +80,27 @@ function mostraPainel(){
     painel.appendChild(caixaContagem)
     caixaContagem.classList.add('caixaCelulas')
 
-    /*Criação dos botões de contagem na neubauer*/
+    
     for(let i = 0; i < elementos.length; i++){
         let {nome,valor,img,tecla,} = elementos[i];
         
-        let totalElemento = criaDiv(); //Aqui o total de celulas em neubauer
+        let totalElemento = criaDiv(); //Here will be the total of cells counted
         totalElemento.classList.add('valorPainel');
         totalElemento.innerHTML = `${elementos[0].valor} \n <div style="font-size:12px;">${nome}</div>`;
         caixaContadores.appendChild(totalElemento);
 
-        let elemento = criaDiv() //setando a div para cada celula naubauer contida no array celulasNeu
-        elemento.style.backgroundImage = img //imagem de fundo da célula
+        let elemento = criaDiv() //Cell's button div
+        elemento.style.backgroundImage = img 
         elemento.classList.add('celulas')
         caixaContagem.appendChild(elemento)
         elemento.dataset.idx = i;
 
-        let valorElemento = criaDiv(); //quantidade de cada celula contada
+        let valorElemento = criaDiv(); 
         elemento.appendChild(valorElemento);
         valorElemento.classList.add('valorCelula');
         valorElemento.innerText = valor;
 
-        let nomeElemento = criaDiv(); //nome de cada cel ao centro
+        let nomeElemento = criaDiv();
         elemento.appendChild(nomeElemento);
         nomeElemento.classList.add('nomeLeuco');
         nomeElemento.innerText = nome;
@@ -148,6 +146,4 @@ function mostraPainel(){
     }
 }
 return mostraPainel()
-}); //Final do evento de janela
-
-//Criador: https://github.com/DaveSilveira/* */
+});

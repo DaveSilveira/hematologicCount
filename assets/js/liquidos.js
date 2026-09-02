@@ -1,15 +1,13 @@
+//The intention of this code is to create a counting system for liquids.
 import { criaDiv, fechar, teclaEvent, cliqueEvent } from './utils.js';
 import { corpo } from './utils.js';
 import { configCount } from './config.js';
-
-
-//Anconragem do botão no html
+//Anchoring button in HTML
 let liquidos = criaDiv();
  liquidos.innerText = 'Contagem de Líquidos';
  liquidos.classList.add('botao');
  corpo.appendChild(liquidos);
-
-//Janela onde todo o evento de contagem irá ocorrer
+//Window count event
 liquidos.addEventListener('click', function(){
  const painel = criaDiv()
  painel.classList.add('painel')
@@ -20,11 +18,10 @@ liquidos.addEventListener('click', function(){
  titulo.classList.add('tituloCount')
  titulo.innerText = 'Contagem de células em líquidos'
 
- fechar(painel, 'fechar', 'X') //Botão de fechar a janela
+fechar(painel, 'fechar', 'X') //Close window button
 
 let relTotal = { total:0 };
 
-//Array que contem as células que podem ser encontradas nos liquidos
 const celulasNeu = [
         {celula:'Leu',nome:'Leucócitos',valor:0,img:'URL(./assets/img/leucocitoNeu.png)', som: 'musica', tecla:'y'},
         {celula:'Hem',nome:'Hemácias',valor:0,img:'URL(./assets/img/hemaciaNeu.png)', som: 'musica', tecla:'u'},
@@ -44,22 +41,22 @@ const celulas =[
 ];
 
 function mostraPainel(){
-    const contagens = criaDiv(); //Aqui aparecereá os valores totais da contagem neubauer
+    const contagens = criaDiv(); //Here the total values of the Neubauer count will appear
     painel.appendChild(contagens);
     contagens.classList.add('valoresPainel')
 
-    let cxBotao = criaDiv(); //caixa que engloba os botoes resultado e zerar
+    let cxBotao = criaDiv();
     cxBotao.classList.add('botaoPainel');
     contagens.appendChild(cxBotao);
         
-    let verResul = criaDiv(); //Botao de ver resultado
+    let verResul = criaDiv(); //Result count button
     verResul.classList.add('botao');
     verResul.innerHTML = 'Resultado';
     cxBotao.appendChild(verResul);
     verResul.addEventListener('click', function(){result()});
     verResul.style.display = 'none'
 
-    let zerar = criaDiv(); //botao para zerar contagem
+    let zerar = criaDiv(); //Reset count button
     zerar.classList.add('botao');
     zerar.innerHTML = 'Zerar';
     cxBotao.appendChild(zerar);
@@ -70,27 +67,27 @@ function mostraPainel(){
     painel.appendChild(caixaCelulasNeu)
     caixaCelulasNeu.classList.add('caixaCelulas')
 
-    /*Criação dos botões de contagem na neubauer*/
+/*NEUBAUER COUNT*/
     for(let i = 0; i < celulasNeu.length; i++){
         let {celula,nome,valor,img,tecla} = celulasNeu[i];
         
-        let celuNeu = criaDiv(); //Aqui o total de celulas em neubauer
+        let celuNeu = criaDiv(); //Here the total value of the Neubauer cell count will appear
         celuNeu.classList.add('valorPainel');
         celuNeu.innerHTML = `${celulasNeu[0].valor} \n <div style="font-size:12px;">${nome}</div>`;
         contagens.appendChild(celuNeu);
 
-        let celNeu = criaDiv() //setando a div para cada celula naubauer contida no array celulasNeu
-        celNeu.style.backgroundImage = img //imagem de fundo da célula
+        let celNeu = criaDiv() //Neubauer cell button
+        celNeu.style.backgroundImage = img 
         celNeu.classList.add('celulas')
         caixaCelulasNeu.appendChild(celNeu)
         celNeu.dataset.idx = i;
         
-        let valorCelula = criaDiv(); //quantidade de cada celula contada
+        let valorCelula = criaDiv();
         celNeu.appendChild(valorCelula);
         valorCelula.classList.add('valorCelula');
         valorCelula.innerText = valor;
 
-        let nomeLeuco = criaDiv(); //nome de cada cel ao centro
+        let nomeLeuco = criaDiv(); 
         celNeu.appendChild(nomeLeuco);
         nomeLeuco.classList.add('nomeLeuco');
         nomeLeuco.innerText = celula;
@@ -121,8 +118,7 @@ function mostraPainel(){
             celuNeu.innerHTML = `${0} \n <div style="font-size:12px;">${nome}</div>`;
         });
     }
-
-    /*Parte da contagem na diferencial*/
+/*DIFFERENTIAL COUNT*/
     const contagensDif =criaDiv()
     painel.appendChild(contagensDif)
     contagensDif.classList.add('valoresPainel')
@@ -131,26 +127,26 @@ function mostraPainel(){
     painel.appendChild(caixaCelulasDif)
     caixaCelulasDif.classList.add('caixaCelulas')
 
-    let difCount = criaDiv() //Aqui o valor total da contagem diferencial
+    let difCount = criaDiv() //Here the total value of the differential count will appear
     difCount.classList.add('valorPainel');
     difCount.innerHTML = `${relTotal.total = 0} \n <div style="font-size:12px;">Contagem diferencial</div>`;
     contagensDif.appendChild(difCount);
 
-    for(let i = 0; i < celulas.length; i++){ // laço para a contagem diferencial
+    for(let i = 0; i < celulas.length; i++){ //Differntial count
         let {celula,valor,img,tecla,} = celulas[i];
 
-        let celDif = criaDiv() //setando a div para cada celula diferencial contida no array celula
-        celDif.style.backgroundImage = img //imagem de fundo da célula
+        let celDif = criaDiv() //Cell div button
+        celDif.style.backgroundImage = img
         celDif.classList.add('celulas')
         caixaCelulasDif.appendChild(celDif)
         celDif.dataset.idx = i;
         
-        let valorCelula = criaDiv(); //quantidade de cada celula contada
+        let valorCelula = criaDiv();
         celDif.appendChild(valorCelula);
         valorCelula.classList.add('valorCelula');
         valorCelula.innerText = valor;
 
-        let nomeLeuco = criaDiv(); //nome de cada cel ao centro
+        let nomeLeuco = criaDiv();
         celDif.appendChild(nomeLeuco);
         nomeLeuco.classList.add('nomeLeuco');
         nomeLeuco.innerText = celula;

@@ -52,21 +52,21 @@ const eritroCelula = [
 
     function mostraPainel(){ //SHOW COUNT PANEL
 
-        const contagens = criaDiv(); //Aqui aparecereá os valores totais 
+        const contagens = criaDiv(); //AHere the total values of the count will appear
         painel.appendChild(contagens);
         contagens.classList.add('valoresPainel')
 
-        let cxBotao = criaDiv(); //caixa que engloba os botoes resultado e zerar
+        let cxBotao = criaDiv(); //box that encompasses the result and reset buttons
         cxBotao.classList.add('botaoPainel');
         contagens.appendChild(cxBotao);
         
-        let verResul = criaDiv(); //Botao de ver resultado
+        let verResul = criaDiv(); //Result button
         verResul.classList.add('botao');
         verResul.innerHTML = 'Resultado';
         cxBotao.appendChild(verResul);
         verResul.addEventListener('click', function(){result()});
 
-        let zerar = criaDiv(); //botao para zerar contagem
+        let zerar = criaDiv(); //Reset button
         zerar.classList.add('botao');
         zerar.innerHTML = 'Zerar';
         cxBotao.appendChild(zerar);
@@ -77,12 +77,12 @@ const eritroCelula = [
 
         configCount('config', cxBotao, celulas, eritroCelula);
 
-        let relativa = criaDiv(); //Aqui o total de leucocitos
+        let relativa = criaDiv(); //Here the total value of Leucocytes will appear
         relativa.classList.add('valorPainel');
         relativa.innerHTML = `${relTotal.total} \n <div style="font-size:12px;">Leucocitos</div>`;
         contagens.appendChild(relativa);
 
-        let eritroblasto = criaDiv(); //Aqui o n de eritroblastos
+        let eritroblasto = criaDiv(); //Here the total value of Erythroblasts will appear
         eritroblasto.classList.add('valorPainel');
         eritroblasto.innerHTML = `${eritroTotal.total} \n <div style="font-size:12px;">Eritroblastos</div>`;
         contagens.appendChild(eritroblasto);
@@ -91,17 +91,17 @@ const eritroCelula = [
         painel.appendChild(caixaCelulas)
         caixaCelulas.classList.add('caixaCelulas')
 
-    for (let i = 0; i < eritroCelula.length; i++ ){ //para aparecer os eritros no painel
+    for (let i = 0; i < eritroCelula.length; i++ ){ //For erythroblasts to appear
         let {cel, valor, imagem, tecla, nome} = eritroCelula[i];
 
-                let eritroRel = criaDiv(); //setando a div para cada item 'div:' do objeto
-                eritroRel.style.backgroundImage = imagem; //Imagem de fundo da celula
+                let eritroRel = criaDiv(); //Cell button div (eirythroblasts)
+                eritroRel.style.backgroundImage = imagem;
                 eritroRel.classList.add('celulas');
                 caixaCelulas.appendChild(eritroRel);
                 eritroRel.dataset.idx = i;
                 eritroRel.setAttribute("name", nome)
         
-                let valorEritro = criaDiv(); //quantidade de cada eritrocontada
+                let valorEritro = criaDiv();
                 eritroRel.appendChild(valorEritro);
                 valorEritro.classList.add('valorCelula');
                 valorEritro.innerText = valor;
@@ -133,28 +133,28 @@ const eritroCelula = [
                 nomePainel: "Eritroblastos",
                 });
                 zerar.addEventListener('click', function(){
-                    eritroCelula[i].valor = 0;
+                    eritroCelula[i].valor = 0; //Reset the value of the cell in the array
                     valorEritro.innerText = 0;
                 });
                 
             }
 
-    for (let i = 0; i < celulas.length; i++){ //para aparecer os leucocitos no painel
+    for (let i = 0; i < celulas.length; i++){ //Here for the leucocytes appear
     let {cel, valor, imagem, tecla, nome} = celulas[i];
 
-            let leucoRel = criaDiv(); //setando a div para cada item 'div:' do objeto
-            leucoRel.style.backgroundImage = imagem; //Imagem de fundo da celula
+            let leucoRel = criaDiv(); //Cell button div (leucocytes)
+            leucoRel.style.backgroundImage = imagem;
             leucoRel.classList.add('celulas');
             caixaCelulas.appendChild(leucoRel);
             leucoRel.dataset.idx = i;
             leucoRel.setAttribute('name', nome)
             
-            let valorCelula = criaDiv(); //quantidade de cada celula contada
+            let valorCelula = criaDiv();
             leucoRel.appendChild(valorCelula);
             valorCelula.classList.add('valorCelula');
             valorCelula.innerText = valor;
 
-            let nomeLeuco = criaDiv(); //nome de cada cel ao centro
+            let nomeLeuco = criaDiv();
             leucoRel.appendChild(nomeLeuco);
             nomeLeuco.classList.add('nomeLeuco');
             nomeLeuco.innerText = cel;
@@ -187,13 +187,13 @@ const eritroCelula = [
             });
 
             zerar.addEventListener('click', function(){
-                celulas[i].valor=0; // zera o valor no array
-                valorCelula.innerText = 0 //zera o valor no visor vermelho
+                celulas[i].valor=0; //Reset the value of the cell in the array
+                valorCelula.innerText = 0
             });
         }
     }
  
-function result(){ //MOSTRA A JANELA DE RESULTADOS
+function result(){ //Show resuts window event
     
     final.play()
 
@@ -252,7 +252,7 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
         porcent.appendChild(porcentagem)
         porcentagem.classList.add('result')
 
-        //EVENTO DE CALCULO DA CORREÇÃO DE RETICULOCITOS
+        //Erithroblasts correction event
         enviar.addEventListener('click', function(){
         if(eritroCelula[0].valor >= 1){
             let corrigido = Math.trunc((abs.value * 100) / (eritroCelula[0].valor + 100));
@@ -291,6 +291,4 @@ function result(){ //MOSTRA A JANELA DE RESULTADOS
     fechar(janela,'botao', 'Fechar')
 }
 mostraPainel(); 
-}); //Final do evento de janela
-
-//Criador: https://github.com/DaveSilveira
+});
