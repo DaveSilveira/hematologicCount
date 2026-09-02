@@ -8,7 +8,7 @@ titulo.addEventListener('click', function(){
 const disclaimer = criaDiv()
 disclaimer.classList.add('disclaimer')
 document.body.appendChild(disclaimer)
-disclaimer.innerHTML = `<p><b>Contador de céluas</b></p>
+disclaimer.innerHTML = `<h3>Contador de céluas</h3>
 <p>
     A intenção da criação do contador hematologico é de praticar meus aprendizados em javascript
     com uma ferramenta que ajuda profissionais da área da saúde na bancada de laboratório clínico.

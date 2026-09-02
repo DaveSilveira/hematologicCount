@@ -1,5 +1,21 @@
 /*In this file, we will define utility functions for the application */
+// Variables necessary to anchoring the elements in the HTML document.
+export const corpo = document.querySelector('.corpo');
+export const titulo = document.querySelector('.titulo');
+const countAudio = new Audio('./assets/sound/count.mp3')
+
 // Functions necessary to make the code smaller.
+
+//----Parameters to functions audio----//
+countAudio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.pause();
+});
+function tocarSom() {
+    countAudio.currentTime = 0;
+    countAudio.play();
+}
+//----Export functions----//
 export function criaDiv() {
     const criarDiv = document.createElement('div');
     return criarDiv;
@@ -15,6 +31,7 @@ export function fechar(elementoPai, classeDoBotao, textoDoBotao){
     fechar.innerText = textoDoBotao;
     fechar.addEventListener('click', () => elementoPai.remove());
 }
+
 export function cliqueEvent({
     celula, 
     valorCelula,
@@ -25,7 +42,6 @@ export function cliqueEvent({
     result,
     limiteMaximo
 }) {
-    const count = new Audio('./assets/sound/count.mp3')
     celula.addEventListener('click', function(){
         if(numeroPainel && numeroPainel.total >= limiteMaximo) {
             return
@@ -43,8 +59,7 @@ export function cliqueEvent({
     } else {
         valorPainel.innerHTML = `${array[this.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nomePainel}</div>`;
     }
-    count.currentTime = 0
-    count.play()
+    tocarSom()
     });
 }
 export function teclaEvent({
@@ -58,7 +73,6 @@ export function teclaEvent({
     result,
     limiteMaximo
 }) {
-    const count = new Audio('./assets/sound/count.mp3')
     document.addEventListener('keydown', function(event){
     if(event.key === tecla || event.key === tecla.toUpperCase()){
         if(numeroPainel && numeroPainel.total >= limiteMaximo){
@@ -76,12 +90,7 @@ export function teclaEvent({
     } else {
     valorPainel.innerHTML = `${array[celulas.dataset.idx]["valor"]} \n <div style="font-size:12px;">${nomePainel}</div>`;
     }
-    count.currentTime = 0
-    count.play()
+    tocarSom()
     }
 });
 }
-
-// Variables necessary to anchoring the elements in the HTML document.
-export const corpo = document.querySelector('.corpo');
-export const titulo = document.querySelector('.titulo');/*In this file, we will define utility functions for the application */
