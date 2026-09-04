@@ -1,5 +1,13 @@
+:root{
+    --cor-fundo: #a6cdf1;
+    --cor-corpo: #8a8b8d;
+    --cor-botao: #0c136d;
+    --cor-botao-texto: #ffffff;
+    --cor-painel: #ffffff;
+    --cor-painel-texto: #000000;
+}
 body{
-    background-color: #a6cdf1;
+    background-color: var(--cor-fundo);
     user-select: none; /*impedir seleção de texto na pagina*/
     touch-action: manipulation;
     -webkit-user-select: none;
@@ -15,8 +23,8 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(0.2em, 0.5em + 1vw, 1.4em);
     padding: 0px;
-    color: #ffffff;
-    background-color: #0c136d;
+    color: var(--cor-botao-texto);
+    background-color: var(--cor-botao);
     position: absolute;
     top: 0%;
     left: 0%;
@@ -28,13 +36,13 @@ body{
     position: absolute;
     top: 0%;
     left: 20%;
-    background-color: #8a8b8d;
+    background-color: var(--cor-corpo);
 }
 .botao{
     font-size: 14px;
     text-align: center;
-    color: #ffffff;
-    background-color: #0c136d;
+    color: var(--cor-botao-texto);
+    background-color: var(--cor-botao);
     margin: 4px;
     padding: 4px;
     border-radius: 10px;
@@ -43,8 +51,8 @@ body{
     font-family: Arial, Helvetica, sans-serif ;
 }
 .botao:hover{
-    background-color: #ffffff;
-    color: #0c136d;
+    background-color: var(--cor-botao);
+    color: var(--cor-botao-texto);
 }
 .botao-config{
     width: 26px;
@@ -60,8 +68,8 @@ body{
     width: fit-content;
     height: fit-content;
     white-space: nowrap;
-    color: #000000;
-    background-color: #ffffff;
+    color: var(--cor-painel-texto);
+    background-color: var(--cor-painel);
     justify-content: center;
     align-items: center;
     border-radius: 5%;
@@ -72,7 +80,7 @@ body{
 .botao-tema{
     font-size: 14px;
     text-align: center;
-    background-color: #ffffff;
+    background-color: var(--cor-painel);
     margin: 4px;
     padding: 4px;
     font-family: Arial, Helvetica, sans-serif ;
@@ -80,7 +88,7 @@ body{
 .painel{
     min-width: 500px;
     min-height: 40%;
-    background-color: #ffffff;
+    background-color: var(--cor-painel);
     justify-content: center;
     align-items: center;
     border-radius: 5%;
@@ -142,8 +150,8 @@ body{
     padding: 10px;
     text-align: justify;
     font-family: sans-serif;
-    color: #5a5a5a;
-    background-color: #ffffff;
+    color: var(--cor-painel-texto);
+    background-color: var(--cor-painel);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -154,17 +162,16 @@ body{
     height: 30px;
     font-size: 24px;
     text-align: center;
-    
     margin: 4px;
-    color: #ffffff;
-    background-color: #0c136d;
+    color: var(--cor-botao-texto);
+    background-color: var(--cor-botao);
     border-radius: 50%;
     cursor: pointer;
     float: right;
 }
 .fechar:hover{
-    background-color: #ffffff;
-    color: #0c136d;
+    background-color: var(--cor-botao);
+    color: var(--cor-botao-texto);
 }
 .valoresPainel{ /*Elementos de resultado*/
     width: 100%;
@@ -177,7 +184,7 @@ body{
     width: 20%;
     font-size: 2.0em;
     text-align: center;
-    background-color: white;
+    
     margin: auto;
 }
 .botaoPainel{ /* div que esta o botao de resultado e zerar*/
@@ -215,18 +222,18 @@ body{
     font-weight: bold;
 }
 .teclaCelula{
-    background-color: blue; 
+    background-color: var(--cor-botao); 
     width:20px; 
     height:20px; 
     border-radius:40%; 
-    color:white;
+    color:var(--cor-botao-texto);
     margin-left: 80%;
 }
 /*Classes e Ids dos paineis de resultados*/
 .painelResult{
     width: 40%;
     min-height: 60%;
-    background-color: #ffffff;
+    background-color: var(--cor-painel);
     padding-left: 2%;
 }
 #valor_absoluto{
@@ -259,8 +266,8 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     padding: 0px;
-    color: #ffffff;
-    background-color: #0c136d;
+    color: var(--cor-botao-texto);
+    background-color: var(--cor-botao);
     position: absolute;
     top: 0%;
     left: 0%;
@@ -280,8 +287,8 @@ body{
     .botao{
     font-size: 16px;
     text-align: center;
-    color: #ffffff;
-    background-color: #0c136d;
+    color: var(--cor-botao-texto);
+    background-color: var(--cor-botao);
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -334,8 +341,8 @@ body{
     padding: 8%;
     text-align: justify;
     font-family: sans-serif;
-    color: #353434;
-    background-color: #ffffff;
+    color: var(--cor-painel-texto);
+    background-color: var(--cor-painel);
     position: absolute;
     transform: translate(-50%,-50%);
     }

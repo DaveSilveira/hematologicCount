@@ -102,13 +102,18 @@ export function cores(){
     });
 
     let esquemaCores = [
-        {nome: 'Claro', cor: '#dddbdb', painelFundo: '#ffffff', botao: '#2299dd', botaoTexto: '#ffffff'},
-        {nome: 'Escuro', cor: '#333333', painelFundo: '#747272', botao: '#555555', botaoTexto: '#ffffff'},
-        {nome: 'Rosado', cor: '#fab9f7', painelFundo: '#f5d9f3', botao: '#cf25e6', botaoTexto: '#ffffff'},
-        {nome: 'Classico', cor: '#a6cdf1', painelFundo: '#ffffff', botao: '#0c136d', botaoTexto: '#ffffff'},
+        {nome: 'Claro', '--cor-fundo': '#dddbdb', '--cor-painel': '#ffffff', '--cor-botao': '#2299dd', '--cor-botao-texto': '#ffffff'},
+        {nome: 'Escuro', '--cor-fundo': '#333333', '--cor-painel': '#747272', '--cor-botao': '#555555', '--cor-botao-texto': '#ffffff'},
+        {nome: 'Rosado', '--cor-fundo': '#fab9f7', '--cor-painel': '#f5d9f3', '--cor-botao': '#cf25e6', '--cor-botao-texto': '#ffffff'},
+        {nome: 'Classico', '--cor-fundo': '#a6cdf1', '--cor-painel': '#ffffff', '--cor-botao': '#0c136d', '--cor-botao-texto': '#ffffff'},
     ];
+    function aplicarTema(tema) {
+        Object.entries(tema).forEach(([variavel, valor]) => {
+        document.documentElement.style.setProperty(variavel, valor);
+        });
+    }
     for (let i = 0; i < esquemaCores.length; i++) {
-        let {nome, cor} = esquemaCores[i];
+        let {nome} = esquemaCores[i];
 
         let botaoTema = criaDiv()
         botaoTema.innerHTML = nome
@@ -116,29 +121,9 @@ export function cores(){
         botaoTema.dataset.idx = i;
         botaoTema.classList.add('botao-tema')
 
-        let botoes = document.getElementsByClassName('botao');
-        let titulo = document.querySelector('.titulo');
-        let fechar = document.getElementsByClassName('fechar');
-        let painel = document.getElementsByClassName('painel');
-
         botaoTema.addEventListener('click', function() {
-            let {cor, corTexto, painelFundo, botao, botaoTexto} = esquemaCores[this.dataset.idx];
-            document.body.style.backgroundColor = cor;
-            document.body.style.color = corTexto;
-            titulo.style.color = corTexto;
-            titulo.style.backgroundColor = botao;
-            for (let j = 0; j < botoes.length; j++) {
-                botoes[j].style.backgroundColor = botao;
-                botoes[j].style.color = botaoTexto;
-            }
-            for (let j = 0; j < fechar.length; j++) {
-                fechar[j].style.backgroundColor = botao;
-                fechar[j].style.color = botaoTexto;
-            }
-            for (let j = 0; j < painel.length; j++) {
-                painel[j].style.backgroundColor = painelFundo;
-            }
+            aplicarTema(esquemaCores[this.dataset.idx]);
+            console.log(`Tema aplicado: ${esquemaCores[this.dataset.idx].nome}`);
         });
     }
-    
 }
