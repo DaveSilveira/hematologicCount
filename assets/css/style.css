@@ -46,6 +46,37 @@ body{
     background-color: #ffffff;
     color: #0c136d;
 }
+.botao-config{
+    width: 26px;
+    height: 26px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: fixed;
+    right: 0.5%;
+    top: 0.5%;
+}
+.painel-config{
+    width: fit-content;
+    height: fit-content;
+    white-space: nowrap;
+    color: #000000;
+    background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    position: absolute;
+    top: 110%;
+    transform: translate(-50%);
+}
+.botao-tema{
+    font-size: 14px;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 4px;
+    padding: 4px;
+    font-family: Arial, Helvetica, sans-serif ;
+}
 .painel{
     min-width: 500px;
     min-height: 40%;

@@ -84,14 +84,13 @@ export function configCount(nomeBotao, elementoPai, array1, array2){
 
 export function cores(){
     let temaMenu = criaDiv()
-    temaMenu.classList.add('botao')
-    corpo.appendChild(temaMenu)
-    temaMenu.innerText = 'Cor'
-
+    temaMenu.classList.add('botao-config')
+    document.body.appendChild(temaMenu)
+    temaMenu.style.backgroundImage = "url('./assets/img/config.png')"
 
     const painelCores = criaDiv()
     temaMenu.appendChild(painelCores)
-    painelCores.classList.add('painelCores')
+    painelCores.classList.add('painel-config')
     painelCores.style.display = 'none'
 
     temaMenu.addEventListener('click', function(){ 
@@ -115,6 +114,7 @@ export function cores(){
         botaoTema.innerHTML = nome
         painelCores.appendChild(botaoTema)
         botaoTema.dataset.idx = i;
+        botaoTema.classList.add('botao-tema')
 
         let botoes = document.getElementsByClassName('botao');
         let titulo = document.querySelector('.titulo');
