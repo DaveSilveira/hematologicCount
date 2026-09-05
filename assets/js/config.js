@@ -102,10 +102,11 @@ export function cores(){
     });
 
     let esquemaCores = [
-        {nome: 'Claro', '--cor-fundo': '#dddbdb', '--cor-painel': '#ffffff', '--cor-botao': '#2299dd', '--cor-botao-texto': '#ffffff'},
+        {nome: 'Black-green', '--cor-fundo': '#020202', '--cor-painel': '#808180', '--cor-botao': '#00ff2a', '--cor-botao-texto': '#000000'},
         {nome: 'Escuro', '--cor-fundo': '#333333', '--cor-painel': '#747272', '--cor-botao': '#555555', '--cor-botao-texto': '#ffffff'},
-        {nome: 'Rosado', '--cor-fundo': '#fab9f7', '--cor-painel': '#f5d9f3', '--cor-botao': '#cf25e6', '--cor-botao-texto': '#ffffff'},
-        {nome: 'Classico', '--cor-fundo': '#a6cdf1', '--cor-painel': '#ffffff', '--cor-botao': '#0c136d', '--cor-botao-texto': '#ffffff'},
+        {nome: 'Rosado', '--cor-fundo': '#f6a4c6', '--cor-painel': '#f5d9f3', '--cor-botao': '#cf25e6', '--cor-botao-texto': '#ffffff'},
+        {nome: 'Pastel', '--cor-fundo': '#d8d6be', '--cor-painel': '#e7e7da', '--cor-botao': '#c2cde0', '--cor-botao-texto': '#241a06'},
+        {nome: 'Classico', '--cor-fundo': '#a6cdf1', '--cor-painel': '#ffffff', '--cor-botao': '#0c136d', '--cor-botao-texto': '#ffffff'}
     ];
     function aplicarTema(tema) {
         Object.entries(tema).forEach(([variavel, valor]) => {

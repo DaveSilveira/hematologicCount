@@ -209,15 +209,17 @@ function result(){ //Show resuts window event
         type: 'number',
         inputMode: 'numeric',
         pattern: '[0-9]*',
-        id: 'abs',
+        className: 'abs',
         min: '100',
         step: '100',
-        placeholder: '0'
+        placeholder: '0',
+        tolocalestring: 'pt-BR'
     });
-    absoluto.innerHTML = `Valor total de leucocitos:`;
+    absoluto.innerHTML = `Leucócitos totais:  `;
     absoluto.appendChild(abs)
     let enviar = document.createElement('button')
     absoluto.appendChild(enviar)
+    enviar.classList.add('enviar')
     enviar.innerText = 'Calcular'
 
     let resCorrigido = criaP()
@@ -260,13 +262,13 @@ function result(){ //Show resuts window event
         if(eritroCelula[0].valor >= 1){
             let corrigido = Math.trunc((abs.value * 100) / (eritroCelula[0].valor + 100));
             eritroCorrigido = (abs.value - corrigido)
-            result.innerHTML = `${(corrigido * valor) / 100} / mm³`;
-            porcentagem.innerHTML = `${valor}%`;
-            resCorrigido.innerText = `Valor Global de Leucocitos: ${corrigido}`
+            result.innerHTML = `${((corrigido * valor) / 100).toLocaleString('pt-BR')} / mm³`;
+            porcentagem.innerHTML = `${valor.toLocaleString('pt-BR')}%`;
+            resCorrigido.innerText = `Valor Global de Leucocitos: ${corrigido.toLocaleString('pt-BR')}`
         }else{
-            result.innerHTML = `${abs.value * valor / 100} / mm³`;
-            porcentagem.innerHTML= `${valor}%`;
-            resCorrigido.innerText = `Valor Global de Leucocitos: ${abs.value}`}
+            result.innerHTML = `${(abs.value * valor / 100).toLocaleString('pt-BR')} / mm³`;
+            porcentagem.innerHTML= `${valor.toLocaleString('pt-BR')}%`;
+            resCorrigido.innerText = `Valor Global de Leucocitos: ${abs.value.toLocaleString('pt-BR')}`}
         });
 
         result.innerHTML = '   -----';
@@ -283,10 +285,10 @@ function result(){ //Show resuts window event
         let result = criaP()
         enviar.addEventListener('click', function(){
             if(eritroCelula[0].valor >= 1){
-            result.innerHTML = `${eritroCorrigido} / mm³  -  ${valor} em 100 leucocitos`
-            }else{result.innerHTML = `0 / mm³  -  ${valor} em 100 leucocitos`}
+            result.innerHTML = `${eritroCorrigido.toLocaleString('pt-BR')} / mm³  -  ${valor.toLocaleString('pt-BR')} em 100 leucocitos`
+            }else{result.innerHTML = `0 / mm³  -  ${valor.toLocaleString('pt-BR')} em 100 leucocitos`}
         });
-        result.innerHTML = `${valor} em 100 leucócitos`;
+        result.innerHTML = `${valor.toLocaleString('pt-BR')} em 100 leucócitos`;
         valores.appendChild(result)
         result.classList.add('result')    
         }
